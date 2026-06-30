@@ -33,6 +33,13 @@ _unused_review/
 # Heavy 3D source files — kept locally for future Mixamo+Blender work
 3D/
 
+# Orphan frame folders from earlier AI-generated video experiments —
+# the live build uses frames/ + intro_frames/ only. Kept locally in
+# case we retry with cleaner footage; not shipped to the repo.
+frames_v2/
+frames_ssd/
+frames_middle/
+
 # Claude scratchpad / preview
 .claude/launch.json
 scratchpad/
