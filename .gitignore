@@ -1,0 +1,43 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# Logs
+*.log
+npm-debug.log*
+
+# Backup folder (kept locally, not for repo)
+_unused_review/
+
+# Local-only assets we'll re-extract on the deploy machine if needed
+# Keep the source videos out of the repo (they're heavy + already extracted to webp frames)
+*.mp4
+!videos/*.mp4
+
+# But DO keep raw source videos out of the root
+/Intro.mp4
+/framia-pro.mp4
+/video.mp4
+/middle.mp4
+/SSd1.mp4
+/Framia*.mp4
+
+# Heavy 3D source files — kept locally for future Mixamo+Blender work
+3D/
+
+# Claude scratchpad / preview
+.claude/launch.json
+scratchpad/
+
+# Env / secrets
+.env
+.env.*
+!.env.example

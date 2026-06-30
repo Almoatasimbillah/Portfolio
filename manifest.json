@@ -1,0 +1,16 @@
+{
+  "name": "AlMoatasimbillah Medhat — Portfolio",
+  "short_name": "Almoatasim",
+  "description": "Software engineer & penetration tester portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0F1A",
+  "theme_color": "#0B0F1A",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "og.jpg",      "sizes": "1200x675", "type": "image/jpeg" }
+  ]
+}

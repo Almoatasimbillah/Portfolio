@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /_unused_review/
+Disallow: /3D/
+Disallow: /frames/
+Disallow: /intro_frames/
+
+Sitemap: https://almoatasim.dev/sitemap.xml

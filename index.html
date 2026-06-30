@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AlMoatasimbillah Medhat — Software Engineer & Penetration Tester</title>
+<meta name="description" content="Software engineer who tests what others ship. Penetration tester who looks for what breaks before it does. Working from Sharkia.">
+<meta name="theme-color" content="#0B0F1A">
+
+<!-- Security headers (deploy-time HTTP headers should reinforce these). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://cdn.jsdelivr.net; connect-src 'self' https://api.github.com https://github-contributions-api.jogruber.de https://api.web3forms.com https://plausible.io; frame-src https://my.spline.design; media-src 'self' blob:; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AlMoatasimbillah Medhat — Software Engineer & Penetration Tester">
+<meta property="og:description" content="Building software carefully. Stress-testing what already exists. Sharkia, Egypt.">
+<meta property="og:image" content="og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- canonical + language alternates -->
+<link rel="canonical" href="https://almoatasim.dev/">
+<link rel="alternate" hreflang="en" href="https://almoatasim.dev/">
+<link rel="alternate" hreflang="ar" href="https://almoatasim.dev/?lang=ar">
+<link rel="alternate" hreflang="x-default" href="https://almoatasim.dev/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://my.spline.design">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Critical above-the-fold assets — first anatomy + intro frames -->
+<link rel="preload" as="image" href="intro_frames/001.webp" fetchpriority="high">
+<link rel="preload" as="image" href="frames/001.webp">
+<link rel="preload" as="image" href="favicon.svg" type="image/svg+xml">
+
+<!-- Three.js ESM via importmap (lazy-loaded by avatar.js) -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" type="image/jpeg" href="og.jpg">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<!-- Plausible analytics — replace data-domain with the real domain when deploying -->
+<!-- Analytics disabled until real domain is provisioned. Re-enable on deploy:
+     <script defer data-domain="YOUR.DOMAIN" src="https://plausible.io/js/script.js"></script>
+-->
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "AlMoatasimbillah Medhat Hassanain",
+      "alternateName": "Al-Mu'tasim",
+      "jobTitle": "Software Engineer & Penetration Tester",
+      "url": "https://almoatasim.dev",
+      "image": "https://almoatasim.dev/images/profile.jpg",
+      "email": "almoatasimhasanain@gmail.com",
+      "telephone": "+201060058378",
+      "address": { "@type": "PostalAddress", "addressLocality": "Sharkia", "addressCountry": "EG" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "BHI University" },
+      "knowsAbout": ["Software Testing","Penetration Testing","Java","Python","OWASP","ISTQB","Web Application Security"],
+      "sameAs": ["https://www.linkedin.com/in/almoatasimhasanain/","https://github.com/Almoatasimbillah"]
+    },
+    {
+      "@type": "WebSite",
+      "name": "AlMoatasimbillah Medhat — Portfolio",
+      "url": "https://almoatasim.dev",
+      "author": { "@type": "Person", "name": "AlMoatasimbillah Medhat Hassanain" },
+      "inLanguage": ["en","ar"]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#top" data-i18n="nav.skip">Skip to content</a>
+
+<!-- Page-load shell — bridges the FOIT/iframe-loading moment with the brand mark. -->
+<div class="page-shell" id="page-shell" aria-hidden="true">
+  <div class="page-shell-mark">
+    <span class="page-shell-letter">A</span>
+    <span class="page-shell-line"></span>
+    <span class="page-shell-label">portfolio</span>
+  </div>
+</div>
+<div class="progress" aria-hidden="true"></div>
+
+<!-- film grain overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- custom cursor + ambient mint glow that lags behind it -->
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"><span class="cursor-label"></span></div>
+
+<!-- mobile menu overlay -->
+<div class="mobile-menu" aria-hidden="true">
+  <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+  <ul>
+    <li><a href="#anatomy" data-i18n="nav.anatomy">Story</a></li>
+    <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+    <li><a href="#capabilities" data-i18n="nav.skills">Skills</a></li>
+    <li><a href="#about" data-i18n="nav.about">About</a></li>
+    <li><a href="#work" data-i18n="nav.work">Work</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+  </ul>
+</div>
+
+<nav class="nav" aria-label="Primary">
+  <a class="brand" href="#top"><span class="brand-italic">A</span>lmoatasim</a>
+  <ul class="nav-links">
+    <li><a href="#anatomy" data-i18n="nav.anatomy">Story</a></li>
+    <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+    <li><a href="#capabilities" data-i18n="nav.skills">Skills</a></li>
+    <li><a href="#about" data-i18n="nav.about">About</a></li>
+    <li><a href="#work" data-i18n="nav.work">Work</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    <li><button class="lang-toggle" data-i18n-toggle aria-label="Switch language">AR</button></li>
+  </ul>
+  <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Cmd/Ctrl + K search palette -->
+<div class="palette" id="palette" aria-hidden="true" role="dialog">
+  <div class="palette-backdrop" data-palette-close></div>
+  <div class="palette-shell">
+    <div class="palette-input-row">
+      <span class="palette-icon">⌕</span>
+      <input type="text" class="palette-input" id="palette-input" placeholder="Search — type anything..." autocomplete="off">
+      <kbd class="palette-kbd">ESC</kbd>
+    </div>
+    <ul class="palette-results" id="palette-results" role="listbox"></ul>
+    <div class="palette-hint">
+      <span><kbd>↑↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<!-- terminal easter egg -->
+<div class="terminal" id="terminal" aria-hidden="true">
+  <div class="terminal-bar">
+    <span class="terminal-dots"><span></span><span></span><span></span></span>
+    <span class="terminal-title">almoatasim ~ bash</span>
+    <button class="terminal-close" aria-label="Close terminal">✕</button>
+  </div>
+  <div class="terminal-body" id="terminal-body">
+    <div class="terminal-line">
+      <span class="terminal-prompt">guest@almoatasim:~$</span>
+      <span class="terminal-welcome">welcome. type <em>help</em> for commands.</span>
+    </div>
+  </div>
+  <div class="terminal-input-row">
+    <span class="terminal-prompt">guest@almoatasim:~$</span>
+    <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false">
+    <span class="terminal-caret"></span>
+  </div>
+</div>
+
+<aside class="chapters" aria-label="Chapter navigation">
+  <ol>
+    <li><button class="chapter-dot" data-chapter="0" aria-label="Chapter 1"><span></span></button></li>
+    <li><button class="chapter-dot" data-chapter="1" aria-label="Chapter 2"><span></span></button></li>
+    <li><button class="chapter-dot" data-chapter="2" aria-label="Chapter 3"><span></span></button></li>
+    <li><button class="chapter-dot" data-chapter="3" aria-label="Chapter 4"><span></span></button></li>
+    <li><button class="chapter-dot" data-chapter="4" aria-label="Chapter 5"><span></span></button></li>
+  </ol>
+</aside>
+
+<main id="top">
+
+  <!-- 3D AVATAR — Spline robot greets the visitor first (opening moment) -->
+  <section class="avatar-section" id="avatar-section" aria-label="Interactive 3D avatar — welcome">
+    <div class="avatar-stage" id="avatar-stage">
+      <div class="avatar-aurora" aria-hidden="true"></div>
+      <iframe
+        class="spline-frame"
+        src="https://my.spline.design/genkubgreetingrobot-N4KDHXkWCnHDdwydE8Xh0C5I/"
+        loading="eager"
+        title="Interactive 3D character — drag and move your cursor"
+        allow="autoplay; fullscreen"
+        sandbox="allow-scripts allow-same-origin"></iframe>
+      <div class="spline-mask" aria-hidden="true"></div>
+    </div>
+    <div class="avatar-overlay">
+      <span class="kicker"><em data-i18n="avatar.kicker">welcome</em></span>
+      <h2 class="avatar-title" data-i18n="avatar.title">You're at the door. <em>Make yourself at home.</em></h2>
+      <p class="avatar-sub">
+        <span class="for-cursor" data-i18n="avatar.sub.cursor">Wave at him — he reacts. Scroll for the actual introduction.</span>
+        <span class="for-touch" data-i18n="avatar.sub.touch">Drag him around — he reacts. Scroll for the actual introduction.</span>
+      </p>
+      <ul class="avatar-badges" aria-label="At a glance">
+        <li><span data-i18n="avatar.badge1">5+ years on the job</span></li>
+        <li><span data-i18n="avatar.badge2">11 projects shipped</span></li>
+        <li><span data-i18n="avatar.badge3">ISTQB-certified</span></li>
+      </ul>
+      <a href="#anatomy" class="link-primary avatar-cta"><span data-i18n="avatar.body">Scroll to meet me</span> <span class="arrow">↓</span></a>
+    </div>
+    <!-- Centered scroll indicator at bottom — invites the visitor downward -->
+    <a href="#anatomy" class="avatar-scroll-hint" aria-label="Scroll to next section">
+      <span class="avatar-scroll-label" data-i18n="avatar.scroll">scroll</span>
+      <span class="avatar-scroll-bar" aria-hidden="true"><span></span></span>
+    </a>
+  </section>
+
+  <!-- UNIFIED EXPERIENCE — intro + anatomy as one seamless scroll-scrub -->
+  <section class="anatomy" id="anatomy" aria-label="Cinematic introduction and anatomy">
+    <div class="anatomy-stage">
+      <canvas class="anatomy-canvas" aria-hidden="true"></canvas>
+      <div class="anatomy-loader" aria-hidden="true">
+        <span class="loader-bar"><span class="loader-bar-fill"></span></span>
+        <span class="loader-label">opening sequence</span>
+      </div>
+      <div class="anatomy-vignette" aria-hidden="true"></div>
+
+      <!-- Always-visible top meta during the intro half -->
+      <div class="intro-meta">
+        <span class="kicker" data-i18n="hero.edition">Edition</span>
+        <span class="kicker" data-i18n="hero.issue">No. 01 · 2026</span>
+      </div>
+
+      <!-- ===== INTRO PHASES (first half of scroll, frames 0-84) ===== -->
+      <div class="intro-phase" data-iphase="1">
+        <span class="iphase-mark"><em data-i18n="intro1.kicker">hi, I'm</em></span>
+        <h1 class="intro-name">
+          <span data-i18n="intro2.line1">AlMoatasimbillah</span><br>
+          <span data-i18n="intro2.line2">Medhat<em>.</em></span>
+        </h1>
+      </div>
+
+      <div class="intro-phase" data-iphase="2">
+        <p class="intro-bio" data-i18n="intro3.body">A software engineer who tests what others ship. A penetration tester who looks for what breaks before it does.</p>
+        <p class="intro-meta-line" data-i18n="intro4.body">From Sharkia. <em>Available to work.</em></p>
+      </div>
+
+      <div class="intro-phase" data-iphase="3">
+        <div class="intro-cta">
+          <a href="#work" class="link-primary"><span data-i18n="hero.cta">See the work</span> <span class="arrow">→</span></a>
+          <a href="#contact" class="link-secondary" data-i18n="hero.cta2">or get in touch</a>
+        </div>
+      </div>
+
+      <!-- ===== ANATOMY PHASES (second half of scroll, frames 85-242) ===== -->
+      <div class="phase" data-phase="1">
+        <span class="phase-kicker" data-i18n="phase1.kicker">chapter one</span>
+        <h2 class="phase-title" data-i18n="phase1.title">A machine, <em>opened up.</em></h2>
+        <p class="phase-body" data-i18n="phase1.body">Scroll to take it apart.</p>
+      </div>
+
+      <div class="phase" data-phase="2">
+        <span class="phase-kicker" data-i18n="phase2.kicker">chapter two · about</span>
+        <h2 class="phase-title" data-i18n="phase2.title">The mind <em>behind the work.</em></h2>
+        <p class="phase-body" data-i18n="phase2.body">Computer Engineering graduate.</p>
+      </div>
+
+      <div class="phase" data-phase="3">
+        <span class="phase-kicker" data-i18n="phase3.kicker">chapter three · what I do</span>
+        <h2 class="phase-title" data-i18n="phase3.title">Building <em>and breaking,</em> in parallel.</h2>
+        <p class="phase-body" data-i18n="phase3.body">Quality engineering on one side.</p>
+      </div>
+
+      <div class="phase" data-phase="4">
+        <span class="phase-kicker" data-i18n="phase4.kicker">chapter four · the storage</span>
+        <h2 class="phase-title" data-i18n="phase4.title">Long-term storage, <em>the receipts.</em></h2>
+        <p class="phase-body" data-i18n="phase4.body">Eleven projects, written to disk.</p>
+      </div>
+
+      <div class="phase" data-phase="5">
+        <span class="phase-kicker" data-i18n="phase5.kicker">chapter five · the board</span>
+        <h2 class="phase-title" data-i18n="phase5.title">The board <em>that ties it together.</em></h2>
+        <p class="phase-body" data-i18n="phase5.body">Where everything connects.</p>
+      </div>
+
+      <!-- Component hotspots at very end -->
+      <div class="hotspots" aria-hidden="true">
+        <button class="hotspot" data-target="#about" style="--x:50%;--y:46%" aria-label="Processor — about me">
+          <span class="hotspot-dot"></span>
+          <span class="hotspot-label">processor<br><em>about me</em></span>
+        </button>
+        <button class="hotspot" data-target="#capabilities" style="--x:78%;--y:48%" aria-label="RAM — skills">
+          <span class="hotspot-dot"></span>
+          <span class="hotspot-label">RAM<br><em>capabilities</em></span>
+        </button>
+        <button class="hotspot" data-target="#work" style="--x:22%;--y:48%" aria-label="SSD — selected work">
+          <span class="hotspot-dot"></span>
+          <span class="hotspot-label">SSD<br><em>selected work</em></span>
+        </button>
+        <button class="hotspot" data-target="#experience" style="--x:50%;--y:22%" aria-label="Board — experience">
+          <span class="hotspot-dot"></span>
+          <span class="hotspot-label">mainboard<br><em>experience</em></span>
+        </button>
+        <button class="hotspot" data-target="#credentials" style="--x:50%;--y:75%" aria-label="Battery — credentials">
+          <span class="hotspot-dot"></span>
+          <span class="hotspot-label">battery<br><em>credentials</em></span>
+        </button>
+      </div>
+
+      <!-- Scroll hint at the very top of the experience -->
+      <div class="intro-scroll-hint">
+        <span data-i18n="hero.scroll">scroll</span>
+        <span class="hint-line"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP 1 -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" data-i18n="marquee.line"></div>
+    <div class="marquee-track" data-i18n="marquee.line"></div>
+  </div>
+
+  <!-- EXPERIENCE — first content section after the cinematic intro -->
+  <section class="experience" id="experience" data-num="01">
+    <div class="container">
+      <span class="kicker" data-i18n="exp.kicker">experience</span>
+      <h2 class="section-title" data-i18n="exp.title">A few years <em>in the field.</em></h2>
+      <div class="exp-rows" id="exp-rows"></div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES — the sphere with the tools, directly after experience -->
+  <section class="capabilities" id="capabilities" data-num="02">
+    <div class="container">
+      <span class="kicker" data-i18n="cap.kicker">capabilities</span>
+      <h2 class="section-title" data-i18n="cap.title">The kit <em>I work with.</em></h2>
+      <p class="section-body" data-i18n="cap.body">Six categories.</p>
+
+      <!-- 3D rotating skills sphere — drag to rotate -->
+      <div class="sphere-wrap">
+        <div id="skill-sphere" class="skill-sphere" aria-label="3D skills constellation">
+          <div class="sphere-orb" aria-hidden="true"></div>
+          <svg class="sphere-lines" viewBox="-1 -1 2 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+          <span class="sphere-core" aria-hidden="true"></span>
+        </div>
+        <span class="sphere-hint" id="sphere-hint"><em data-i18n="sphere.hint">drag to rotate</em></span>
+      </div>
+
+      <div class="skill-rows" id="skill-rows"></div>
+
+      <!-- Live GitHub stats -->
+      <div class="gh-stats" id="gh-stats" aria-label="Live GitHub stats">
+        <span class="gh-label" data-i18n="gh.label"><em>live · github.com/Almoatasimbillah</em></span>
+        <div class="gh-grid">
+          <div class="gh-stat"><span class="gh-num" data-gh="repos">—</span><span class="gh-cap" data-i18n="gh.repos">public repos</span></div>
+          <div class="gh-stat"><span class="gh-num" data-gh="followers">—</span><span class="gh-cap" data-i18n="gh.followers">followers</span></div>
+          <div class="gh-stat"><span class="gh-num" data-gh="stars">—</span><span class="gh-cap" data-i18n="gh.stars">stars earned</span></div>
+          <div class="gh-stat"><span class="gh-num gh-since" data-gh="since">—</span><span class="gh-cap" data-i18n="gh.since">on GitHub since</span></div>
+        </div>
+
+        <!-- Live contributions heatmap — 53 weeks × 7 days, mint-themed -->
+        <div class="gh-heatmap" id="gh-heatmap" aria-label="GitHub contribution heatmap">
+          <div class="gh-heatmap-header">
+            <span class="gh-heatmap-label" data-i18n="gh.heatmap">contributions, last 12 months</span>
+            <span class="gh-heatmap-total" id="gh-heatmap-total">—</span>
+          </div>
+          <div class="gh-heatmap-grid" id="gh-heatmap-grid" role="img"></div>
+          <div class="gh-heatmap-legend">
+            <span data-i18n="gh.less">less</span>
+            <span class="gh-cell" data-level="0"></span>
+            <span class="gh-cell" data-level="1"></span>
+            <span class="gh-cell" data-level="2"></span>
+            <span class="gh-cell" data-level="3"></span>
+            <span class="gh-cell" data-level="4"></span>
+            <span data-i18n="gh.more">more</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about" data-num="03">
+    <div class="container about-grid about-no-portrait">
+      <div class="about-text">
+        <span class="kicker" data-i18n="about.kicker">about</span>
+        <h2 class="section-title" data-i18n="about.title">A short <em>answer.</em></h2>
+        <p class="section-body" data-i18n="about.body1">I'm AlMoatasimbillah...</p>
+        <p class="section-body" data-i18n="about.body2">Five years in the field.</p>
+        <p class="about-now" data-i18n="about.now"><em>Now:</em> refactoring a client POS database and prepping for ISTQB Advanced.</p>
+        <ul class="about-stats">
+          <li><span class="stat-num" data-count="5"><span class="stat-num-value">0</span><em>+</em></span><span class="stat-label" data-i18n="stat.years">years in the field</span></li>
+          <li><span class="stat-num" data-count="11"><span class="stat-num-value">0</span><em>+</em></span><span class="stat-label" data-i18n="stat.projects">projects shipped</span></li>
+          <li><span class="stat-num" data-count="6"><span class="stat-num-value">0</span><em>+</em></span><span class="stat-label" data-i18n="stat.creds">credentials</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="credentials" id="credentials" data-num="04">
+    <div class="container">
+      <span class="kicker" data-i18n="cred.kicker">credentials</span>
+      <h2 class="section-title" data-i18n="cred.title">Education <em>and certifications.</em></h2>
+      <div class="cred-rows" id="cred-rows"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP 2 -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" data-i18n="marquee.line"></div>
+    <div class="marquee-track" data-i18n="marquee.line"></div>
+  </div>
+
+  <!-- SELECTED WORK -->
+  <section class="work" id="work" data-num="05">
+    <div class="container">
+      <span class="kicker" data-i18n="work.kicker">selected work</span>
+      <h2 class="section-title" data-i18n="work.title">The work <em>that ships.</em></h2>
+      <p class="section-body" data-i18n="work.body">Hover any frame to preview. Click to read the case study.</p>
+      <div class="work-filters" role="tablist" aria-label="Filter projects">
+        <button class="filter-chip is-active" data-filter="all" role="tab">All</button>
+        <button class="filter-chip" data-filter="web" role="tab">Web</button>
+        <button class="filter-chip" data-filter="security" role="tab">Security</button>
+        <button class="filter-chip" data-filter="tool" role="tab">Tools</button>
+      </div>
+      <div class="work-rows" id="work-rows"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials" data-num="06">
+    <div class="container">
+      <span class="kicker" data-i18n="test.kicker">kind words</span>
+      <h2 class="section-title" data-i18n="test.title">From people <em>I've worked with.</em></h2>
+      <div class="quote-grid" id="quote-grid"></div>
+      <div class="quote-add-row">
+        <button class="quote-add-btn" id="quote-add-btn" type="button">
+          <span class="quote-add-plus" aria-hidden="true">+</span>
+          <span data-i18n="test.add">Add your testimonial</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL SUBMISSION MODAL -->
+  <div class="tmodal" id="testimonial-modal" aria-hidden="true" role="dialog" aria-labelledby="tmodal-title">
+    <div class="tmodal-backdrop" data-tclose></div>
+    <div class="tmodal-shell">
+      <button class="tmodal-close" data-tclose aria-label="Close">✕</button>
+      <span class="kicker" data-i18n="test.modal.kicker">your turn</span>
+      <h3 class="tmodal-title" id="tmodal-title" data-i18n="test.modal.title">Share a few words.</h3>
+      <p class="tmodal-body" data-i18n="test.modal.body">Your quote shows up below right away. A copy is emailed to me so I can keep it for good.</p>
+      <form class="tmodal-form" id="tmodal-form" aria-label="Submit a testimonial" novalidate>
+        <label class="tmodal-field">
+          <span class="tmodal-label" data-i18n="test.modal.name">Your name</span>
+          <input type="text" name="name" required maxlength="80" autocomplete="name">
+        </label>
+        <label class="tmodal-field">
+          <span class="tmodal-label" data-i18n="test.modal.role">Role, Company (optional)</span>
+          <input type="text" name="role" maxlength="120" autocomplete="organization-title">
+        </label>
+        <label class="tmodal-field">
+          <span class="tmodal-label" data-i18n="test.modal.text">What was it like working with me?</span>
+          <textarea name="text" rows="4" required minlength="20" maxlength="500"></textarea>
+          <span class="tmodal-count" id="tmodal-count">0 / 500</span>
+        </label>
+        <div class="tmodal-foot">
+          <span class="tmodal-status" aria-live="polite"></span>
+          <button type="submit" class="tmodal-submit">
+            <span data-i18n="test.modal.submit">Add it</span> <span class="arrow">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" data-num="07">
+    <div class="container">
+      <span class="kicker" data-i18n="contact.kicker">get in touch</span>
+      <h2 class="section-title" data-i18n="contact.title">Have a project <em>that needs looking after?</em></h2>
+      <p class="section-body" data-i18n="contact.body">Fastest way to reach me is a quick message.</p>
+      <ul class="contact-list">
+        <li><a href="https://wa.me/201060058378"><span>WhatsApp</span><span>+20 106 005 8378</span><span class="arrow">→</span></a></li>
+        <li><a href="mailto:almoatasimhasanain@gmail.com"><span>Email</span><span>almoatasimhasanain@gmail.com</span><span class="arrow">→</span></a></li>
+        <li><a href="https://www.linkedin.com/in/almoatasimhasanain/" target="_blank" rel="noopener"><span>LinkedIn</span><span>almoatasimhasanain</span><span class="arrow">→</span></a></li>
+        <li><a href="https://github.com/Almoatasimbillah" target="_blank" rel="noopener"><span>GitHub</span><span>Almoatasimbillah</span><span class="arrow">→</span></a></li>
+        <li><a href="images/cv.pdf" download><span data-i18n="contact.cv">Download CV</span><span data-i18n="contact.cvfmt">PDF</span><span class="arrow">↓</span></a></li>
+      </ul>
+
+      <!-- Contact form (Web3Forms — replace YOUR_ACCESS_KEY) -->
+      <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" aria-label="Contact form" novalidate>
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New message from portfolio">
+        <input type="hidden" name="from_name" value="Portfolio Contact Form">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="form-row">
+          <label class="form-field">
+            <span class="form-label" data-i18n="form.name">Your name</span>
+            <input type="text" name="name" required>
+          </label>
+          <label class="form-field">
+            <span class="form-label" data-i18n="form.email">Email</span>
+            <input type="email" name="email" required>
+          </label>
+        </div>
+        <label class="form-field">
+          <span class="form-label" data-i18n="form.subject">Subject</span>
+          <input type="text" name="user_subject">
+        </label>
+        <label class="form-field">
+          <span class="form-label" data-i18n="form.message">Message</span>
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+
+        <div class="form-foot">
+          <span class="form-status" aria-live="polite"></span>
+          <button type="submit" class="form-submit">
+            <span data-i18n="form.send">Send message</span> <span class="arrow">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© 2026 AlMoatasimbillah Medhat</span>
+      <span class="muted footer-clock" id="footer-clock" aria-live="off">
+        <span class="footer-pulse" aria-hidden="true"></span>
+        <span class="footer-clock-time">—:—</span>
+        <span class="footer-clock-zone" data-i18n="footer.zone">EET · Sharkia</span>
+      </span>
+      <span class="muted footer-hint">
+        <kbd>`</kbd>
+        <span data-i18n="footer.hint">terminal</span>
+      </span>
+      <span class="muted" data-i18n="footer.tag">Designed and built in Sharkia · v.1</span>
+    </div>
+  </footer>
+
+</main>
+
+<!-- project modal -->
+<div class="modal" id="project-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-shell">
+    <button class="modal-close" data-close-modal aria-label="Close">✕</button>
+
+    <div class="modal-stage">
+      <video class="modal-video" muted playsinline preload="metadata" aria-label="Project preview video"></video>
+      <button class="modal-nav modal-prev" aria-label="Previous"><span>←</span></button>
+      <button class="modal-nav modal-next" aria-label="Next"><span>→</span></button>
+      <span class="modal-counter"></span>
+      <div class="modal-buffering" aria-hidden="true"></div>
+    </div>
+
+    <div class="modal-thumbs" role="tablist"></div>
+
+    <div class="modal-body">
+      <div class="modal-header">
+        <span class="modal-type"></span>
+        <span class="modal-year"></span>
+        <span class="modal-read"></span>
+      </div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-caption"></p>
+      <p class="modal-lede"></p>
+
+      <div class="modal-case">
+        <div class="case-block">
+          <h4>The problem</h4>
+          <p class="modal-problem"></p>
+        </div>
+        <div class="case-block">
+          <h4>Approach</h4>
+          <ul class="modal-approach"></ul>
+        </div>
+        <div class="case-block">
+          <h4>Outcome</h4>
+          <p class="modal-outcome"></p>
+        </div>
+      </div>
+
+      <ul class="modal-tech"></ul>
+      <div class="modal-links"></div>
+
+      <div class="modal-share">
+        <span class="modal-share-label" data-i18n="share.label">share</span>
+        <button type="button" class="modal-share-btn" data-share="copy" aria-label="Copy link">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <span data-i18n="share.copy">copy</span>
+        </button>
+        <button type="button" class="modal-share-btn" data-share="twitter" aria-label="Share on X">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25h6.829l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>X</span>
+        </button>
+        <button type="button" class="modal-share-btn" data-share="linkedin" aria-label="Share on LinkedIn">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" aria-live="polite"></div>
+
+<!-- Language suggestion — appears once if browser language differs from current -->
+<div class="lang-toast" id="lang-toast" role="region" aria-live="polite" aria-hidden="true">
+  <p class="lang-toast-text" data-i18n="lang.suggest">Looks like your browser prefers Arabic. Want to switch?</p>
+  <div class="lang-toast-actions">
+    <button type="button" class="lang-toast-accept" id="lang-toast-accept" data-i18n="lang.suggest.accept">Switch to العربية</button>
+    <button type="button" class="lang-toast-deny" id="lang-toast-deny" data-i18n="lang.suggest.deny">Keep English</button>
+  </div>
+</div>
+
+<!-- PWA install banner — appears once if browser fires beforeinstallprompt -->
+<div class="install-banner" id="install-banner" role="region" aria-label="Install this portfolio" aria-hidden="true">
+  <span class="install-banner-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12"/><path d="M6 12l6 6 6-6"/><path d="M4 20h16"/></svg>
+  </span>
+  <div class="install-banner-text">
+    <span class="install-banner-title" data-i18n="install.title">Install this portfolio</span>
+    <span class="install-banner-sub" data-i18n="install.sub">Add to your home screen — opens like an app.</span>
+  </div>
+  <div class="install-banner-actions">
+    <button type="button" class="install-banner-accept" id="install-accept" data-i18n="install.accept">Install</button>
+    <button type="button" class="install-banner-dismiss" id="install-dismiss" data-i18n="install.dismiss" aria-label="Dismiss">Maybe later</button>
+  </div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/sphere.js"></script>
+<script src="js/effects.js"></script>
+<!-- avatar.js (Three.js) disabled — using Spline iframe instead. Re-enable when you have a rigged GLB. -->
+<!-- <script type="module" src="js/avatar.js"></script> -->
+</body>
+</html>
