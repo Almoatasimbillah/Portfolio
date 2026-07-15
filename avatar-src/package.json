@@ -1,0 +1,14 @@
+{
+  "name": "avatar-bundle",
+  "private": true,
+  "description": "Builds js/avatar.bundle.js — the self-hosted three.js hero (no CDN, CSP script-src 'self').",
+  "scripts": {
+    "build": "esbuild entry.js --bundle --minify --format=iife --target=es2019 --outfile=../js/avatar.bundle.js"
+  },
+  "dependencies": {
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}

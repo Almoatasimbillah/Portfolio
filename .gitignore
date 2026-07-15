@@ -16,6 +16,7 @@ npm-debug.log*
 
 # Backup folder (kept locally, not for repo)
 _unused_review/
+videos/_originals_backup/
 
 # Local-only assets we'll re-extract on the deploy machine if needed
 # Keep the source videos out of the repo (they're heavy + already extracted to webp frames)
@@ -43,6 +44,9 @@ frames_middle/
 # Claude scratchpad / preview
 .claude/launch.json
 scratchpad/
+
+# avatar bundle build deps (js/avatar.bundle.js is the committed output)
+avatar-src/node_modules/
 
 # Env / secrets
 .env

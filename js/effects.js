@@ -34,11 +34,17 @@
   const INTRO_COUNT   = 85;
   const ANATOMY_COUNT = 158;
   const FRAME_COUNT   = INTRO_COUNT + ANATOMY_COUNT;  // 243
+  // Narrow viewports get the *_mobile/ frame set (640px wide, ~54% smaller
+  // payload) — decided once at load, not on resize, so the sequence never
+  // swaps source mid-scrub. Matches the site's existing 820px breakpoint.
+  const isMobileFrames = matchMedia('(max-width: 820px)').matches;
+  const introDir  = isMobileFrames ? 'intro_frames_mobile' : 'intro_frames';
+  const anatomyDir = isMobileFrames ? 'frames_mobile' : 'frames';
   // First INTRO_COUNT frames come from intro_frames/, the rest from frames/
   // (the original cinematic disassembly that covers all five chapters)
   const FRAME_PATH = i => i < INTRO_COUNT
-    ? `intro_frames/${String(i + 1).padStart(3, '0')}.webp`
-    : `frames/${String(i - INTRO_COUNT + 1).padStart(3, '0')}.webp`;
+    ? `${introDir}/${String(i + 1).padStart(3, '0')}.webp`
+    : `${anatomyDir}/${String(i - INTRO_COUNT + 1).padStart(3, '0')}.webp`;
 
   // The "handoff point" in normalized progress (85 / 243 ≈ 0.35)
   const HANDOFF = INTRO_COUNT / FRAME_COUNT;
@@ -454,16 +460,26 @@
                 }
               });
             } else {
-              for (const ch of txt) {
-                if (ch === ' ') {
+              // Group each word's char-spans in one nowrap wrapper — bare
+              // inline-block chars hand the browser a break opportunity
+              // between EVERY letter ("door." can wrap as "doo / r.").
+              const parts = txt.split(/(\s+)/);
+              parts.forEach(part => {
+                if (!part) return;
+                if (/^\s+$/.test(part)) {
                   frag.appendChild(document.createTextNode(' '));
-                } else {
+                  return;
+                }
+                const w = document.createElement('span');
+                w.className = 'split-word';
+                for (const ch of part) {
                   const s = document.createElement('span');
                   s.className = 'split-char';
                   s.textContent = ch;
-                  frag.appendChild(s);
+                  w.appendChild(s);
                 }
-              }
+                frag.appendChild(w);
+              });
             }
             child.replaceWith(frag);
           } else if (child.nodeType === Node.ELEMENT_NODE) {
@@ -2109,4 +2125,23 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
     }
   });
 
+})();
+
+/* =========================================================
+   Desk-loop self-portrait — only decode video while it's on
+   screen. Autoplay resumes when the About section scrolls in.
+   ========================================================= */
+(() => {
+  const v = document.querySelector('.about-desk video');
+  if (!v || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const p = v.play();
+        if (p) p.catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.1 }).observe(v);
 })();

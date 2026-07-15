@@ -6,7 +6,7 @@
    · self-cleans old cache versions on activate
    ========================================================= */
 
-const VERSION   = 'v.2026.06-14';
+const VERSION   = 'v.2026.07-15b';
 const STATIC    = `pf-static-${VERSION}`;
 const HTML      = `pf-html-${VERSION}`;
 const FONTS     = `pf-fonts-${VERSION}`;
@@ -27,6 +27,8 @@ const PRECACHE_URLS = [
   '/manifest.json',
   '/intro_frames/001.webp',
   '/frames/001.webp',
+  '/intro_frames_mobile/001.webp',
+  '/frames_mobile/001.webp',
 ];
 
 self.addEventListener('install', (e) => {
@@ -60,10 +62,10 @@ self.addEventListener('fetch', (e) => {
   const isHTML = accept.includes('text/html');
   const isFont = /fonts\.(gstatic|googleapis)\.com/.test(url.host);
   const isIcons = /cdn\.jsdelivr\.net/.test(url.host);
-  const isStatic = sameOrigin && /\.(css|js|svg|woff2?|webp|jpg|jpeg|png|gif|mp4|webm)$/i.test(url.pathname);
+  const isStatic = sameOrigin && /\.(css|js|svg|woff2?|webp|jpg|jpeg|png|gif|mp4|webm|glb)$/i.test(url.pathname);
 
-  // Never cache the Spline iframe scene, GitHub API, Web3Forms, or jogruber API
-  if (/spline\.design|api\.github\.com|web3forms\.com|jogruber\.de/.test(url.host)) return;
+  // Never cache the GitHub API, Web3Forms, or jogruber API
+  if (/api\.github\.com|web3forms\.com|jogruber\.de/.test(url.host)) return;
 
   if (isHTML && sameOrigin) {
     e.respondWith(networkFirst(req, HTML));

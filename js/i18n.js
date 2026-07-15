@@ -137,8 +137,12 @@ window.I18N = {
     'avatar.kicker.evening': 'good evening',
     'avatar.kicker.night':   'still up?',
     'avatar.title':    "You're at the door. |Make yourself at home.|",
-    'avatar.sub.cursor': "Wave at him — he reacts. Scroll for the actual introduction.",
-    'avatar.sub.touch':  "Drag him around — he reacts. Scroll for the actual introduction.",
+    'avatar.sub.cursor': "That's me — move your cursor and he follows. Scroll for the actual introduction.",
+    'avatar.sub.touch':  "That's me — my 3D twin, saying hi. Scroll for the actual introduction.",
+    'avatar.loading':    'meeting the host',
+    'avatar.error.lead': "He's stuck backstage.",
+    'avatar.error.body': "The 3D scene didn't load — the introduction continues below.",
+    'about.deskcap':     'still me — modeled and rendered in Blender',
     'avatar.body':     'Scroll to meet me',
     'avatar.scroll':   'scroll',
     'avatar.badge1':   '5+ years on the job',
@@ -281,8 +285,12 @@ window.I18N = {
     'avatar.kicker.evening': 'مساء الخير',
     'avatar.kicker.night':   'لسه صاحي؟',
     'avatar.title':    'أنت عند الباب. |على راحتك.|',
-    'avatar.sub.cursor': 'لوّح له — هو يتفاعل. انزل لتبدأ المقدمة الحقيقية.',
-    'avatar.sub.touch':  'اسحبه بإصبعك — هو يتفاعل. انزل لتبدأ المقدمة الحقيقية.',
+    'avatar.sub.cursor': 'هذا أنا — حرّك المؤشر وهو يتابعك بعينيه. انزل لتبدأ المقدمة الحقيقية.',
+    'avatar.sub.touch':  'هذا أنا — توأمي ثلاثي الأبعاد يرحب بك. انزل لتبدأ المقدمة الحقيقية.',
+    'avatar.loading':    'جارٍ تجهيز المضيف',
+    'avatar.error.lead': 'علِق خلف الكواليس.',
+    'avatar.error.body': 'لم يُحمَّل المشهد ثلاثي الأبعاد — المقدمة تكمل بالأسفل.',
+    'about.deskcap':     'ما زال أنا — مبنيّ ومُصيَّر في بليندر',
     'avatar.body':     'انزل لتعرفني',
     'avatar.scroll':   'انزل',
     'avatar.badge1':   'أكثر من ٥ سنوات في الميدان',
@@ -335,8 +343,13 @@ window.I18N = {
 
   window.getLang = () => document.documentElement.dataset.lang || 'en';
 
-  // initial language pick
-  const initial = localStorage.getItem(STORAGE) || 'en';
+  // initial language pick — the ?lang= URL param wins (the hreflang alternate
+  // advertised in <head> is /?lang=ar; without this, visitors landing on it
+  // from an Arabic search still saw English), then the saved choice
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  const initial = (urlLang === 'ar' || urlLang === 'en')
+    ? urlLang
+    : (localStorage.getItem(STORAGE) || 'en');
   // apply once DOM is ready (script is at end of body so DOM is ready, but for safety)
   if (document.readyState !== 'loading') window.applyI18n(initial);
   else document.addEventListener('DOMContentLoaded', () => window.applyI18n(initial));

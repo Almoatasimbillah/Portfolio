@@ -1,1 +1,1 @@
-Drop character.glb here. See chat for Mixamo+Blender workflow.
+Holds the compressed 3D hero (hero_tracking.glb, built in the Blender/ project — see Blender/character/ for sources and rebuild scripts).

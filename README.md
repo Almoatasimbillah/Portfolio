@@ -11,8 +11,11 @@ Pure HTML / CSS / vanilla JS portfolio. No frameworks, no bundler — built to d
 ## Stack
 
 - HTML5 / CSS3 / Vanilla ES2022 JavaScript
-- Three.js (via importmap CDN, currently disabled pending 3D character work)
-- Spline embed iframe for the welcome robot
+- Three.js hero (self-hosted bundle, built from `avatar-src/` with esbuild) — a
+  Blender/MPFB-built 3D character (`models/hero_tracking.glb`, 4.5 MB) whose
+  head + eyes follow the cursor; falls back to a waving WebM loop or a static
+  poster on touch / reduced-motion / no-WebGL visits
+- Blender-rendered desk-loop MP4 self-portrait in the About section
 - FFmpeg-extracted WebP frame sequences for the scroll-scrub intro
 - Google Fonts: Instrument Serif, Inter, JetBrains Mono, Amiri, IBM Plex Sans Arabic
 - Service Worker for offline caching (cache-first / network-first / SWR)
@@ -26,7 +29,7 @@ Pure HTML / CSS / vanilla JS portfolio. No frameworks, no bundler — built to d
 
 ## Sections
 
-1. Avatar (Spline robot welcome, full viewport)
+1. Avatar (live 3D self-portrait welcome — cursor-tracking head/eyes, full viewport)
 2. Anatomy scroll-scrub (243 webp frames, 5 chapters)
 3. Marquee strip
 4. Experience (interactive timeline)
