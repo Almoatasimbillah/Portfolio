@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#0B0F1A">
 
 <!-- Security headers (deploy-time HTTP headers should reinforce these). -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://cdn.jsdelivr.net; connect-src 'self' https://api.github.com https://github-contributions-api.jogruber.de https://api.web3forms.com https://plausible.io; frame-src https://my.spline.design; media-src 'self' blob:; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'; upgrade-insecure-requests;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://cdn.jsdelivr.net; connect-src 'self' blob: https://api.github.com https://github-contributions-api.jogruber.de https://api.web3forms.com https://plausible.io; frame-src 'none'; media-src 'self' blob:; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'; upgrade-insecure-requests;">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <meta property="og:type" content="website">
@@ -27,25 +27,19 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://my.spline.design">
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- Critical above-the-fold assets — first anatomy + intro frames -->
-<link rel="preload" as="image" href="intro_frames/001.webp" fetchpriority="high">
-<link rel="preload" as="image" href="frames/001.webp">
+<!-- mobile/desktop split: media-conditioned preload skips the fetch on the
+     device it doesn't apply to (frames_mobile/ is ~54% lighter) -->
+<link rel="preload" as="image" href="intro_frames_mobile/001.webp" fetchpriority="high" media="(max-width: 820px)">
+<link rel="preload" as="image" href="intro_frames/001.webp" fetchpriority="high" media="(min-width: 821px)">
+<link rel="preload" as="image" href="frames_mobile/001.webp" media="(max-width: 820px)">
+<link rel="preload" as="image" href="frames/001.webp" media="(min-width: 821px)">
 <link rel="preload" as="image" href="favicon.svg" type="image/svg+xml">
 
-<!-- Three.js ESM via importmap (lazy-loaded by avatar.js) -->
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-  }
-}
-</script>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" type="image/jpeg" href="og.jpg">
@@ -184,25 +178,27 @@
 
 <main id="top">
 
-  <!-- 3D AVATAR — Spline robot greets the visitor first (opening moment) -->
+  <!-- 3D AVATAR — my Blender-built 3D twin greets the visitor first.
+       js/avatar.bundle.js mounts a live head/eye-tracking character here
+       (models/hero_tracking.glb), or falls back to a waving video loop /
+       static poster on touch, reduced-motion, or no-WebGL visits. -->
   <section class="avatar-section" id="avatar-section" aria-label="Interactive 3D avatar — welcome">
     <div class="avatar-stage" id="avatar-stage">
       <div class="avatar-aurora" aria-hidden="true"></div>
-      <iframe
-        class="spline-frame"
-        src="https://my.spline.design/genkubgreetingrobot-N4KDHXkWCnHDdwydE8Xh0C5I/"
-        loading="eager"
-        title="Interactive 3D character — drag and move your cursor"
-        allow="autoplay; fullscreen"
-        sandbox="allow-scripts allow-same-origin"></iframe>
-      <div class="spline-mask" aria-hidden="true"></div>
+      <div class="avatar-loader" aria-hidden="true">
+        <span class="loader-label" data-i18n="avatar.loading">meeting the host</span>
+      </div>
+      <div class="avatar-error" aria-hidden="true">
+        <span><em data-i18n="avatar.error.lead">He's stuck backstage.</em>
+        <span data-i18n="avatar.error.body">The 3D scene didn't load — the introduction continues below.</span></span>
+      </div>
     </div>
     <div class="avatar-overlay">
       <span class="kicker"><em data-i18n="avatar.kicker">welcome</em></span>
       <h2 class="avatar-title" data-i18n="avatar.title">You're at the door. <em>Make yourself at home.</em></h2>
       <p class="avatar-sub">
-        <span class="for-cursor" data-i18n="avatar.sub.cursor">Wave at him — he reacts. Scroll for the actual introduction.</span>
-        <span class="for-touch" data-i18n="avatar.sub.touch">Drag him around — he reacts. Scroll for the actual introduction.</span>
+        <span class="for-cursor" data-i18n="avatar.sub.cursor">That's me — move your cursor and he follows. Scroll for the actual introduction.</span>
+        <span class="for-touch" data-i18n="avatar.sub.touch">That's me — my 3D twin, saying hi. Scroll for the actual introduction.</span>
       </p>
       <ul class="avatar-badges" aria-label="At a glance">
         <li><span data-i18n="avatar.badge1">5+ years on the job</span></li>
@@ -385,7 +381,14 @@
 
   <!-- ABOUT -->
   <section class="about" id="about" data-num="03">
-    <div class="container about-grid about-no-portrait">
+    <div class="container about-grid">
+      <!-- 3D self-portrait: the same Blender character from the hero,
+           typing away at his desk (48-frame seamless loop) -->
+      <div class="about-portrait about-desk">
+        <video src="videos/desk_loop.mp4" muted loop autoplay playsinline
+               aria-label="3D render of me typing at my desk"></video>
+        <span class="portrait-annotation" data-i18n="about.deskcap">still me — modeled and rendered in Blender</span>
+      </div>
       <div class="about-text">
         <span class="kicker" data-i18n="about.kicker">about</span>
         <h2 class="section-title" data-i18n="about.title">A short <em>answer.</em></h2>
@@ -642,7 +645,7 @@
 <script src="js/main.js"></script>
 <script src="js/sphere.js"></script>
 <script src="js/effects.js"></script>
-<!-- avatar.js (Three.js) disabled — using Spline iframe instead. Re-enable when you have a rigged GLB. -->
-<!-- <script type="module" src="js/avatar.js"></script> -->
+<!-- self-hosted three.js hero — built from avatar-src/ (npm run build) -->
+<script src="js/avatar.bundle.js" defer></script>
 </body>
 </html>

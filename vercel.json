@@ -59,7 +59,7 @@
       ]
     },
     {
-      "source": "/(.*)\\.(mp4|webm|webp)$",
+      "source": "/(.*)\\.(mp4|webm|webp|glb)$",
       "headers": [
         {
           "key": "Cache-Control",

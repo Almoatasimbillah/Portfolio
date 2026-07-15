@@ -825,8 +825,15 @@ body.konami .progress{box-shadow:0 0 8px var(--accent)}
 .portrait-annotation{
   font-family:var(--serif);font-style:italic;color:var(--accent);font-size:.9rem;
 }
+/* Desk-loop self-portrait — same frame treatment as a photo portrait,
+   but the video keeps its native 4:3-ish ratio */
+.about-portrait.about-desk video{
+  width:100%;display:block;
+  border:1px solid var(--border-strong);border-radius:3px;
+  background:var(--bg);
+}
 
-/* ============ AVATAR SECTION (full-width, Spline-driven background)
+/* ============ AVATAR SECTION (full-width, live 3D character background)
    First section on the page — fills the entire viewport so the anatomy
    below doesn't peek through. dvh is used where supported (mobile chrome
    that grows/shrinks the URL bar) with vh as fallback. ============ */
@@ -838,7 +845,7 @@ body.konami .progress{box-shadow:0 0 8px var(--accent)}
   display:flex;align-items:center;justify-content:center;
 }
 /* Bottom vignette — fades the section into pure black so the cut into the
-   anatomy section (bg:#000) is seamless. Sits over the Spline scene. */
+   anatomy section (bg:#000) is seamless. Sits over the 3D scene. */
 .avatar-section::after{
   content:"";position:absolute;left:0;right:0;bottom:0;
   height:32%;pointer-events:none;z-index:4;
@@ -975,7 +982,7 @@ body.konami .progress{box-shadow:0 0 8px var(--accent)}
   .avatar-badges li{font-size:.58rem;padding:.32rem .5rem}
 }
 
-/* ============ AVATAR STAGE — holds the Spline iframe ============ */
+/* ============ AVATAR STAGE — holds the three.js canvas or fallback media ============ */
 .avatar-stage{
   position:absolute;inset:0;
   width:100%;height:100%;
@@ -984,24 +991,14 @@ body.konami .progress{box-shadow:0 0 8px var(--accent)}
   background:transparent;
   cursor:crosshair;
 }
-.spline-frame{
+/* Fallback media for the 3D hero — the waving-loop WebM (touch / no WebGL)
+   or the static poster PNG (Safari / reduced motion). Same cover framing
+   as the live canvas so the overlay text always lands the same way. */
+.avatar-fallback{
   position:absolute;inset:0;
   width:100%;height:100%;
-  border:0;display:block;
-  background:transparent;
-}
-/* Hides the small Spline watermark in the bottom-right corner.
-   Soft gradient fade into the section bg so the cover is invisible
-   on the new midnight scene. */
-.spline-mask{
-  position:absolute;right:0;bottom:0;
-  width:180px;height:54px;
-  background:linear-gradient(135deg, transparent 0%, var(--bg) 35%, var(--bg) 100%);
-  pointer-events:none;z-index:5;
-}
-[dir="rtl"] .spline-mask{
-  right:auto;left:0;
-  background:linear-gradient(225deg, transparent 0%, var(--bg) 35%, var(--bg) 100%);
+  object-fit:cover;object-position:center bottom;
+  pointer-events:none;
 }
 
 /* keep the about-grid working when the portrait column is gone */
@@ -1015,7 +1012,7 @@ body.konami .progress{box-shadow:0 0 8px var(--accent)}
   width:100% !important;height:100% !important;
 }
 
-/* Aurora — now that the Spline scene has its own midnight background, the
+/* Aurora — now that the 3D scene has its own midnight background, the
    aurora is just a faint mint vignette behind the overlay text. Much lower
    intensity than before so it doesn't fight the scene. */
 .avatar-aurora{
@@ -1631,7 +1628,7 @@ body.konami .progress{box-shadow:0 0 8px var(--accent)}
 .work-row[data-side="right"] .work-text{order:1}
 
 .work-media{
-  position:relative;aspect-ratio:16/10;
+  position:relative;aspect-ratio:1280/626;
   border:1px solid var(--border-strong);border-radius:4px;overflow:hidden;
   background:var(--surface);
   transition:transform .4s var(--ease-hov), border-color .3s var(--ease-hov);
@@ -1972,7 +1969,7 @@ body.konami .progress{box-shadow:0 0 8px var(--accent)}
 .modal-close:hover{background:var(--accent);color:var(--bg);border-color:var(--accent)}
 
 .modal-stage{
-  position:relative;width:100%;aspect-ratio:16/10;background:#000;
+  position:relative;width:100%;aspect-ratio:1280/626;background:#000;
   overflow:hidden;flex-shrink:0;
 }
 .modal-video{width:100%;height:100%;object-fit:cover;display:block}
@@ -2014,7 +2011,7 @@ body.konami .progress{box-shadow:0 0 8px var(--accent)}
   scrollbar-width:thin;
 }
 .modal-thumb{
-  flex-shrink:0;width:90px;aspect-ratio:16/10;
+  flex-shrink:0;width:90px;aspect-ratio:1280/626;
   background-size:cover;background-position:center;
   background-color:var(--surface);
   border:1px solid var(--border);border-radius:3px;cursor:pointer;
@@ -2159,6 +2156,7 @@ body.modal-open{overflow:hidden}
 
 /* Split-text reveal — each char fades up with stagger.
    Stagger delay is set inline by JS via element.style.animationDelay. */
+.split-word{display:inline-block;white-space:nowrap}
 .split-char{
   display:inline-block;
   opacity:0;transform:translateY(0.55em);
