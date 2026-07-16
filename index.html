@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#0B0F1A">
 
 <!-- Security headers (deploy-time HTTP headers should reinforce these). -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://cdn.jsdelivr.net; connect-src 'self' blob: https://api.github.com https://github-contributions-api.jogruber.de https://api.web3forms.com https://plausible.io; frame-src 'none'; media-src 'self' blob:; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'; upgrade-insecure-requests;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://cdn.jsdelivr.net; connect-src 'self' blob: https://api.github.com https://github-contributions-api.jogruber.de https://api.web3forms.com; frame-src 'none'; media-src 'self' blob:; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'; upgrade-insecure-requests;">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <meta property="og:type" content="website">
@@ -20,10 +20,10 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <!-- canonical + language alternates -->
-<link rel="canonical" href="https://almoatasim.dev/">
-<link rel="alternate" hreflang="en" href="https://almoatasim.dev/">
-<link rel="alternate" hreflang="ar" href="https://almoatasim.dev/?lang=ar">
-<link rel="alternate" hreflang="x-default" href="https://almoatasim.dev/">
+<link rel="canonical" href="https://almoatasim.vercel.app/">
+<link rel="alternate" hreflang="en" href="https://almoatasim.vercel.app/">
+<link rel="alternate" hreflang="ar" href="https://almoatasim.vercel.app/?lang=ar">
+<link rel="alternate" hreflang="x-default" href="https://almoatasim.vercel.app/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,10 +45,9 @@
 <link rel="alternate icon" type="image/jpeg" href="og.jpg">
 <link rel="apple-touch-icon" href="favicon.svg">
 
-<!-- Plausible analytics — replace data-domain with the real domain when deploying -->
-<!-- Analytics disabled until real domain is provisioned. Re-enable on deploy:
-     <script defer data-domain="YOUR.DOMAIN" src="https://plausible.io/js/script.js"></script>
--->
+<!-- Vercel Web Analytics — served same-origin, so it satisfies script-src 'self'
+     and the beacon POSTs to /_vercel/insights (connect-src 'self'). -->
+<script defer src="/_vercel/insights/script.js"></script>
 
 <!-- JSON-LD structured data -->
 <script type="application/ld+json">
@@ -60,8 +59,8 @@
       "name": "AlMoatasimbillah Medhat Hassanain",
       "alternateName": "Al-Mu'tasim",
       "jobTitle": "Software Engineer & Penetration Tester",
-      "url": "https://almoatasim.dev",
-      "image": "https://almoatasim.dev/images/profile.jpg",
+      "url": "https://almoatasim.vercel.app",
+      "image": "https://almoatasim.vercel.app/images/profile.jpg",
       "email": "almoatasimhasanain@gmail.com",
       "telephone": "+201060058378",
       "address": { "@type": "PostalAddress", "addressLocality": "Sharkia", "addressCountry": "EG" },
@@ -72,7 +71,7 @@
     {
       "@type": "WebSite",
       "name": "AlMoatasimbillah Medhat — Portfolio",
-      "url": "https://almoatasim.dev",
+      "url": "https://almoatasim.vercel.app",
       "author": { "@type": "Person", "name": "AlMoatasimbillah Medhat Hassanain" },
       "inLanguage": ["en","ar"]
     }
@@ -284,23 +283,23 @@
 
       <!-- Component hotspots at very end -->
       <div class="hotspots" aria-hidden="true">
-        <button class="hotspot" data-target="#about" style="--x:50%;--y:46%" aria-label="Processor — about me">
+        <button class="hotspot" data-target="#about" style="--x:51%;--y:59%" aria-label="Processor — about me">
           <span class="hotspot-dot"></span>
           <span class="hotspot-label">processor<br><em>about me</em></span>
         </button>
-        <button class="hotspot" data-target="#capabilities" style="--x:78%;--y:48%" aria-label="RAM — skills">
+        <button class="hotspot" data-target="#capabilities" style="--x:64%;--y:56%" aria-label="RAM — skills">
           <span class="hotspot-dot"></span>
           <span class="hotspot-label">RAM<br><em>capabilities</em></span>
         </button>
-        <button class="hotspot" data-target="#work" style="--x:22%;--y:48%" aria-label="SSD — selected work">
+        <button class="hotspot" data-target="#work" style="--x:15%;--y:47%" aria-label="SSD — selected work">
           <span class="hotspot-dot"></span>
           <span class="hotspot-label">SSD<br><em>selected work</em></span>
         </button>
-        <button class="hotspot" data-target="#experience" style="--x:50%;--y:22%" aria-label="Board — experience">
+        <button class="hotspot" data-target="#experience" style="--x:50%;--y:31%" aria-label="Board — experience">
           <span class="hotspot-dot"></span>
           <span class="hotspot-label">mainboard<br><em>experience</em></span>
         </button>
-        <button class="hotspot" data-target="#credentials" style="--x:50%;--y:75%" aria-label="Battery — credentials">
+        <button class="hotspot" data-target="#credentials" style="--x:50%;--y:73%" aria-label="Battery — credentials">
           <span class="hotspot-dot"></span>
           <span class="hotspot-label">battery<br><em>credentials</em></span>
         </button>

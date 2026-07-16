@@ -2204,8 +2204,17 @@ section.contact::before{
    ARABIC TYPOGRAPHY + RTL FLIPS
    ========================================================= */
 [lang="ar"]{
+  /* Redefine the core type tokens so every consumer of var(--serif)/var(--sans)
+     picks up an Arabic-capable face automatically — no need to enumerate each
+     element. --mono is left untouched so the terminal/code stays monospaced. */
+  --serif: 'Amiri', 'Instrument Serif', serif;
+  --sans:  'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
   font-family:var(--sans-ar);
 }
+/* Arabic is a cursive script — letter-spacing inserts gaps between joined
+   letters and visually breaks every word. Reset tracking site-wide in Arabic.
+   (Latin fragments like acronyms lose their tracking; an acceptable trade.) */
+[lang="ar"] *{ letter-spacing:0 !important; }
 [lang="ar"] .hero-name,
 [lang="ar"] .section-title,
 [lang="ar"] .phase-title,
