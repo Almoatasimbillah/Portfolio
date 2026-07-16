@@ -13,6 +13,17 @@
     .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
     .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 
+  // Language-aware field resolver: returns obj[field + '_ar'] when the UI is in
+  // Arabic and that variant exists, otherwise the base (English) field. Works
+  // for strings and arrays alike, so content translations live in data.js
+  // without every render site needing to know the current language.
+  const L = (obj, field) => {
+    const lang = (window.getLang && window.getLang()) || 'en';
+    const ar = obj && obj[field + '_ar'];
+    return (lang === 'ar' && ar != null) ? ar : (obj ? obj[field] : undefined);
+  };
+  window.__pickLang = L;
+
   /* ---------- Skills / Capabilities ---------- */
   // Count how many shipped projects use each tool, by case-insensitive substring
   // match against project.tech entries. Tools used in 2+ projects get a small
@@ -45,7 +56,7 @@
     const counts = buildTechCounts();
     host.innerHTML = D.skills.map(cat => `
       <div class="skill-row">
-        <div class="skill-cat"><em>${escapeHtml(cat.title)}</em></div>
+        <div class="skill-cat"><em>${escapeHtml(L(cat, 'title'))}</em></div>
         <ul class="skill-chips">
           ${cat.tags.map(t => {
             const n = lookupTechCount(counts, t);
@@ -97,13 +108,14 @@
       ${D.experience.map((role, i) => `
         <article class="career-row" style="--i:${i}">
           <div class="career-role">
-            <h3 class="career-title">${escapeHtml(role.title)}</h3>
-            <p class="career-company"><em>${escapeHtml(role.company)}</em></p>
+            <h3 class="career-title">${escapeHtml(L(role, 'title'))}</h3>
+            <p class="career-company"><em>${escapeHtml(L(role, 'company'))}</em></p>
           </div>
           <div class="career-year"><span>${escapeHtml(yearLabel(role.date, i === 0))}</span></div>
           <div class="career-desc">
-            <p>${escapeHtml(role.description[0] || '')}</p>
-            ${role.description.length > 1 ? `<ul>${role.description.slice(1).map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>` : ''}
+            ${(() => { const d = L(role, 'description') || []; return `
+            <p>${escapeHtml(d[0] || '')}</p>
+            ${d.length > 1 ? `<ul>${d.slice(1).map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>` : ''}`; })()}
           </div>
         </article>
       `).join('')}
@@ -127,8 +139,8 @@
         <span class="cred-icon" aria-hidden="true">${c.icon || '●'}</span>
         <div class="cred-year">${escapeHtml(c.year)}</div>
         <div class="cred-main">
-          <h3 class="cred-title">${escapeHtml(c.name)}</h3>
-          <p class="cred-org"><em>${escapeHtml(c.org)}</em>${c.note ? ' · <span class="muted">' + escapeHtml(c.note) + '</span>' : ''}</p>
+          <h3 class="cred-title">${escapeHtml(L(c, 'name'))}</h3>
+          <p class="cred-org"><em>${escapeHtml(L(c, 'org'))}</em>${L(c, 'note') ? ' · <span class="muted">' + escapeHtml(L(c, 'note')) + '</span>' : ''}</p>
         </div>
         <div class="cred-status">
           <span class="cred-pill" data-status="${escapeHtml(c.status || '')}">
@@ -161,8 +173,8 @@
         <div class="work-media lab-media">
           <div class="lab-card">
             <span class="lab-num">${String(i + 1).padStart(2, '0')}</span>
-            <span class="lab-type"><em>${escapeHtml(p.type || 'Lab')}</em></span>
-            <span class="lab-title">${escapeHtml(p.title)}</span>
+            <span class="lab-type"><em>${escapeHtml(L(p, 'type') || 'Lab')}</em></span>
+            <span class="lab-title">${escapeHtml(L(p, 'title'))}</span>
             <span class="lab-meta">recording in production</span>
           </div>
         </div>
@@ -190,11 +202,11 @@
           ${mediaHTML}
           <div class="work-text">
             <div class="work-meta">
-              <span class="work-type"><em>${escapeHtml(p.type)}</em></span>
+              <span class="work-type"><em>${escapeHtml(L(p, 'type'))}</em></span>
               <span class="work-year">${escapeHtml(String(p.year || ''))}</span>
             </div>
-            <h3 class="work-title">${escapeHtml(p.title)}</h3>
-            <p class="work-desc">${escapeHtml(p.description || '')}</p>
+            <h3 class="work-title">${escapeHtml(L(p, 'title'))}</h3>
+            <p class="work-desc">${escapeHtml(L(p, 'description') || '')}</p>
             ${techHTML ? `<ul class="work-tech">${techHTML}</ul>` : ''}
             ${linksHTML ? `<div class="work-links">${linksHTML}</div>` : ''}
           </div>
@@ -322,7 +334,13 @@
   }
 
   // Re-render when the language changes so the badge label updates
-  document.addEventListener('i18n:changed', () => { renderTestimonials(); renderCredentials(); });
+  document.addEventListener('i18n:changed', () => {
+    renderTestimonials();
+    renderCredentials();
+    renderSkills();
+    renderExperience();
+    renderProjects();
+  });
 
   /* ---------- Testimonial submission modal ---------- */
   function setupTestimonialModal() {
