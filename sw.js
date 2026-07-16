@@ -6,7 +6,7 @@
    · self-cleans old cache versions on activate
    ========================================================= */
 
-const VERSION   = 'v.2026.07-15b';
+const VERSION   = 'v.2026.07-15c';
 const STATIC    = `pf-static-${VERSION}`;
 const HTML      = `pf-html-${VERSION}`;
 const FONTS     = `pf-fonts-${VERSION}`;

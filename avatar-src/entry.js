@@ -42,7 +42,11 @@ const loaderLabel = loaderEl ? loaderEl.querySelector('.loader-label') : null;
 const errorEl = stage.querySelector('.avatar-error');
 
 function hideLoader() {
-  if (loaderEl) loaderEl.classList.add('is-done');
+  if (!loaderEl) return;
+  loaderEl.classList.add('is-done');
+  // hard-remove after the fade so a throttled/paused transition can never
+  // leave the label stuck on screen over the rendered character
+  setTimeout(() => { loaderEl.style.display = 'none'; }, 700);
 }
 
 function loaderProgress(loaded, total) {
