@@ -19,8 +19,8 @@
   --serif: 'Instrument Serif', serif;
   --sans:  'Inter', system-ui, sans-serif;
   --mono:  'JetBrains Mono', ui-monospace, monospace;
-  --serif-ar: 'Amiri', 'Instrument Serif', serif;
-  --sans-ar:  'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+  --serif-ar: 'El Messiri', 'Amiri', 'Instrument Serif', serif;
+  --sans-ar:  'Tajawal', 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
 
   --ease-rev: cubic-bezier(.16,.84,.4,1);
   --ease-hov: cubic-bezier(.2,.7,.3,1);
@@ -2207,8 +2207,8 @@ section.contact::before{
   /* Redefine the core type tokens so every consumer of var(--serif)/var(--sans)
      picks up an Arabic-capable face automatically — no need to enumerate each
      element. --mono is left untouched so the terminal/code stays monospaced. */
-  --serif: 'Amiri', 'Instrument Serif', serif;
-  --sans:  'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+  --serif: 'El Messiri', 'Amiri', 'Instrument Serif', serif;
+  --sans:  'Tajawal', 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
   font-family:var(--sans-ar);
 }
 /* Arabic is a cursive script — letter-spacing inserts gaps between joined

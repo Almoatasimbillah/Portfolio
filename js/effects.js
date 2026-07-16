@@ -1107,7 +1107,7 @@
     modalVideo.poster = clip.poster || '';
     modalVideo.load();
     modalVideo.play().catch(() => {});
-    if (modalCaption) modalCaption.textContent = clip.caption || '';
+    if (modalCaption) modalCaption.textContent = (window.__pickLang ? window.__pickLang(clip, 'caption') : clip.caption) || '';
     if (modalCounter) modalCounter.textContent = `${activeClip + 1} / ${g.length}`;
 
     // thumbs active state
@@ -1136,19 +1136,21 @@
       modal.style.setProperty('--tmodal-origin', '50% 50%');
     }
 
-    modalType.textContent = project.type || '';
+    const pick = window.__pickLang || ((o, f) => (o ? o[f] : undefined));
+
+    modalType.textContent = pick(project, 'type') || '';
     modalYear.textContent = project.year || '';
-    modalTitle.textContent = project.title || '';
-    modalLede.textContent = project.description || '';
+    modalTitle.textContent = pick(project, 'title') || '';
+    modalLede.textContent = pick(project, 'description') || '';
 
     // Reading time — based on case study text (200 wpm)
     if (modalRead) {
       const cs0 = project.caseStudy || {};
       const text = [
-        project.description || '',
-        cs0.problem || '',
-        ...(cs0.approach || []),
-        cs0.outcome || ''
+        pick(project, 'description') || '',
+        pick(cs0, 'problem') || '',
+        ...(pick(cs0, 'approach') || []),
+        pick(cs0, 'outcome') || ''
       ].join(' ');
       const words = text.trim().split(/\s+/).filter(Boolean).length;
       const mins = Math.max(1, Math.round(words / 200));
@@ -1158,9 +1160,9 @@
     }
 
     const cs = project.caseStudy || {};
-    modalProblem.textContent = cs.problem || '';
-    modalApproach.innerHTML = (cs.approach || []).map(s => `<li>${esc(s)}</li>`).join('');
-    modalOutcome.textContent = cs.outcome || '';
+    modalProblem.textContent = pick(cs, 'problem') || '';
+    modalApproach.innerHTML = (pick(cs, 'approach') || []).map(s => `<li>${esc(s)}</li>`).join('');
+    modalOutcome.textContent = pick(cs, 'outcome') || '';
 
     modalTech.innerHTML = (project.tech || []).map(t => `<li>${esc(t)}</li>`).join('');
 

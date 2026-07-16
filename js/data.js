@@ -7,31 +7,37 @@ const PORTFOLIO_DATA = {
     {
       icon: "🛡️",
       title: "Cybersecurity",
+      title_ar: "الأمن السيبراني",
       tags: ["Penetration Testing", "OWASP Top 10", "Web Security", "Burp Suite", "Nmap", "Nuclei", "Vulnerability Assessment", "CTF Challenges"]
     },
     {
       icon: "💻",
       title: "Software Engineering",
+      title_ar: "هندسة البرمجيات",
       tags: ["Java", "OOP Concepts", "Software Testing", "ISTQB Fundamentals", "Test Case Design", "Bug Tracking", "SDLC"]
     },
     {
       icon: "🐍",
       title: "Scripting & Automation",
+      title_ar: "البرمجة النصية والأتمتة",
       tags: ["Python", "Bash Scripting", "Automation Scripts", "CLI Tools", "Task Automation"]
     },
     {
       icon: "🌐",
       title: "Networking",
+      title_ar: "الشبكات",
       tags: ["TCP/IP", "Routers & Switches", "IP Configuration", "Network Troubleshooting", "VPN", "Firewalls", "Wireshark"]
     },
     {
       icon: "🖥️",
       title: "Systems & IT",
+      title_ar: "الأنظمة وتقنية المعلومات",
       tags: ["Windows Server", "Linux (Kali/Ubuntu)", "Virtualization (VMware/VirtualBox)", "Hardware Maintenance", "Active Directory"]
     },
     {
       icon: "🔧",
       title: "Tools & Platforms",
+      title_ar: "الأدوات والمنصّات",
       tags: ["Git & GitHub", "VS Code", "Metasploit", "OWASP ZAP", "Postman", "Jira", "Trello"]
     }
   ],
@@ -40,33 +46,56 @@ const PORTFOLIO_DATA = {
     {
       date: "Nov 2025 – May 2026",
       title: "Software Engineer Trainee",
+      title_ar: "متدرّب مهندس برمجيات",
       company: "DEPI (Digital Egypt Pioneers Initiative) — Online",
+      company_ar: "مبادرة رواد مصر الرقمية (DEPI) — عن بُعد",
       description: [
         "Trained in Software Testing fundamentals and best practices",
         "Studied Java programming and OOP concepts in depth",
         "Passed the ISTQB Foundation Level certification exam",
         "Developed soft skills: communication, presentation, and teamwork"
+      ],
+      description_ar: [
+        "تدرّبت على أساسيات اختبار البرمجيات وأفضل الممارسات",
+        "درست لغة Java ومفاهيم البرمجة الكائنية بعمق",
+        "اجتزت امتحان شهادة ISTQB Foundation Level",
+        "طوّرت مهارات التواصل والعرض والعمل الجماعي"
       ]
     },
     {
       date: "Jun 2025 – Oct 2025",
       title: "PM Engineer",
+      title_ar: "مهندس دعم فنّي",
       company: "Afro Egypt — Downtown, El Alamein",
+      company_ar: "أفرو إيجيبت — الداون تاون، العلمين",
       description: [
         "Provided technical support by diagnosing and resolving hardware, software, and network issues",
         "Installed, configured, and maintained computers, printers, and peripheral devices",
         "Assisted non-technical users, significantly reducing downtime and improving productivity",
         "Performed routine system checks and updates to ensure stable daily IT operations"
+      ],
+      description_ar: [
+        "قدّمت دعمًا فنيًا بتشخيص وحلّ مشاكل الأجهزة والبرمجيات والشبكات",
+        "ركّبت وأعددت وصنت الحواسيب والطابعات والأجهزة الطرفية",
+        "ساعدت المستخدمين غير التقنيين، ممّا قلّل التعطّل ورفع الإنتاجية بوضوح",
+        "أجريت فحوصات وتحديثات دورية لضمان استقرار التشغيل اليومي"
       ]
     },
     {
       date: "Jan 2019 – Jan 2021",
       title: "IT Helpdesk",
+      title_ar: "دعم فنّي لتقنية المعلومات",
       company: "MISC (Part-Time) — Awlad Saqr, Sharkia",
+      company_ar: "MISC (دوام جزئي) — أولاد صقر، الشرقية",
       description: [
         "Provided first-line technical support to employees for hardware and software issues",
         "Managed installation and configuration of workstations and network peripherals",
         "Documented recurring issues and developed resolution guides to improve team efficiency"
+      ],
+      description_ar: [
+        "قدّمت الدعم الفنّي المباشر للموظفين في مشاكل الأجهزة والبرمجيات",
+        "أدرت تركيب وإعداد محطات العمل وأجهزة الشبكة الطرفية",
+        "وثّقت المشاكل المتكررة وأعددت أدلّة حلول لرفع كفاءة الفريق"
       ]
     }
   ],
@@ -75,44 +104,58 @@ const PORTFOLIO_DATA = {
     {
       icon: "🎓",
       name: "Bachelor's Degree — Computer Engineering",
+      name_ar: "بكالوريوس — هندسة الحاسبات",
       org: "BHI University",
+      org_ar: "جامعة بهاء الدين الدولية",
       year: "2018 – 2023",
       status: "completed",
-      note: "GPA: Good | Graduation Project: A+"
+      note: "GPA: Good | Graduation Project: A+",
+      note_ar: "التقدير: جيد | مشروع التخرّج: A+"
     },
     {
       icon: "🛡️",
       name: "ISTQB Foundation Level",
+      name_ar: "ISTQB المستوى التأسيسي",
       org: "ISTQB — International Software Testing Qualifications Board",
+      org_ar: "ISTQB — المجلس الدولي لمؤهلات اختبار البرمجيات",
       year: "May 2026",
       status: "certified",
-      note: "Exam passed · certificate pending"
+      note: "Exam passed · certificate pending",
+      note_ar: "اجتزت الامتحان · الشهادة قيد الإصدار"
     },
     {
       icon: "⚡",
       name: "Software Engineering Training",
+      name_ar: "تدريب هندسة البرمجيات",
       org: "DEPI — Digital Egypt Pioneers Initiative",
+      org_ar: "DEPI — مبادرة رواد مصر الرقمية",
       year: "Nov 2025 – May 2026",
       status: "completed"
     },
     {
       icon: "🔐",
       name: "Web Application Penetration Testing",
+      name_ar: "اختبار اختراق تطبيقات الويب",
       org: "Self-Study & Practical Labs",
+      org_ar: "دراسة ذاتية ومعامل تطبيقية",
       year: "2024 – Present",
       status: "active"
     },
     {
       icon: "🏛️",
       name: "Egyptian Engineers Syndicate",
+      name_ar: "نقابة المهندسين المصرية",
       org: "Egyptian Engineers Syndicate",
+      org_ar: "نقابة المهندسين المصرية",
       year: "2023",
       status: "completed"
     },
     {
       icon: "⚔️",
       name: "Military Service",
+      name_ar: "الخدمة العسكرية",
       org: "Egyptian Armed Forces",
+      org_ar: "القوات المسلحة المصرية",
       year: "Jan 2024 – Mar 2025",
       status: "completed"
     }
@@ -122,9 +165,11 @@ const PORTFOLIO_DATA = {
       {
           "title": "BoxStore",
           "type": "E-commerce platform",
+          "type_ar": "منصّة تجارة إلكترونية",
           "year": 2024,
           "category": "web",
           "description": "A full e-commerce platform built for small and mid-size retailers. Order management, product catalog, WhatsApp ordering, and Zid marketplace sync — designed for shop owners who don't want to live in a dashboard.",
+          "description_ar": "منصّة تجارة إلكترونية متكاملة للمحلات الصغيرة والمتوسطة. إدارة الطلبات، وكتالوج المنتجات، والطلب عبر واتساب، ومزامنة مع منصّة زد — مصمّمة لأصحاب المحلات اللي مش عايزين يعيشوا داخل لوحة تحكّم معقّدة.",
           "tech": [
               "PHP",
               "Laravel",
@@ -181,9 +226,11 @@ const PORTFOLIO_DATA = {
       {
           "title": "Salsabeel",
           "type": "Restaurant operations system",
+          "type_ar": "نظام تشغيل مطاعم",
           "year": 2024,
           "category": "web",
           "description": "Order management, menu data ingestion, and an operations dashboard for a regional restaurant chain. Handles live orders, kitchen routing, and a scraper that keeps the public menu in sync.",
+          "description_ar": "إدارة الطلبات، وسحب بيانات المنيو، ولوحة تشغيل لسلسلة مطاعم إقليمية. بيتعامل مع الطلبات الحيّة، وتوجيه المطبخ، وأداة سحب (scraper) بتحافظ على تحديث المنيو العام.",
           "tech": [
               "React",
               "Node.js",
@@ -239,10 +286,13 @@ const PORTFOLIO_DATA = {
       },
       {
           "title": "Ali Baba POS",
+          "title_ar": "كاشير علي بابا",
           "type": "Point of sale system",
+          "type_ar": "نظام نقاط بيع",
           "year": 2024,
           "category": "tool",
           "description": "Multi-terminal POS built for a wholesale and retail operation. Handles cashier flow, returns, layaway, daily Z-report, and printer integration.",
+          "description_ar": "نظام كاشير متعدّد الأجهزة لمنشأة جملة وتجزئة. بيتعامل مع حركة الكاشير، والمرتجعات، والبيع بالتقسيط، وتقرير Z اليومي، وربط الطابعات.",
           "tech": [
               "JavaScript",
               "Node.js",
@@ -292,10 +342,13 @@ const PORTFOLIO_DATA = {
       },
       {
           "title": "Clothes POS",
+          "title_ar": "كاشير محلّ ملابس",
           "type": "Apparel point of sale",
+          "type_ar": "نقاط بيع للملابس",
           "year": 2024,
           "category": "tool",
           "description": "A POS specialized for clothing retailers. Size and color matrix, supplier tracking, and a fast barcode-driven cashier flow tuned for changing-room returns.",
+          "description_ar": "نظام كاشير متخصّص لمحلات الملابس. مصفوفة مقاسات وألوان، وتتبّع للموردين، وحركة كاشير سريعة بالباركود مضبوطة على مرتجعات غرفة القياس.",
           "tech": [
               "JavaScript",
               "PHP",
@@ -323,10 +376,13 @@ const PORTFOLIO_DATA = {
       },
       {
           "title": "Al-Noor Private School",
+          "title_ar": "مدرسة النور الأهلية",
           "type": "School website",
+          "type_ar": "موقع مدرسة",
           "year": 2024,
           "category": "web",
           "description": "Public website for Al-Noor Private School. Admissions intake, news, calendar, and a parent portal — built to be fast on slow mobile connections.",
+          "description_ar": "موقع عام لمدرسة النور الأهلية. تقديم الالتحاق، والأخبار، والتقويم الدراسي، وبوّابة لأولياء الأمور — مبني ليكون سريعًا على شبكات الموبايل البطيئة.",
           "tech": [
               "HTML/CSS",
               "JavaScript",
@@ -354,10 +410,13 @@ const PORTFOLIO_DATA = {
       },
       {
           "title": "CW Point of Sale",
+          "title_ar": "كاشير عالم الكمبيوتر",
           "type": "Computer-shop POS",
+          "type_ar": "كاشير محلّ كمبيوتر",
           "year": 2024,
           "category": "tool",
           "description": "Full POS system built for a computer and electronics retailer. Cashier flow with barcode scanning, returns and warranty tracking, supplier orders, daily Z-report — designed to run the shop floor end-to-end.",
+          "description_ar": "نظام كاشير متكامل لمحلّ كمبيوتر وإلكترونيات. حركة كاشير بقراءة الباركود، وتتبّع المرتجعات والضمان، وطلبات الموردين، وتقرير Z اليومي — مصمّم ليدير المحلّ من أوّله لآخره.",
           "tech": [
               "React",
               "Node.js",
@@ -387,10 +446,13 @@ const PORTFOLIO_DATA = {
       },
       {
           "title": "Portfolio Evolution",
+          "title_ar": "تطوّر البورتفوليو",
           "type": "Personal portfolio iterations",
+          "type_ar": "نسخ متتابعة من البورتفوليو",
           "year": 2024,
           "category": "web",
           "description": "Five iterations of my own portfolio site. Each one explores a different identity — terminal aesthetic, editorial layout, scroll-driven storytelling, and the calmer version you're reading now.",
+          "description_ar": "خمس نسخ من موقع البورتفوليو الخاص بي. كل نسخة بتجرّب هويّة مختلفة — طابع الترمينال، وتخطيط تحريري، وسرد قصصي مدفوع بالتمرير، والنسخة الأهدأ اللي بتقرأها دلوقتي.",
           "tech": [
               "HTML",
               "CSS",
@@ -440,9 +502,12 @@ const PORTFOLIO_DATA = {
       },
       {
           "title": "Web Vulnerability Scanner",
+          "title_ar": "ماسح ثغرات الويب",
           "type": "Security tool",
+          "type_ar": "أداة أمنية",
           "year": 2024,
           "description": "A Python-based automated tool that scans web applications for common vulnerabilities including XSS, SQL injection, and open redirects using OWASP methodologies.",
+          "description_ar": "أداة آلية مبنية بلغة Python بتفحص تطبيقات الويب للبحث عن الثغرات الشائعة زي XSS وحقن SQL والتحويل المفتوح، باستخدام منهجيات OWASP.",
           "category": "security",
           "tech": [
               "Python",
@@ -466,9 +531,12 @@ const PORTFOLIO_DATA = {
       },
       {
           "title": "Network Monitoring Dashboard",
+          "title_ar": "لوحة مراقبة الشبكة",
           "type": "Network ops",
+          "type_ar": "تشغيل شبكات",
           "year": 2023,
           "description": "Real-time network monitoring tool that tracks device connectivity, bandwidth usage, and alerts on suspicious traffic patterns across local networks.",
+          "description_ar": "أداة مراقبة شبكة لحظية بتتبّع اتصال الأجهزة، واستهلاك النطاق، وبتنبّه على أنماط المرور المشبوهة عبر الشبكات المحلية.",
           "category": "tool",
           "tech": [
               "Python",
@@ -492,9 +560,12 @@ const PORTFOLIO_DATA = {
       },
       {
           "title": "CTF Challenge Writeups",
+          "title_ar": "حلول تحدّيات CTF",
           "type": "CTF research",
+          "type_ar": "أبحاث CTF",
           "year": 2024,
           "description": "Collection of Capture The Flag challenge solutions covering web exploitation, binary exploitation, cryptography, and forensics from various platforms.",
+          "description_ar": "مجموعة من حلول تحدّيات Capture The Flag بتغطّي استغلال الويب، واستغلال الثنائيات، والتشفير، والأدلة الجنائية الرقمية من منصّات مختلفة.",
           "category": "security",
           "tech": [
               "Burp Suite",
@@ -518,9 +589,12 @@ const PORTFOLIO_DATA = {
       },
       {
           "title": "Penetration Testing Lab",
+          "title_ar": "معمل اختبار الاختراق",
           "type": "Lab environment",
+          "type_ar": "بيئة معمل",
           "year": 2024,
           "description": "A fully configured virtual lab environment for practicing penetration testing techniques including Kali Linux, Metasploitable, and various CTF machines.",
+          "description_ar": "بيئة معمل افتراضية مُعدّة بالكامل للتدرّب على تقنيات اختبار الاختراق، وفيها Kali Linux وMetasploitable وأجهزة CTF متنوّعة.",
           "category": "security",
           "tech": [
               "VMware",
