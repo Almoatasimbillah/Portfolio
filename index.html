@@ -133,7 +133,7 @@
   <div class="palette-shell">
     <div class="palette-input-row">
       <span class="palette-icon">⌕</span>
-      <input type="text" class="palette-input" id="palette-input" placeholder="Search — type anything..." autocomplete="off">
+      <input type="text" class="palette-input" id="palette-input" placeholder="Search — type anything..." data-i18n-placeholder="palette.placeholder" autocomplete="off">
       <kbd class="palette-kbd">ESC</kbd>
     </div>
     <ul class="palette-results" id="palette-results" role="listbox"></ul>
@@ -219,7 +219,7 @@
       <canvas class="anatomy-canvas" aria-hidden="true"></canvas>
       <div class="anatomy-loader" aria-hidden="true">
         <span class="loader-bar"><span class="loader-bar-fill"></span></span>
-        <span class="loader-label">opening sequence</span>
+        <span class="loader-label" data-i18n="anatomy.loader">opening sequence</span>
       </div>
       <div class="anatomy-vignette" aria-hidden="true"></div>
 
@@ -285,23 +285,23 @@
       <div class="hotspots" aria-hidden="true">
         <button class="hotspot" data-target="#about" style="--x:51%;--y:59%" aria-label="Processor — about me">
           <span class="hotspot-dot"></span>
-          <span class="hotspot-label">processor<br><em>about me</em></span>
+          <span class="hotspot-label"><span data-i18n="hs.processor">processor</span><br><em data-i18n="hs.processor.sub">about me</em></span>
         </button>
         <button class="hotspot" data-target="#capabilities" style="--x:64%;--y:56%" aria-label="RAM — skills">
           <span class="hotspot-dot"></span>
-          <span class="hotspot-label">RAM<br><em>capabilities</em></span>
+          <span class="hotspot-label"><span data-i18n="hs.ram">RAM</span><br><em data-i18n="hs.ram.sub">capabilities</em></span>
         </button>
         <button class="hotspot" data-target="#work" style="--x:15%;--y:47%" aria-label="SSD — selected work">
           <span class="hotspot-dot"></span>
-          <span class="hotspot-label">SSD<br><em>selected work</em></span>
+          <span class="hotspot-label"><span data-i18n="hs.ssd">SSD</span><br><em data-i18n="hs.ssd.sub">selected work</em></span>
         </button>
         <button class="hotspot" data-target="#experience" style="--x:50%;--y:31%" aria-label="Board — experience">
           <span class="hotspot-dot"></span>
-          <span class="hotspot-label">mainboard<br><em>experience</em></span>
+          <span class="hotspot-label"><span data-i18n="hs.board">mainboard</span><br><em data-i18n="hs.board.sub">experience</em></span>
         </button>
         <button class="hotspot" data-target="#credentials" style="--x:50%;--y:73%" aria-label="Battery — credentials">
           <span class="hotspot-dot"></span>
-          <span class="hotspot-label">battery<br><em>credentials</em></span>
+          <span class="hotspot-label"><span data-i18n="hs.battery">battery</span><br><em data-i18n="hs.battery.sub">credentials</em></span>
         </button>
       </div>
 
@@ -425,10 +425,10 @@
       <h2 class="section-title" data-i18n="work.title">The work <em>that ships.</em></h2>
       <p class="section-body" data-i18n="work.body">Hover any frame to preview. Click to read the case study.</p>
       <div class="work-filters" role="tablist" aria-label="Filter projects">
-        <button class="filter-chip is-active" data-filter="all" role="tab">All</button>
-        <button class="filter-chip" data-filter="web" role="tab">Web</button>
-        <button class="filter-chip" data-filter="security" role="tab">Security</button>
-        <button class="filter-chip" data-filter="tool" role="tab">Tools</button>
+        <button class="filter-chip is-active" data-filter="all" role="tab"><span data-i18n="work.filter.all">All</span></button>
+        <button class="filter-chip" data-filter="web" role="tab"><span data-i18n="work.filter.web">Web</span></button>
+        <button class="filter-chip" data-filter="security" role="tab"><span data-i18n="work.filter.security">Security</span></button>
+        <button class="filter-chip" data-filter="tool" role="tab"><span data-i18n="work.filter.tools">Tools</span></button>
       </div>
       <div class="work-rows" id="work-rows"></div>
     </div>

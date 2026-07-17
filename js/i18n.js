@@ -130,6 +130,23 @@ window.I18N = {
     'modal.problem':   'The problem',
     'modal.approach':  'Approach',
     'modal.outcome':   'Outcome',
+    'anatomy.loader':  'opening sequence',
+    'hs.processor':      'processor',
+    'hs.processor.sub':  'about me',
+    'hs.ram':            'RAM',
+    'hs.ram.sub':        'capabilities',
+    'hs.ssd':            'SSD',
+    'hs.ssd.sub':        'selected work',
+    'hs.board':          'mainboard',
+    'hs.board.sub':      'experience',
+    'hs.battery':        'battery',
+    'hs.battery.sub':    'credentials',
+    'work.filter.all':      'All',
+    'work.filter.web':      'Web',
+    'work.filter.security': 'Security',
+    'work.filter.tools':    'Tools',
+    'work.labmeta':    'recording in production',
+    'palette.placeholder': 'Search — type anything...',
     'lang.suggest':    'Looks like your browser prefers Arabic. Want to switch?',
     'lang.suggest.accept': 'Switch to العربية',
     'lang.suggest.deny':   'Keep English',
@@ -281,6 +298,23 @@ window.I18N = {
     'modal.problem':   'المشكلة',
     'modal.approach':  'المقاربة',
     'modal.outcome':   'النتيجة',
+    'anatomy.loader':  'تتابُع الافتتاح',
+    'hs.processor':      'المعالج',
+    'hs.processor.sub':  'عنّي',
+    'hs.ram':            'الرامات',
+    'hs.ram.sub':        'القدرات',
+    'hs.ssd':            'التخزين SSD',
+    'hs.ssd.sub':        'أعمال مختارة',
+    'hs.board':          'اللوحة الأم',
+    'hs.board.sub':      'الخبرة',
+    'hs.battery':        'البطارية',
+    'hs.battery.sub':    'الاعتمادات',
+    'work.filter.all':      'الكل',
+    'work.filter.web':      'ويب',
+    'work.filter.security': 'أمن',
+    'work.filter.tools':    'أدوات',
+    'work.labmeta':    'التسجيل قيد التجهيز',
+    'palette.placeholder': 'ابحث — اكتب أي شيء...',
     'lang.suggest':    'يبدو أن متصفحك يفضّل الإنجليزية. تحويل؟',
     'lang.suggest.accept': 'Switch to English',
     'lang.suggest.deny':   'ابقَ في العربية',
@@ -335,6 +369,12 @@ window.I18N = {
       const key = el.getAttribute('data-i18n');
       const txt = dict[key] || window.I18N.en[key] || '';
       el.innerHTML = render(txt);
+    });
+
+    // Placeholders can't carry markup, so they get their own attribute
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      el.setAttribute('placeholder', dict[key] || window.I18N.en[key] || '');
     });
 
     // Toggle button label = the OTHER language code

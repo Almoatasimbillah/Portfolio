@@ -92,7 +92,8 @@
     const yearLabel = (date, isFirst) => {
       if (isFirst) {
         const end = parseDateEnd(date);
-        if (end !== null && end >= Date.now()) return 'NOW';
+        if (end !== null && end >= Date.now())
+          return ((window.getLang && window.getLang()) === 'ar') ? 'الآن' : 'NOW';
       }
       // Prefer the END year of the range (the year this chapter closed in),
       // not the start year. Falls back to the only year if no range.
@@ -137,7 +138,7 @@
     host.innerHTML = D.certifications.map(c => `
       <article class="cred-row cred-card" data-status="${escapeHtml(c.status || '')}">
         <span class="cred-icon" aria-hidden="true">${c.icon || '●'}</span>
-        <div class="cred-year">${escapeHtml(c.year)}</div>
+        <div class="cred-year">${escapeHtml(L(c, 'year'))}</div>
         <div class="cred-main">
           <h3 class="cred-title">${escapeHtml(L(c, 'name'))}</h3>
           <p class="cred-org"><em>${escapeHtml(L(c, 'org'))}</em>${L(c, 'note') ? ' · <span class="muted">' + escapeHtml(L(c, 'note')) + '</span>' : ''}</p>
@@ -175,7 +176,7 @@
             <span class="lab-num">${String(i + 1).padStart(2, '0')}</span>
             <span class="lab-type"><em>${escapeHtml(L(p, 'type') || 'Lab')}</em></span>
             <span class="lab-title">${escapeHtml(L(p, 'title'))}</span>
-            <span class="lab-meta">recording in production</span>
+            <span class="lab-meta">${escapeHtml(((window.getLang && window.getLang()) === 'ar') ? 'التسجيل قيد التجهيز' : 'recording in production')}</span>
           </div>
         </div>
       ` : `

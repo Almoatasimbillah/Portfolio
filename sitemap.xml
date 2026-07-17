@@ -2,42 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://almoatasim.dev/</loc>
-    <lastmod>2026-06-13</lastmod>
+    <loc>https://almoatasim.vercel.app/</loc>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://almoatasim.dev/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://almoatasim.dev/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://almoatasim.dev/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://almoatasim.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://almoatasim.vercel.app/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://almoatasim.vercel.app/"/>
   </url>
   <url>
-    <loc>https://almoatasim.dev/?project=boxstore</loc>
+    <loc>https://almoatasim.vercel.app/?project=boxstore</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://almoatasim.dev/?project=salsabeel</loc>
+    <loc>https://almoatasim.vercel.app/?project=salsabeel</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://almoatasim.dev/?project=ali-baba-pos</loc>
+    <loc>https://almoatasim.vercel.app/?project=ali-baba-pos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://almoatasim.dev/?project=clothes-pos</loc>
+    <loc>https://almoatasim.vercel.app/?project=clothes-pos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://almoatasim.dev/?project=al-noor-private-school</loc>
+    <loc>https://almoatasim.vercel.app/?project=al-noor-private-school</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://almoatasim.dev/?project=cw-point-of-sale</loc>
+    <loc>https://almoatasim.vercel.app/?project=cw-point-of-sale</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://almoatasim.vercel.app/?project=portfolio-evolution</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://almoatasim.vercel.app/?project=web-vulnerability-scanner</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://almoatasim.vercel.app/?project=network-monitoring-dashboard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://almoatasim.vercel.app/?project=ctf-challenge-writeups</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://almoatasim.vercel.app/?project=penetration-testing-lab</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
