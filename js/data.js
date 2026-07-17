@@ -184,43 +184,57 @@ const PORTFOLIO_DATA = {
               {
                   "video": "videos/boxstore-1-main.mp4",
                   "poster": "videos/posters/boxstore-1-main-poster.jpg",
-                  "caption": "Main storefront + admin"
+                  "caption": "Main storefront + admin",
+                  "caption_ar": "الواجهة الرئيسية + لوحة التحكّم"
               },
               {
                   "video": "videos/boxstore-2-demo.mp4",
                   "poster": "videos/posters/boxstore-2-demo-poster.jpg",
-                  "caption": "Live demo walkthrough"
+                  "caption": "Live demo walkthrough",
+                  "caption_ar": "جولة عرض حيّة"
               },
               {
                   "video": "videos/boxstore-3-trial-1.mp4",
                   "poster": "videos/posters/boxstore-3-trial-1-poster.jpg",
-                  "caption": "Trial build — iteration 1"
+                  "caption": "Trial build — iteration 1",
+                  "caption_ar": "نسخة تجريبية — الإصدار 1"
               },
               {
                   "video": "videos/boxstore-4-trial-2.mp4",
                   "poster": "videos/posters/boxstore-4-trial-2-poster.jpg",
-                  "caption": "Trial build — iteration 2"
+                  "caption": "Trial build — iteration 2",
+                  "caption_ar": "نسخة تجريبية — الإصدار 2"
               },
               {
                   "video": "videos/boxstore-5-whatsapp.mp4",
                   "poster": "videos/posters/boxstore-5-whatsapp-poster.jpg",
-                  "caption": "WhatsApp checkout integration"
+                  "caption": "WhatsApp checkout integration",
+                  "caption_ar": "تكامل الدفع عبر واتساب"
               },
               {
                   "video": "videos/boxstore-6-zid.mp4",
                   "poster": "videos/posters/boxstore-6-zid-poster.jpg",
-                  "caption": "Zid marketplace sync"
+                  "caption": "Zid marketplace sync",
+                  "caption_ar": "المزامنة مع منصّة زد"
               }
           ],
           "caseStudy": {
               "problem": "Small retailers in the region need an online presence but most platforms are too heavy or too generic. BoxStore had to feel familiar (WhatsApp-first), respect local payment habits, and be cheap to host.",
+              "problem_ar": "محلات التجزئة الصغيرة في المنطقة محتاجة وجود أونلاين، لكن أغلب المنصّات تقيلة أو عامّة أوي. BoxStore كان لازم يكون مألوف (واتساب أولاً)، ويحترم عادات الدفع المحلية، ويكون رخيص في الاستضافة.",
               "approach": [
                   "Built the storefront and admin in Laravel with a clean MVC structure",
                   "Wrote a WhatsApp integration so customers can place orders without an account",
                   "Synced inventory and orders bi-directionally with Zid marketplace",
                   "Kept the admin UI simple — owners can publish products in under a minute"
               ],
-              "outcome": "Production storefront running for multiple clients. WhatsApp flow proved out the conversion-first hypothesis."
+              "approach_ar": [
+                  "بنيت الواجهة ولوحة التحكّم بـ Laravel ببنية MVC نضيفة",
+                  "كتبت تكاملًا مع واتساب عشان العملاء يقدروا يطلبوا من غير حساب",
+                  "زامنت المخزون والطلبات في الاتجاهين مع منصّة زد",
+                  "خلّيت لوحة التحكّم بسيطة — صاحب المحلّ يقدر ينشر منتج في أقل من دقيقة"
+              ],
+              "outcome": "Production storefront running for multiple clients. WhatsApp flow proved out the conversion-first hypothesis.",
+              "outcome_ar": "واجهة متجر شغّالة فعليًا لأكتر من عميل. ومسار واتساب أثبت فرضية «التحويل أولاً»."
           }
       },
       {
@@ -245,43 +259,57 @@ const PORTFOLIO_DATA = {
               {
                   "video": "videos/salsabeel-1-main.mp4",
                   "poster": "videos/posters/salsabeel-1-main-poster.jpg",
-                  "caption": "Main operations dashboard"
+                  "caption": "Main operations dashboard",
+                  "caption_ar": "لوحة التشغيل الرئيسية"
               },
               {
                   "video": "videos/salsabeel-2-scraping.mp4",
                   "poster": "videos/posters/salsabeel-2-scraping-poster.jpg",
-                  "caption": "Menu scraper running"
+                  "caption": "Menu scraper running",
+                  "caption_ar": "أداة سحب المنيو أثناء العمل"
               },
               {
                   "video": "videos/salsabeel-3.mp4",
                   "poster": "videos/posters/salsabeel-3-poster.jpg",
-                  "caption": "Order screen — branch view"
+                  "caption": "Order screen — branch view",
+                  "caption_ar": "شاشة الطلبات — عرض الفرع"
               },
               {
                   "video": "videos/salsabeel-4.mp4",
                   "poster": "videos/posters/salsabeel-4-poster.jpg",
-                  "caption": "Kitchen routing"
+                  "caption": "Kitchen routing",
+                  "caption_ar": "توجيه المطبخ"
               },
               {
                   "video": "videos/salsabeel-5.mp4",
                   "poster": "videos/posters/salsabeel-5-poster.jpg",
-                  "caption": "Reports & daily totals"
+                  "caption": "Reports & daily totals",
+                  "caption_ar": "التقارير والإجماليات اليومية"
               },
               {
                   "video": "videos/salsabeel-6.mp4",
                   "poster": "videos/posters/salsabeel-6-poster.jpg",
-                  "caption": "Mobile manager flow"
+                  "caption": "Mobile manager flow",
+                  "caption_ar": "واجهة المدير على الموبايل"
               }
           ],
           "caseStudy": {
               "problem": "Salsabeel was managing a multi-branch restaurant with phone orders, paper tickets, and a slow public menu. Branches couldn't see live order load and the kitchen had no priority signal.",
+              "problem_ar": "سلسبيل كان بيدير مطعمًا متعدّد الفروع بطلبات تليفونية، وتذاكر ورقية، ومنيو عام بطيء. الفروع ما كانتش بتشوف حِمل الطلبات الحيّ، والمطبخ ماكانش عنده إشارة أولوية.",
               "approach": [
                   "Built a React dashboard centered on the live order queue and per-branch load",
                   "Wrote a scraper that pulls the public menu into MongoDB on a schedule",
                   "Added kitchen routing rules and per-station priority",
                   "Shipped a manager-only mobile flow for end-of-day reports"
               ],
-              "outcome": "Branches stopped using paper. Average ticket time dropped during peak hours. The menu now updates without manual data entry."
+              "approach_ar": [
+                  "بنيت لوحة React محورها طابور الطلبات الحيّ وحِمل كل فرع",
+                  "كتبت أداة سحب بتجيب المنيو العام إلى MongoDB بشكل مجدول",
+                  "أضفت قواعد توجيه للمطبخ وأولوية لكل محطة",
+                  "أطلقت واجهة موبايل للمدير فقط لتقارير نهاية اليوم"
+              ],
+              "outcome": "Branches stopped using paper. Average ticket time dropped during peak hours. The menu now updates without manual data entry.",
+              "outcome_ar": "الفروع بطّلت ورق. ومتوسّط زمن التذكرة قلّ في ساعات الذروة. والمنيو دلوقتي بيتحدّث من غير إدخال بيانات يدوي."
           }
       },
       {
@@ -306,38 +334,51 @@ const PORTFOLIO_DATA = {
               {
                   "video": "videos/alibaba-1-pos.mp4",
                   "poster": "videos/posters/alibaba-1-pos-poster.jpg",
-                  "caption": "Cashier flow — full sale"
+                  "caption": "Cashier flow — full sale",
+                  "caption_ar": "حركة الكاشير — عملية بيع كاملة"
               },
               {
                   "video": "videos/alibaba-2.mp4",
                   "poster": "videos/posters/alibaba-2-poster.jpg",
-                  "caption": "Returns and refund flow"
+                  "caption": "Returns and refund flow",
+                  "caption_ar": "المرتجعات واسترداد المبالغ"
               },
               {
                   "video": "videos/alibaba-3.mp4",
                   "poster": "videos/posters/alibaba-3-poster.jpg",
-                  "caption": "Stock check and adjustments"
+                  "caption": "Stock check and adjustments",
+                  "caption_ar": "جرد المخزون وتعديلاته"
               },
               {
                   "video": "videos/alibaba-4.mp4",
                   "poster": "videos/posters/alibaba-4-poster.jpg",
-                  "caption": "Reports and Z-report"
+                  "caption": "Reports and Z-report",
+                  "caption_ar": "التقارير وتقرير Z"
               },
               {
                   "video": "videos/alibaba-5.mp4",
                   "poster": "videos/posters/alibaba-5-poster.jpg",
-                  "caption": "Multi-terminal sync"
+                  "caption": "Multi-terminal sync",
+                  "caption_ar": "مزامنة الأجهزة المتعدّدة"
               }
           ],
           "caseStudy": {
               "problem": "The client was running 3 cashier terminals on a shared spreadsheet. Daily reconciliation took hours and no one trusted the numbers.",
+              "problem_ar": "العميل كان بيشغّل 3 أجهزة كاشير على شيت إكسل مشترك. التسوية اليومية كانت بتاخد ساعات ومحدش بيثق في الأرقام.",
               "approach": [
                   "Built an Electron-based POS so it ships as a single installer for Windows tills",
                   "Used PostgreSQL with a clean transaction model — every sale is one atomic write",
                   "Added printer drivers for the standard ESC/POS receipt hardware",
                   "Wrote a daily Z-report that exports per-terminal and consolidated"
               ],
-              "outcome": "Daily close went from ~90 minutes to under 10. No more spreadsheet sync errors."
+              "approach_ar": [
+                  "بنيت نظام كاشير بـ Electron عشان ينزل كـ installer واحد لأجهزة ويندوز",
+                  "استخدمت PostgreSQL بنموذج معاملات نضيف — كل عملية بيع كتابة واحدة ذرّية",
+                  "أضفت تعريفات طابعات لأجهزة إيصالات ESC/POS القياسية",
+                  "كتبت تقرير Z يومي بيصدّر لكل جهاز ومجمّع كمان"
+              ],
+              "outcome": "Daily close went from ~90 minutes to under 10. No more spreadsheet sync errors.",
+              "outcome_ar": "إقفال اليوم نزل من ~90 دقيقة لأقل من 10. وخلاص مفيش أخطاء مزامنة إكسل."
           }
       },
       {
@@ -361,17 +402,25 @@ const PORTFOLIO_DATA = {
               {
                   "video": "videos/clothes-pos.mp4",
                   "poster": "videos/posters/clothes-pos-poster.jpg",
-                  "caption": "Cashier flow with size/color"
+                  "caption": "Cashier flow with size/color",
+                  "caption_ar": "حركة الكاشير بالمقاس واللون"
               }
           ],
           "caseStudy": {
               "problem": "Generic POS systems don't model the size × color matrix that apparel retailers actually need. The client kept reconciling stock manually.",
+              "problem_ar": "أنظمة الكاشير العامّة مابتمثّلش مصفوفة المقاس × اللون اللي محلات الملابس محتاجاها فعلاً. فالعميل كان بيسوّي المخزون يدويًا على طول.",
               "approach": [
                   "Modeled SKUs as a (style × size × color) tuple from day one",
                   "Built a fast scan-driven cashier that handles the common changing-room return",
                   "Added supplier purchase orders and a low-stock alert per variant"
               ],
-              "outcome": "Stock reconciliation moved from weekly to live."
+              "approach_ar": [
+                  "مثّلت أصناف المخزون كـ (موديل × مقاس × لون) من أول يوم",
+                  "بنيت كاشير سريع بالباركود بيتعامل مع مرتجعات غرفة القياس الشائعة",
+                  "أضفت أوامر شراء للموردين وتنبيه نقص مخزون لكل صنف فرعي"
+              ],
+              "outcome": "Stock reconciliation moved from weekly to live.",
+              "outcome_ar": "تسوية المخزون اتحوّلت من أسبوعية إلى لحظية."
           }
       },
       {
@@ -395,17 +444,25 @@ const PORTFOLIO_DATA = {
               {
                   "video": "videos/alnoor-school.mp4",
                   "poster": "videos/posters/alnoor-school-poster.jpg",
-                  "caption": "Site walkthrough"
+                  "caption": "Site walkthrough",
+                  "caption_ar": "جولة في الموقع"
               }
           ],
           "caseStudy": {
               "problem": "The school's old site was a Word document exported to PDF. Parents called the office for everything because the site told them nothing.",
+              "problem_ar": "موقع المدرسة القديم كان ملف Word متصدّر PDF. أولياء الأمور كانوا بيتّصلوا بالمكتب في كل حاجة لأن الموقع ماكانش بيقول لهم أي حاجة.",
               "approach": [
                   "Rebuilt as a fast, mobile-first site with a clear admissions funnel",
                   "Added a simple parent portal — login, view child's class, see the calendar",
                   "Kept the editorial workflow lightweight so the office can publish news without IT"
               ],
-              "outcome": "Office calls for routine info dropped noticeably. Admissions intake is now online end-to-end."
+              "approach_ar": [
+                  "أعدت بناءه كموقع سريع يبدأ من الموبايل بمسار التحاق واضح",
+                  "أضفت بوّابة بسيطة لولي الأمر — تسجيل دخول، ومتابعة فصل ابنه، والتقويم",
+                  "خلّيت نشر المحتوى خفيفًا عشان المكتب ينشر الأخبار من غير قسم تقني"
+              ],
+              "outcome": "Office calls for routine info dropped noticeably. Admissions intake is now online end-to-end.",
+              "outcome_ar": "مكالمات المكتب للاستفسارات الروتينية قلّت بوضوح. والتحاق الطلاب بقى أونلاين من أوّله لآخره."
           }
       },
       {
@@ -430,18 +487,27 @@ const PORTFOLIO_DATA = {
               {
                   "video": "videos/cw-app.mp4",
                   "poster": "videos/posters/cw-app-poster.jpg",
-                  "caption": "Cashier + admin walkthrough"
+                  "caption": "Cashier + admin walkthrough",
+                  "caption_ar": "جولة الكاشير ولوحة التحكّم"
               }
           ],
           "caseStudy": {
               "problem": "A computer shop was juggling sales on paper receipts and a spreadsheet — no real stock view, no warranty trail, and reconciliation took hours every day.",
+              "problem_ar": "محلّ كمبيوتر كان بيدير المبيعات بإيصالات ورقية وشيت إكسل — من غير رؤية حقيقية للمخزون، ولا سجلّ للضمان، والتسوية كانت بتاخد ساعات كل يوم.",
               "approach": [
                   "Built a cashier flow tuned for barcode scanning and quick keyboard entry",
                   "Modeled stock by serial number so warranty + returns are traceable per unit",
                   "Added a supplier-order screen with a simple receive-into-stock workflow",
                   "Generated a daily Z-report exporting per-cashier and consolidated totals"
               ],
-              "outcome": "Replaced the paper + spreadsheet system entirely. Daily reconciliation went from hours to under 15 minutes. Stock now lives in one place, accurate, with warranty history intact."
+              "approach_ar": [
+                  "بنيت حركة كاشير مضبوطة على قراءة الباركود والإدخال السريع بالكيبورد",
+                  "مثّلت المخزون بالرقم التسلسلي عشان الضمان والمرتجعات يتتبّعوا لكل وحدة",
+                  "أضفت شاشة طلبات موردين بمسار بسيط لاستلام البضاعة في المخزون",
+                  "أنتجت تقرير Z يومي بيصدّر إجماليات كل كاشير والإجمالي المجمّع"
+              ],
+              "outcome": "Replaced the paper + spreadsheet system entirely. Daily reconciliation went from hours to under 15 minutes. Stock now lives in one place, accurate, with warranty history intact.",
+              "outcome_ar": "استبدل نظام الورق والإكسل بالكامل. والتسوية اليومية نزلت من ساعات لأقل من 15 دقيقة. والمخزون بقى في مكان واحد، دقيق، وبسجلّ ضمان محفوظ."
           }
       },
       {
@@ -466,38 +532,51 @@ const PORTFOLIO_DATA = {
               {
                   "video": "videos/portfolio-iter-1.mp4",
                   "poster": "videos/posters/portfolio-iter-1-poster.jpg",
-                  "caption": "Iteration 1 — the long version"
+                  "caption": "Iteration 1 — the long version",
+                  "caption_ar": "الإصدار 1 — النسخة الطويلة"
               },
               {
                   "video": "videos/portfolio-iter-2.mp4",
                   "poster": "videos/posters/portfolio-iter-2-poster.jpg",
-                  "caption": "Iteration 2 — early identity"
+                  "caption": "Iteration 2 — early identity",
+                  "caption_ar": "الإصدار 2 — هويّة مبكّرة"
               },
               {
                   "video": "videos/portfolio-iter-3.mp4",
                   "poster": "videos/posters/portfolio-iter-3-poster.jpg",
-                  "caption": "Iteration 3 — refinement"
+                  "caption": "Iteration 3 — refinement",
+                  "caption_ar": "الإصدار 3 — تحسين وصقل"
               },
               {
                   "video": "videos/portfolio-iter-4.mp4",
                   "poster": "videos/posters/portfolio-iter-4-poster.jpg",
-                  "caption": "Iteration 4 — motion experiments"
+                  "caption": "Iteration 4 — motion experiments",
+                  "caption_ar": "الإصدار 4 — تجارب الحركة"
               },
               {
                   "video": "videos/portfolio-iter-5.mp4",
                   "poster": "videos/posters/portfolio-iter-5-poster.jpg",
-                  "caption": "Iteration 5 — current direction"
+                  "caption": "Iteration 5 — current direction",
+                  "caption_ar": "الإصدار 5 — الاتجاه الحالي"
               }
           ],
           "caseStudy": {
               "problem": "Designing for yourself is the hardest project. Every iteration was an honest attempt to answer 'what do I actually want to say?'",
+              "problem_ar": "التصميم لنفسك أصعب مشروع. كل إصدار كان محاولة صادقة للإجابة على سؤال «أنا عايز أقول إيه فعلاً؟»",
               "approach": [
                   "Started with a heavy cyber/terminal aesthetic — read as 'AI-generated'",
                   "Pulled back, moved to a warm editorial palette and serif typography",
                   "Locked a single accent color and stopped fighting the system",
                   "Kept the technical signals (terminal, glitch, scroll-scrub) but tuned the volume down"
               ],
-              "outcome": "What you're looking at now. Calmer, more confident, more me."
+              "approach_ar": [
+                  "بدأت بطابع سايبر/ترمينال تقيل — طلع شكله «مولّد بالذكاء الاصطناعي»",
+                  "رجعت خطوة لورا، وتحوّلت لألوان تحريرية دافئة وخطوط serif",
+                  "ثبّتت لون تمييز واحد وبطّلت أحارب النظام",
+                  "احتفظت بالإشارات التقنية (ترمينال، جليتش، تمرير) بس خفّضت صوتها"
+              ],
+              "outcome": "What you're looking at now. Calmer, more confident, more me.",
+              "outcome_ar": "اللي بتشوفه دلوقتي. أهدأ، وأكتر ثقة، وأقرب ليّا."
           }
       },
       {
@@ -520,13 +599,21 @@ const PORTFOLIO_DATA = {
           "gallery": [],
           "caseStudy": {
               "problem": "Manual web app testing is slow and inconsistent — testers miss the same classes of issues repeatedly. I wanted a tool that ran the OWASP top-10 checklist automatically against any URL.",
+              "problem_ar": "اختبار تطبيقات الويب يدويًا بطيء وغير متّسق — المختبِرين بيفوّتوا نفس أنواع المشاكل مرّة ورا مرّة. كنت عايز أداة تشغّل قائمة OWASP العشرة تلقائيًا على أي رابط.",
               "approach": [
                   "Built a modular Python scanner with one detector per OWASP category",
                   "Used Requests + BeautifulSoup for crawling and form discovery",
                   "Tested heuristics on intentionally vulnerable apps (DVWA, Juice Shop)",
                   "Generated a structured report with severity rankings and remediation hints"
               ],
-              "outcome": "Catches XSS, SQLi, and open-redirect issues across a corpus of test apps. Used as a learning lab and a starting point for engagements."
+              "approach_ar": [
+                  "بنيت ماسحًا معياريًا بـ Python بكاشف مستقل لكل فئة من OWASP",
+                  "استخدمت Requests + BeautifulSoup للزحف واكتشاف النماذج",
+                  "جرّبت الاستدلالات على تطبيقات ضعيفة عمدًا (DVWA، Juice Shop)",
+                  "أنتجت تقريرًا منظّمًا بترتيب للخطورة وتلميحات للمعالجة"
+              ],
+              "outcome": "Catches XSS, SQLi, and open-redirect issues across a corpus of test apps. Used as a learning lab and a starting point for engagements.",
+              "outcome_ar": "بيمسك ثغرات XSS وحقن SQL والتحويل المفتوح عبر مجموعة تطبيقات اختبار. بستخدمه كمعمل تعلّم ونقطة بداية للمهام."
           }
       },
       {
@@ -549,13 +636,21 @@ const PORTFOLIO_DATA = {
           "gallery": [],
           "caseStudy": {
               "problem": "Small-office networks often go down without anyone noticing until users complain. Needed lightweight, real-time visibility without enterprise tooling.",
+              "problem_ar": "شبكات المكاتب الصغيرة كتير بتقع من غير ما حد ياخد باله لحدّ ما المستخدمين يشتكوا. كنت محتاج رؤية لحظية خفيفة من غير أدوات المؤسّسات الضخمة.",
               "approach": [
                   "Polled key hosts on the LAN using Nmap host-discovery + ping",
                   "Tracked bandwidth via interface counters on the local gateway",
                   "Alerted on disconnects, latency spikes, and traffic anomalies",
                   "Rendered the data in a simple terminal-style live dashboard"
               ],
-              "outcome": "Replaced 'is the internet down?' guessing with a continuously updated map of which hosts are alive and how the link is performing."
+              "approach_ar": [
+                  "فحصت الأجهزة المهمّة على الشبكة باستخدام اكتشاف Nmap + ping",
+                  "تتبّعت استهلاك النطاق عبر عدّادات الواجهات على البوّابة المحلية",
+                  "نبّهت على الانقطاعات، وقفزات التأخير، وشذوذ المرور",
+                  "عرضت البيانات في لوحة حيّة بسيطة بطابع الترمينال"
+              ],
+              "outcome": "Replaced 'is the internet down?' guessing with a continuously updated map of which hosts are alive and how the link is performing.",
+              "outcome_ar": "استبدلت تخمين «هل النت واقع؟» بخريطة بتتحدّث باستمرار توضّح أي أجهزة شغّالة وحالة الاتصال."
           }
       },
       {
@@ -578,13 +673,21 @@ const PORTFOLIO_DATA = {
           "gallery": [],
           "caseStudy": {
               "problem": "CTF challenges teach a lot, but the learning evaporates without writeups. Wanted a personal knowledge base of exploitation patterns.",
+              "problem_ar": "تحدّيات CTF بتعلّم كتير، بس التعلّم بيتبخّر من غير توثيق. كنت عايز قاعدة معرفة شخصية لأنماط الاستغلال.",
               "approach": [
                   "Solved challenges across web, binary, crypto, and forensics categories",
                   "Documented each one with the reconnaissance steps, key insight, and final payload",
                   "Built a tooling kit (Burp configs, Python helpers, GDB recipes) reused across solves",
                   "Organized writeups in a searchable repo"
               ],
-              "outcome": "Sharpened web-app pentesting reflexes and built a reference library used in later engagements."
+              "approach_ar": [
+                  "حلّيت تحدّيات في فئات الويب والثنائيات والتشفير والأدلة الجنائية",
+                  "وثّقت كل واحد بخطوات الاستطلاع، والفكرة المفتاحية، والحمولة النهائية",
+                  "بنيت عُدّة أدوات (إعدادات Burp، مساعدات Python، وصفات GDB) بعيد استخدامها في الحلول",
+                  "نظّمت التوثيقات في مستودع قابل للبحث"
+              ],
+              "outcome": "Sharpened web-app pentesting reflexes and built a reference library used in later engagements.",
+              "outcome_ar": "شحذ ردود فعلي في اختبار اختراق الويب، وبنى مكتبة مرجعية بستخدمها في المهام اللاحقة."
           }
       },
       {
@@ -607,13 +710,21 @@ const PORTFOLIO_DATA = {
           "gallery": [],
           "caseStudy": {
               "problem": "Practicing offensive techniques on live systems is illegal. Needed a controlled lab where I could break things without consequences.",
+              "problem_ar": "التدرّب على التقنيات الهجومية على أنظمة حيّة غير قانوني. كنت محتاج معملًا مضبوطًا أقدر أكسّر فيه حاجات من غير عواقب.",
               "approach": [
                   "Built a multi-VM environment in VMware: Kali + Metasploitable + DVWA",
                   "Configured isolated host-only networking for safe traffic capture",
                   "Set up snapshots so I could roll back after destructive payloads",
                   "Documented the lab so I can rebuild it on a fresh machine in minutes"
               ],
-              "outcome": "Daily playground for OWASP, Metasploit, and red-team techniques."
+              "approach_ar": [
+                  "بنيت بيئة أجهزة افتراضية متعدّدة في VMware: Kali + Metasploitable + DVWA",
+                  "أعددت شبكة معزولة (host-only) لالتقاط المرور بأمان",
+                  "جهّزت لقطات (snapshots) عشان أرجّع الحالة بعد الحمولات المدمّرة",
+                  "وثّقت المعمل عشان أقدر أعيد بناءه على جهاز جديد في دقائق"
+              ],
+              "outcome": "Daily playground for OWASP, Metasploit, and red-team techniques.",
+              "outcome_ar": "ملعب يومي لتقنيات OWASP وMetasploit والفريق الأحمر."
           }
       }
   ],
@@ -693,7 +804,7 @@ const PROJECT_CASE_STUDIES = {
 
 if (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.projects) {
   PORTFOLIO_DATA.projects.forEach(p => {
-    if (PROJECT_CASE_STUDIES[p.title]) p.caseStudy = PROJECT_CASE_STUDIES[p.title];
+    if (PROJECT_CASE_STUDIES[p.title] && !p.caseStudy) p.caseStudy = PROJECT_CASE_STUDIES[p.title];
   });
 }
 
