@@ -1119,6 +1119,62 @@
     if (modalNext) modalNext.disabled = activeClip === g.length - 1;
   }
 
+  /* Every language-dependent field in the modal, in one place. Split out of
+     openProject so it can be re-run on i18n:changed — otherwise a modal that
+     was populated before the language settled (deep links) or one that's open
+     when the visitor toggles languages keeps rendering the stale language. */
+  function fillModalText(project) {
+    if (!project) return;
+    const pick = window.__pickLang || ((o, f) => (o ? o[f] : undefined));
+    const lang = (window.getLang && window.getLang()) || 'en';
+    const cs = project.caseStudy || {};
+
+    modalType.textContent = pick(project, 'type') || '';
+    modalYear.textContent = project.year || '';
+    modalTitle.textContent = pick(project, 'title') || '';
+    modalLede.textContent = pick(project, 'description') || '';
+
+    // Reading time — based on case study text (200 wpm)
+    if (modalRead) {
+      const text = [
+        pick(project, 'description') || '',
+        pick(cs, 'problem') || '',
+        ...(pick(cs, 'approach') || []),
+        pick(cs, 'outcome') || ''
+      ].join(' ');
+      const words = text.trim().split(/\s+/).filter(Boolean).length;
+      const mins = Math.max(1, Math.round(words / 200));
+      modalRead.textContent = lang === 'ar' ? `${mins} د قراءة` : `${mins} min read`;
+    }
+
+    modalProblem.textContent = pick(cs, 'problem') || '';
+    modalApproach.innerHTML = (pick(cs, 'approach') || []).map(s => `<li>${esc(s)}</li>`).join('');
+    modalOutcome.textContent = pick(cs, 'outcome') || '';
+
+    modalTech.innerHTML = (project.tech || []).map(t => `<li>${esc(t)}</li>`).join('');
+
+    const links = [];
+    if (project.github) links.push(`<a href="${esc(project.github)}" target="_blank" rel="noopener">Source <span>→</span></a>`);
+    if (project.demo)   links.push(`<a href="${esc(project.demo)}" target="_blank" rel="noopener">Live demo <span>→</span></a>`);
+    // No public links → say so honestly (client work, delivered locally).
+    if (!project.github && !project.demo) {
+      const txt = lang === 'ar'
+        ? 'تسليم لدى العميل · المصدر خاص'
+        : 'Delivered to client · source private';
+      links.push(`<span class="modal-private">${txt}</span>`);
+    }
+    modalLinks.innerHTML = links.join('');
+
+    // caption belongs to the active clip, not the project
+    const clip = (project.gallery || [])[activeClip];
+    if (modalCaption && clip) modalCaption.textContent = pick(clip, 'caption') || '';
+  }
+
+  // Re-render an open modal when the language changes.
+  document.addEventListener('i18n:changed', () => {
+    if (modal && modal.classList.contains('is-open') && activeProject) fillModalText(activeProject);
+  });
+
   function openProject(project, opts) {
     if (!modal || !project) return;
     activeProject = project;
@@ -1136,48 +1192,7 @@
       modal.style.setProperty('--tmodal-origin', '50% 50%');
     }
 
-    const pick = window.__pickLang || ((o, f) => (o ? o[f] : undefined));
-
-    modalType.textContent = pick(project, 'type') || '';
-    modalYear.textContent = project.year || '';
-    modalTitle.textContent = pick(project, 'title') || '';
-    modalLede.textContent = pick(project, 'description') || '';
-
-    // Reading time — based on case study text (200 wpm)
-    if (modalRead) {
-      const cs0 = project.caseStudy || {};
-      const text = [
-        pick(project, 'description') || '',
-        pick(cs0, 'problem') || '',
-        ...(pick(cs0, 'approach') || []),
-        pick(cs0, 'outcome') || ''
-      ].join(' ');
-      const words = text.trim().split(/\s+/).filter(Boolean).length;
-      const mins = Math.max(1, Math.round(words / 200));
-      const lang = (window.getLang && window.getLang()) || 'en';
-      const label = lang === 'ar' ? `${mins} د قراءة` : `${mins} min read`;
-      modalRead.textContent = label;
-    }
-
-    const cs = project.caseStudy || {};
-    modalProblem.textContent = pick(cs, 'problem') || '';
-    modalApproach.innerHTML = (pick(cs, 'approach') || []).map(s => `<li>${esc(s)}</li>`).join('');
-    modalOutcome.textContent = pick(cs, 'outcome') || '';
-
-    modalTech.innerHTML = (project.tech || []).map(t => `<li>${esc(t)}</li>`).join('');
-
-    const links = [];
-    if (project.github) links.push(`<a href="${esc(project.github)}" target="_blank" rel="noopener">Source <span>→</span></a>`);
-    if (project.demo)   links.push(`<a href="${esc(project.demo)}" target="_blank" rel="noopener">Live demo <span>→</span></a>`);
-    // No public links → say so honestly (client work, delivered locally).
-    if (!project.github && !project.demo) {
-      const lang = (window.getLang && window.getLang()) || 'en';
-      const txt = lang === 'ar'
-        ? 'تسليم لدى العميل · المصدر خاص'
-        : 'Delivered to client · source private';
-      links.push(`<span class="modal-private">${txt}</span>`);
-    }
-    modalLinks.innerHTML = links.join('');
+    fillModalText(project);
 
     // build thumbs
     if (modalThumbs) {
