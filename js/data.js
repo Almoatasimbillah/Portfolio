@@ -119,6 +119,7 @@ const PORTFOLIO_DATA = {
       org: "ISTQB — International Software Testing Qualifications Board",
       org_ar: "ISTQB — المجلس الدولي لمؤهلات اختبار البرمجيات",
       year: "May 2026",
+      year_ar: "مايو 2026",
       status: "certified",
       note: "Exam passed · certificate pending",
       note_ar: "اجتزت الامتحان · الشهادة قيد الإصدار"
@@ -130,6 +131,7 @@ const PORTFOLIO_DATA = {
       org: "DEPI — Digital Egypt Pioneers Initiative",
       org_ar: "DEPI — مبادرة رواد مصر الرقمية",
       year: "Nov 2025 – May 2026",
+      year_ar: "نوفمبر 2025 – مايو 2026",
       status: "completed"
     },
     {
@@ -139,6 +141,7 @@ const PORTFOLIO_DATA = {
       org: "Self-Study & Practical Labs",
       org_ar: "دراسة ذاتية ومعامل تطبيقية",
       year: "2024 – Present",
+      year_ar: "2024 – حتى الآن",
       status: "active"
     },
     {
@@ -157,6 +160,7 @@ const PORTFOLIO_DATA = {
       org: "Egyptian Armed Forces",
       org_ar: "القوات المسلحة المصرية",
       year: "Jan 2024 – Mar 2025",
+      year_ar: "يناير 2024 – مارس 2025",
       status: "completed"
     }
   ],

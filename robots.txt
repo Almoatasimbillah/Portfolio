@@ -4,5 +4,7 @@ Disallow: /_unused_review/
 Disallow: /3D/
 Disallow: /frames/
 Disallow: /intro_frames/
+Disallow: /frames_mobile/
+Disallow: /intro_frames_mobile/
 
-Sitemap: https://almoatasim.dev/sitemap.xml
+Sitemap: https://almoatasim.vercel.app/sitemap.xml
