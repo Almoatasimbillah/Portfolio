@@ -367,14 +367,19 @@ window.I18N = {
     const dict = window.I18N[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      const txt = dict[key] || window.I18N.en[key] || '';
+      const txt = dict[key] ?? window.I18N.en[key];
+      // Unknown key → keep the markup's own text. Guards the deploy window
+      // where fresh HTML references keys a stale cached script doesn't have —
+      // blanking here wiped labels until the service worker updated.
+      if (txt == null) return;
       el.innerHTML = render(txt);
     });
 
     // Placeholders can't carry markup, so they get their own attribute
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.getAttribute('data-i18n-placeholder');
-      el.setAttribute('placeholder', dict[key] || window.I18N.en[key] || '');
+      const txt = dict[key] ?? window.I18N.en[key];
+      if (txt != null) el.setAttribute('placeholder', txt);
     });
 
     // Toggle button label = the OTHER language code
