@@ -68,8 +68,9 @@ function webglOK() {
 }
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const finePointer = window.matchMedia('(pointer: fine)').matches;
-const wideEnough = window.matchMedia('(min-width: 821px)').matches;
+// Data-saver users shouldn't pay for the ~4.5MB GLB — they get the light video.
+const saveData = !!(navigator.connection && navigator.connection.saveData);
+const smallScreen = window.matchMedia('(max-width: 820px)').matches;
 // Safari plays VP9 but not alpha WebM — the character would sit in a black box.
 const isSafari = /^((?!chrome|chromium|android|edg).)*safari/i.test(navigator.userAgent);
 const webmOK = !isSafari && document.createElement('video').canPlayType('video/webm; codecs="vp9"') !== '';
@@ -110,7 +111,9 @@ function mountFallback() {
   else mountPoster();
 }
 
-if (reducedMotion || !finePointer || !wideEnough || !webglOK()) {
+// Mobile gets the same live 3D scene as desktop (touch-tracked, perf-capped).
+// Fallbacks remain only for reduced-motion, data-saver, and no-WebGL visitors.
+if (reducedMotion || saveData || !webglOK()) {
   mountFallback();
 } else {
   mountLive();
@@ -129,7 +132,9 @@ function mountLive() {
     antialias: true,
     powerPreference: 'high-performance',
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  // Phones ship dpr 3 — rendering that many pixels tanks the frame rate for
+  // no visible gain at this size, so cap tighter on small screens.
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, smallScreen ? 1.75 : 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.shadowMap.enabled = true;
@@ -349,10 +354,20 @@ function mountLive() {
   let px = 0;
   let py = 0;
   let lastMove = performance.now();
-  window.addEventListener('mousemove', (e) => {
-    px = (e.clientX / window.innerWidth) * 2 - 1;
-    py = -(e.clientY / window.innerHeight) * 2 + 1;
+  function trackPoint(clientX, clientY) {
+    px = (clientX / window.innerWidth) * 2 - 1;
+    py = -(clientY / window.innerHeight) * 2 + 1;
     lastMove = performance.now();
+  }
+  window.addEventListener('mousemove', (e) => trackPoint(e.clientX, e.clientY), { passive: true });
+  // Touch parity: he follows the finger the same way he follows the cursor.
+  window.addEventListener('touchmove', (e) => {
+    const t = e.touches && e.touches[0];
+    if (t) trackPoint(t.clientX, t.clientY);
+  }, { passive: true });
+  window.addEventListener('touchstart', (e) => {
+    const t = e.touches && e.touches[0];
+    if (t) trackPoint(t.clientX, t.clientY);
   }, { passive: true });
   if (!Number.isNaN(forcedX)) px = forcedX;
   if (!Number.isNaN(forcedY)) py = forcedY;
@@ -367,7 +382,13 @@ function mountLive() {
     const ay = headWorldPos.y - 0.12;
     const az = headWorldPos.z;
     goalTgt.set(ax, ay, az);
-    goalPos.set(ax + px * 0.1, ay + 0.08 + py * 0.05, az + 1.16);
+    // The 1.16 distance frames a bust on a wide stage. Vertical FOV is fixed,
+    // so on narrow (portrait) stages the horizontal view shrinks and the head
+    // fills/overflows the frame — pull back as the aspect drops to keep a
+    // head-and-chest composition with side margins on phones.
+    const aspect = camera.aspect || 1;
+    const zoomOut = aspect >= 1.4 ? 1 : Math.min(1.9, Math.pow(1.4 / aspect, 0.55));
+    goalPos.set(ax + px * 0.1, ay + 0.08 + py * 0.05, az + 1.16 * zoomOut);
   }
 
   function snapCamera() {
