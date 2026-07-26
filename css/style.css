@@ -1553,10 +1553,13 @@ body.konami .progress{box-shadow:0 0 8px var(--accent)}
 .cred-pill-dot{
   width:6px;height:6px;border-radius:50%;background:var(--text-mute);
 }
-.cred-pill[data-status="certified"], .cred-pill[data-status="completed"]{
+.cred-pill[data-status="certified"],
+.cred-pill[data-status="passed"],
+.cred-pill[data-status="completed"]{
   border-color:rgba(125,211,192,0.5);background:rgba(125,211,192,0.08);
 }
 .cred-pill[data-status="certified"] .cred-pill-dot,
+.cred-pill[data-status="passed"] .cred-pill-dot,
 .cred-pill[data-status="completed"] .cred-pill-dot{
   background:var(--accent);box-shadow:0 0 8px rgba(125,211,192,0.6);
 }

@@ -8,6 +8,12 @@
    ·  konami easter egg
    ========================================================= */
 
+/* Shared i18n helpers — thin aliases over the ones i18n.js installs, declared
+   at file scope so every IIFE below can use them. Any string this file paints
+   into the page should go through T() so EN and AR stay in i18n.js together. */
+const T   = (key, fallback) => (window.t ? window.t(key, fallback) : (fallback ?? key));
+const num = (value) => (window.__num ? window.__num(value) : String(value ?? ''));
+
 (() => {
 
   /* ------------------------------------------------------------------
@@ -1108,7 +1114,7 @@
     modalVideo.load();
     modalVideo.play().catch(() => {});
     if (modalCaption) modalCaption.textContent = (window.__pickLang ? window.__pickLang(clip, 'caption') : clip.caption) || '';
-    if (modalCounter) modalCounter.textContent = `${activeClip + 1} / ${g.length}`;
+    if (modalCounter) modalCounter.textContent = `${num(activeClip + 1)} / ${num(g.length)}`;
 
     // thumbs active state
     if (modalThumbs) {
@@ -1130,7 +1136,7 @@
     const cs = project.caseStudy || {};
 
     modalType.textContent = pick(project, 'type') || '';
-    modalYear.textContent = project.year || '';
+    modalYear.textContent = num(project.year || '');
     modalTitle.textContent = pick(project, 'title') || '';
     modalLede.textContent = pick(project, 'description') || '';
 
@@ -1144,7 +1150,7 @@
       ].join(' ');
       const words = text.trim().split(/\s+/).filter(Boolean).length;
       const mins = Math.max(1, Math.round(words / 200));
-      modalRead.textContent = lang === 'ar' ? `${mins} د قراءة` : `${mins} min read`;
+      modalRead.textContent = `${num(mins)} ${T('modal.read', 'min read')}`;
     }
 
     modalProblem.textContent = pick(cs, 'problem') || '';
@@ -1154,14 +1160,11 @@
     modalTech.innerHTML = (project.tech || []).map(t => `<li>${esc(t)}</li>`).join('');
 
     const links = [];
-    if (project.github) links.push(`<a href="${esc(project.github)}" target="_blank" rel="noopener">Source <span>→</span></a>`);
-    if (project.demo)   links.push(`<a href="${esc(project.demo)}" target="_blank" rel="noopener">Live demo <span>→</span></a>`);
+    if (project.github) links.push(`<a href="${esc(project.github)}" target="_blank" rel="noopener">${esc(T('work.source', 'Source'))} <span>→</span></a>`);
+    if (project.demo)   links.push(`<a href="${esc(project.demo)}" target="_blank" rel="noopener">${esc(T('work.demo', 'Live demo'))} <span>→</span></a>`);
     // No public links → say so honestly (client work, delivered locally).
     if (!project.github && !project.demo) {
-      const txt = lang === 'ar'
-        ? 'تسليم لدى العميل · المصدر خاص'
-        : 'Delivered to client · source private';
-      links.push(`<span class="modal-private">${txt}</span>`);
+      links.push(`<span class="modal-private">${esc(T('work.private', 'Delivered to client · source private'))}</span>`);
     }
     modalLinks.innerHTML = links.join('');
 
@@ -1198,7 +1201,7 @@
     if (modalThumbs) {
       const g = project.gallery || [];
       modalThumbs.innerHTML = g.map((clip, i) =>
-        `<button class="modal-thumb" role="tab" aria-label="Clip ${i + 1}" data-clip="${i}" style="background-image:url('${esc(clip.poster || '')}')"></button>`
+        `<button class="modal-thumb" role="tab" aria-label="${esc(T('modal.clip', 'Clip'))} ${num(i + 1)}" data-clip="${i}" style="background-image:url('${esc(clip.poster || '')}')"></button>`
       ).join('');
     }
 
@@ -1433,7 +1436,9 @@
   const terminal = document.getElementById('terminal');
   const tBody    = document.getElementById('terminal-body');
   const tInput   = document.getElementById('terminal-input');
-  const history = []; let histIdx = -1;
+  // NOT `history` — this IIFE also calls history.pushState() for the
+  // ?project= deep links further down, and a local binding shadowed it.
+  const cmdHistory = []; let histIdx = -1;
 
   function tPrint(html, cls = 'terminal-output') {
     const div = document.createElement('div');
@@ -1474,11 +1479,11 @@ exit     · close terminal`),
 
     whoami: () => tPrint(
       `<strong>AlMoatasimbillah Medhat</strong> — software engineer &amp; penetration tester
-based in Cairo. building software carefully, breaking it on purpose.
-five years in the field. Computer Engineering, BHI University.`),
+based in Sharkia. building software carefully, breaking it on purpose.
+in the field since 2019. Computer Engineering, BHI University.`),
 
     skills: () => tPrint(
-      `<strong>six categories, ~40 tools</strong>
+      `<strong>six categories, 39 tools</strong>
 cybersecurity   · penetration testing, OWASP Top 10, Burp Suite, Nmap, Metasploit
 engineering     · Java, OOP, ISTQB, test case design, SDLC
 automation      · Python, Bash, CLI tooling
@@ -1488,7 +1493,7 @@ tools           · Git, VS Code, Postman, Jira, Trello`),
 
     projects: () => tPrint(
       `<strong>11 projects total</strong>
-client work    · BoxStore, Salsabeel, Ali Baba POS, Clothes POS, Al-Noor School, CW App, Portfolio Evolution
+client work    · BoxStore, Salsabeel, Ali Baba POS, Clothes POS, Al-Noor School, CW Point of Sale, Portfolio Evolution
 lab / security · Web Vuln Scanner, Network Monitor, CTF Writeups, Pentest Lab
 scroll down or type <strong>exit</strong> + click any card.`),
 
@@ -1543,7 +1548,7 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
     tEcho(raw);
     if (COMMANDS[cmd]) COMMANDS[cmd]();
     else tPrint(`<strong>${esc(cmd)}</strong>: command not found. type <em>help</em>.`, 'terminal-output');
-    history.unshift(raw); histIdx = -1;
+    cmdHistory.unshift(raw); histIdx = -1;
   }
 
   function openTerminal() {
@@ -1570,10 +1575,10 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
         runCommand(v);
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        if (history[histIdx + 1] !== undefined) { histIdx++; tInput.value = history[histIdx]; }
+        if (cmdHistory[histIdx + 1] !== undefined) { histIdx++; tInput.value = cmdHistory[histIdx]; }
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
-        if (histIdx > 0) { histIdx--; tInput.value = history[histIdx]; }
+        if (histIdx > 0) { histIdx--; tInput.value = cmdHistory[histIdx]; }
         else { histIdx = -1; tInput.value = ''; }
       } else if (e.key === 'Tab') {
         e.preventDefault();
@@ -1643,11 +1648,13 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
         countEl.className = 'filter-count';
         chip.appendChild(countEl);
       }
-      countEl.textContent = n;
+      countEl.textContent = num(n);
     });
   }
   // Wait a tick for the DOM to be populated by main.js, then paint
   setTimeout(paintFilterCounts, 0);
+  // main.js re-renders the rows on a language switch — repaint after it does
+  document.addEventListener('i18n:changed', () => setTimeout(paintFilterCounts, 0));
 
   filterChips.forEach(chip => {
     chip.addEventListener('click', () => {
@@ -1679,8 +1686,10 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
   // intercept modal open to push to URL
   const _origOpen = window.__openProject;
   if (_origOpen) {
-    window.__openProject = function(project) {
-      _origOpen(project);
+    // forward every argument — main.js passes a second {origin} option that
+    // the modal uses to grow out of the clicked card
+    window.__openProject = function(project, ...rest) {
+      _origOpen(project, ...rest);
       if (project && project.title) {
         const slug = slugify(project.title);
         const url = new URL(window.location.href);
@@ -1818,20 +1827,32 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
       if (!t) return;
       items.push({ kind: 'section', title: t.textContent.trim().replace(/\s+/g,' '), target: '#' + s.id });
     });
-    // projects
+    // projects — indexed in the display language, plus the English title as a
+    // hidden alias so "boxstore" still finds the card while browsing in Arabic
+    const pick = window.__pickLang || ((o, f) => (o ? o[f] : undefined));
     if (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.projects) {
       window.PORTFOLIO_DATA.projects.forEach(p => {
-        items.push({ kind: 'project', title: p.title, meta: p.type, project: p });
+        items.push({
+          kind: 'project',
+          title: pick(p, 'title') || p.title,
+          meta: pick(p, 'type') || p.type,
+          alias: p.title,
+          project: p,
+        });
       });
     }
     // skills
     if (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.skills) {
       window.PORTFOLIO_DATA.skills.forEach(s => {
-        s.tags.forEach(tag => items.push({ kind: 'skill', title: tag, meta: s.title, target: '#capabilities' }));
+        s.tags.forEach(tag => items.push({
+          kind: 'skill', title: tag, meta: pick(s, 'title') || s.title, target: '#capabilities',
+        }));
       });
     }
     return items;
   }
+  // the index caches display strings, so rebuild it when the language changes
+  document.addEventListener('i18n:changed', () => { palDataset = []; });
   let palDataset = [];
   function renderPaletteResults(q) {
     if (!palDataset.length) palDataset = buildPaletteIndex();
@@ -1840,19 +1861,15 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
     if (query) {
       hits = palDataset.filter(it =>
         it.title.toLowerCase().includes(query) ||
-        (it.meta && it.meta.toLowerCase().includes(query))
+        (it.meta && it.meta.toLowerCase().includes(query)) ||
+        (it.alias && it.alias.toLowerCase().includes(query))
       );
     }
     hits = hits.slice(0, 12);
     palItems = hits;
     if (!hits.length) {
-      const lang = (window.getLang && window.getLang()) || 'en';
-      const headline = lang === 'ar'
-        ? `لا نتائج لـ "${esc(q)}"`
-        : `Nothing matched “${esc(q)}”`;
-      const hint = lang === 'ar'
-        ? 'جرّب: <kbd>أعمال</kbd> · <kbd>قدرات</kbd> · <kbd>تواصل</kbd> · أو اسم مشروع.'
-        : 'Try: <kbd>work</kbd> · <kbd>skills</kbd> · <kbd>contact</kbd> · or a project name.';
+      const headline = `${esc(T('palette.empty', 'Nothing matched'))} “${esc(q)}”`;
+      const hint = T('palette.empty.hint', 'Try: <kbd>work</kbd> · <kbd>skills</kbd> · <kbd>contact</kbd> · or a project name.');
       palList.innerHTML = `
         <li class="pr-empty">
           <span class="pr-empty-headline">${headline}</span>
@@ -1862,7 +1879,7 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
     }
     palList.innerHTML = hits.map((it, i) => `
       <li role="option" data-i="${i}" aria-selected="${i === 0}">
-        <span class="pr-kind">${esc(it.kind)}</span>
+        <span class="pr-kind">${esc(T('palette.kind.' + it.kind, it.kind))}</span>
         <span class="pr-title">${esc(it.title)}</span>
         ${it.meta ? `<span class="pr-meta">${esc(it.meta)}</span>` : ''}
       </li>
@@ -2000,11 +2017,22 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
     function paint(d) {
       grid.querySelectorAll('[data-gh]').forEach(el => {
         const k = el.dataset.gh;
-        if (d[k] !== undefined) el.textContent = d[k];
+        if (d[k] !== undefined) el.textContent = num(d[k]);
       });
+      lastGhData = d;
     }
   }
+  let lastGhData = null;
   loadGhStats();
+  // repaint so the digits follow a language switch
+  document.addEventListener('i18n:changed', () => {
+    const grid = document.getElementById('gh-stats');
+    if (!grid || !lastGhData) return;
+    grid.querySelectorAll('[data-gh]').forEach(el => {
+      const k = el.dataset.gh;
+      if (lastGhData[k] !== undefined) el.textContent = num(lastGhData[k]);
+    });
+  });
 
   /* ------------------------------------------------------------------
      GitHub contributions heatmap — last 12 months × 7 days, cached 6h.
@@ -2074,8 +2102,8 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
       if (totalEl) {
         const lang = (window.getLang && window.getLang()) || 'en';
         const word = (window.I18N && window.I18N[lang] && window.I18N[lang]['gh.contributions']) || 'contributions';
-        const num  = d.total.toLocaleString(lang === 'ar' ? 'ar-EG' : 'en-US');
-        totalEl.textContent = `${num} ${word}`;
+        const total = d.total.toLocaleString(lang === 'ar' ? 'ar-EG' : 'en-US');
+        totalEl.textContent = `${total} ${word}`;
       }
     }
     document.addEventListener('i18n:changed', () => { if (data) paint(data); });

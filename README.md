@@ -4,7 +4,7 @@
 
 Pure HTML / CSS / vanilla JS portfolio. No frameworks, no bundler — built to deploy as a static site.
 
-**Live:** _(deploy URL goes here)_
+**Live:** https://almoatasim.vercel.app/
 
 ---
 
@@ -17,7 +17,7 @@ Pure HTML / CSS / vanilla JS portfolio. No frameworks, no bundler — built to d
   poster on touch / reduced-motion / no-WebGL visits
 - Blender-rendered desk-loop MP4 self-portrait in the About section
 - FFmpeg-extracted WebP frame sequences for the scroll-scrub intro
-- Google Fonts: Instrument Serif, Inter, JetBrains Mono, Amiri, IBM Plex Sans Arabic
+- Google Fonts: Instrument Serif, Inter, JetBrains Mono, Tajawal, El Messiri
 - Service Worker for offline caching (cache-first / network-first / SWR)
 - Web3Forms for the contact form
 
@@ -66,6 +66,16 @@ npx serve .
 python -m http.server 5173
 ```
 
+## Content checks
+
+The copy states facts that live in `js/data.js` ("thirty-nine tools", "eleven
+projects", the home town). This script re-derives every claim from the data and
+fails when prose and data disagree — plus EN/AR key parity and missing media:
+
+```bash
+node tools/content-check.mjs
+```
+
 ## Deploy
 
 Configured for **Vercel** out of the box (`vercel.json` ships security headers).
@@ -77,8 +87,10 @@ vercel --prod
 
 ## Pre-deploy checklist
 
-- [ ] Replace `YOUR_ACCESS_KEY_HERE` in `index.html` with a real Web3Forms key
-- [ ] Update canonical / hreflang / sitemap URLs to the final domain
+- [ ] `node tools/content-check.mjs` passes
+- [ ] Bump `VERSION` in `sw.js` — JS/CSS are cache-first, so returning visitors
+      keep the old bundle until it changes
+- [ ] Update canonical / hreflang / sitemap URLs + `<lastmod>` if the domain moved
 - [ ] Update CV PDF at `images/cv.pdf`
 - [ ] (optional) Set up Plausible analytics — uncomment the `<script>` in `index.html`
 

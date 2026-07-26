@@ -17,6 +17,11 @@
   // Arabic and that variant exists, otherwise the base (English) field. Works
   // for strings and arrays alike, so content translations live in data.js
   // without every render site needing to know the current language.
+  // Dictionary lookup + Arabic-Indic digit formatting (defined in i18n.js);
+  // the local fallbacks keep this file working if i18n.js ever fails to load.
+  const T = (key, fallback) => (window.t ? window.t(key, fallback) : (fallback ?? key));
+  const N = (value) => (window.__num ? window.__num(value) : String(value ?? ''));
+
   const L = (obj, field) => {
     const lang = (window.getLang && window.getLang()) || 'en';
     const ar = obj && obj[field + '_ar'];
@@ -39,14 +44,21 @@
     });
     return counts;
   }
+  // Match on whole words, not substrings. Substring matching credited the tag
+  // "Java" with every "JavaScript" project — five projects it was never used
+  // in. Word-set containment still catches the real variations
+  // ("Linux (Kali/Ubuntu)" ⊇ "Kali Linux") without the false positives.
+  const words = s => new Set(String(s).toLowerCase().split(/[^a-z0-9+#.]+/i).filter(Boolean));
+  const covers = (a, b) => [...b].every(w => a.has(w));
+
   function lookupTechCount(counts, tag) {
     const lc = String(tag).toLowerCase().trim();
     if (counts.has(lc)) return counts.get(lc);
-    // partial/substring match for variations (e.g., "Java" vs "JavaScript")
+    const tagWords = words(lc);
     let best = 0;
     for (const [k, v] of counts) {
-      if (k === lc) return v;
-      if (k.includes(lc) || lc.includes(k)) best = Math.max(best, v);
+      const techWords = words(k);
+      if (covers(tagWords, techWords) || covers(techWords, tagWords)) best = Math.max(best, v);
     }
     return best;
   }
@@ -60,7 +72,7 @@
         <ul class="skill-chips">
           ${cat.tags.map(t => {
             const n = lookupTechCount(counts, t);
-            const badge = n >= 2 ? `<span class="skill-count" aria-label="used in ${n} projects">${n}</span>` : '';
+            const badge = n >= 2 ? `<span class="skill-count" aria-label="used in ${n} projects">${N(n)}</span>` : '';
             return `<li>${escapeHtml(t)}${badge}</li>`;
           }).join('')}
         </ul>
@@ -92,8 +104,7 @@
     const yearLabel = (date, isFirst) => {
       if (isFirst) {
         const end = parseDateEnd(date);
-        if (end !== null && end >= Date.now())
-          return ((window.getLang && window.getLang()) === 'ar') ? 'الآن' : 'NOW';
+        if (end !== null && end >= Date.now()) return T('exp.now', 'NOW');
       }
       // Prefer the END year of the range (the year this chapter closed in),
       // not the start year. Falls back to the only year if no range.
@@ -112,7 +123,7 @@
             <h3 class="career-title">${escapeHtml(L(role, 'title'))}</h3>
             <p class="career-company"><em>${escapeHtml(L(role, 'company'))}</em></p>
           </div>
-          <div class="career-year"><span>${escapeHtml(yearLabel(role.date, i === 0))}</span></div>
+          <div class="career-year"><span>${escapeHtml(N(yearLabel(role.date, i === 0)))}</span></div>
           <div class="career-desc">
             ${(() => { const d = L(role, 'description') || []; return `
             <p>${escapeHtml(d[0] || '')}</p>
@@ -127,18 +138,12 @@
   function renderCredentials() {
     const host = $('#cred-rows');
     if (!host || !D.certifications) return;
-    // map data statuses → display labels (i18n later if needed)
-    const statusLabel = (s) => {
-      const lang = (window.getLang && window.getLang()) || 'en';
-      const en = { certified: 'Certified', completed: 'Completed', active: 'In progress', upcoming: 'Scheduled' };
-      const ar = { certified: 'حاصل عليها', completed: 'مكتملة', active: 'جارية', upcoming: 'مجدولة' };
-      const m = lang === 'ar' ? ar : en;
-      return m[s] || s;
-    };
+    // map data statuses → display labels (both languages live in i18n.js)
+    const statusLabel = (s) => T('cred.status.' + s, s);
     host.innerHTML = D.certifications.map(c => `
       <article class="cred-row cred-card" data-status="${escapeHtml(c.status || '')}">
         <span class="cred-icon" aria-hidden="true">${c.icon || '●'}</span>
-        <div class="cred-year">${escapeHtml(L(c, 'year'))}</div>
+        <div class="cred-year">${escapeHtml(N(L(c, 'year')))}</div>
         <div class="cred-main">
           <h3 class="cred-title">${escapeHtml(L(c, 'name'))}</h3>
           <p class="cred-org"><em>${escapeHtml(L(c, 'org'))}</em>${L(c, 'note') ? ' · <span class="muted">' + escapeHtml(L(c, 'note')) + '</span>' : ''}</p>
@@ -173,10 +178,10 @@
       const mediaHTML = isLab ? `
         <div class="work-media lab-media">
           <div class="lab-card">
-            <span class="lab-num">${String(i + 1).padStart(2, '0')}</span>
+            <span class="lab-num">${N(String(i + 1).padStart(2, '0'))}</span>
             <span class="lab-type"><em>${escapeHtml(L(p, 'type') || 'Lab')}</em></span>
             <span class="lab-title">${escapeHtml(L(p, 'title'))}</span>
-            <span class="lab-meta">${escapeHtml(((window.getLang && window.getLang()) === 'ar') ? 'التسجيل قيد التجهيز' : 'recording in production')}</span>
+            <span class="lab-meta">${escapeHtml(T('work.labmeta', 'recording in progress'))}</span>
           </div>
         </div>
       ` : `
@@ -186,15 +191,15 @@
             src="${escapeHtml(firstClip.video)}"
             data-poster="${escapeHtml(firstClip.poster)}"
             muted playsinline loop preload="none"></video>
-          ${p.gallery.length > 1 ? `<span class="work-counter">1 / ${p.gallery.length}</span>` : ''}
+          ${p.gallery.length > 1 ? `<span class="work-counter">${N(1)} / ${N(p.gallery.length)}</span>` : ''}
         </div>
       `;
 
       const techHTML = (p.tech || []).map(t => `<li>${escapeHtml(t)}</li>`).join('');
 
       const linksHTML = [
-        p.github ? `<a href="${escapeHtml(p.github)}" target="_blank" rel="noopener" class="work-link">Source <span>→</span></a>` : '',
-        p.demo   ? `<a href="${escapeHtml(p.demo)}"   target="_blank" rel="noopener" class="work-link">Live demo <span>→</span></a>` : '',
+        p.github ? `<a href="${escapeHtml(p.github)}" target="_blank" rel="noopener" class="work-link">${escapeHtml(T('work.source', 'Source'))} <span>→</span></a>` : '',
+        p.demo   ? `<a href="${escapeHtml(p.demo)}"   target="_blank" rel="noopener" class="work-link">${escapeHtml(T('work.demo', 'Live demo'))} <span>→</span></a>` : '',
       ].filter(Boolean).join('');
 
       const slug = (window.__slugify ? window.__slugify(p.title) : p.title.toLowerCase().replace(/[^a-z0-9]+/g,'-'));
@@ -204,7 +209,7 @@
           <div class="work-text">
             <div class="work-meta">
               <span class="work-type"><em>${escapeHtml(L(p, 'type'))}</em></span>
-              <span class="work-year">${escapeHtml(String(p.year || ''))}</span>
+              <span class="work-year">${escapeHtml(N(p.year || ''))}</span>
             </div>
             <h3 class="work-title">${escapeHtml(L(p, 'title'))}</h3>
             <p class="work-desc">${escapeHtml(L(p, 'description') || '')}</p>
@@ -336,6 +341,11 @@
 
   // Re-render when the language changes so the badge label updates
   document.addEventListener('i18n:changed', () => {
+    // the character counter is painted once at load — repaint it so the digits
+    // follow the language too
+    const countEl = document.getElementById('tmodal-count');
+    const textEl  = document.querySelector('#tmodal-form textarea[name="text"]');
+    if (countEl) countEl.textContent = `${N(textEl ? textEl.value.length : 0)} / ${N(500)}`;
     renderTestimonials();
     renderCredentials();
     renderSkills();
@@ -367,7 +377,7 @@
       document.body.style.overflow = '';
       if (status) status.textContent = '';
       form.reset();
-      if (count) count.textContent = '0 / 500';
+      if (count) count.textContent = `${N(0)} / ${N(500)}`;
     }
 
     openBtn.addEventListener('click', openModal);
@@ -378,7 +388,7 @@
 
     if (textarea && count) {
       textarea.addEventListener('input', () => {
-        count.textContent = `${textarea.value.length} / 500`;
+        count.textContent = `${N(textarea.value.length)} / ${N(500)}`;
       });
     }
 
