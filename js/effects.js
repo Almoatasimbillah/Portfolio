@@ -14,6 +14,23 @@
 const T   = (key, fallback) => (window.t ? window.t(key, fallback) : (fallback ?? key));
 const num = (value) => (window.__num ? window.__num(value) : String(value ?? ''));
 
+/* Closed overlays stay in the tab order.
+   Every overlay here is hidden with opacity/transform rather than display, so
+   its buttons and inputs keep receiving focus while aria-hidden tells screen
+   readers they aren't there — 30 invisible tab stops between the nav and the
+   footer. Mirroring aria-hidden onto `inert` fixes both halves at once, and
+   observing the attribute means the existing open/close code stays untouched. */
+(() => {
+  const OVERLAYS = '.mobile-menu, #palette, #terminal, #project-modal, ' +
+                   '#testimonial-modal, #install-banner, #lang-toast, .hotspots';
+  const sync = (el) => el.toggleAttribute('inert', el.getAttribute('aria-hidden') === 'true');
+  document.querySelectorAll(OVERLAYS).forEach(el => {
+    sync(el);
+    new MutationObserver(() => sync(el))
+      .observe(el, { attributes: true, attributeFilter: ['aria-hidden'] });
+  });
+})();
+
 (() => {
 
   /* ------------------------------------------------------------------
@@ -1247,7 +1264,14 @@ const num = (value) => (window.__num ? window.__num(value) : String(value ?? '')
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
+
+    // Move focus into the dialog and remember where it came from, so keyboard
+    // users don't get dropped back at the top of the page on close.
+    lastFocus = document.activeElement;
+    setTimeout(() => modal.querySelector('.modal-close')?.focus(), 50);
   }
+
+  let lastFocus = null;
 
   function closeProject() {
     if (!modal) return;
@@ -1256,6 +1280,8 @@ const num = (value) => (window.__num ? window.__num(value) : String(value ?? '')
     document.body.classList.remove('modal-open');
     if (modalVideo) { modalVideo.pause(); modalVideo.removeAttribute('src'); modalVideo.load(); }
     activeProject = null;
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+    lastFocus = null;
   }
 
   if (modal) {
@@ -1614,6 +1640,9 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
       const shown = progress > 0.97;
       if (shown !== hotspots.classList.contains('is-shown')) {
         hotspots.classList.toggle('is-shown', shown);
+        // The CSS already drops pointer-events until they're shown; mirror that
+        // for assistive tech and the tab order (the inert sync watches this).
+        hotspots.setAttribute('aria-hidden', shown ? 'false' : 'true');
       }
     };
     hotspots.querySelectorAll('.hotspot').forEach(btn => {
@@ -1940,6 +1969,10 @@ i run on bash, chai, and an unhealthy amount of curiosity.`),
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         palette.classList.contains('is-open') ? closePalette() : openPalette();
+      } else if (e.key === 'Escape' && palette.classList.contains('is-open')) {
+        // Escape only closed the palette while the input still had focus —
+        // clicking a result row first left it stuck open.
+        closePalette();
       }
     });
   }

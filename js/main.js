@@ -66,14 +66,17 @@
     const host = $('#skill-rows');
     if (!host || !D.skills) return;
     const counts = buildTechCounts();
-    host.innerHTML = D.skills.map(cat => `
-      <div class="skill-row">
+    // data-cat-idx / data-tool give the skills sphere a language-independent
+    // handle on these rows — it used to match on the visible category text,
+    // which stopped matching anything the moment the UI switched to Arabic.
+    host.innerHTML = D.skills.map((cat, ci) => `
+      <div class="skill-row" data-cat-idx="${ci}">
         <div class="skill-cat"><em>${escapeHtml(L(cat, 'title'))}</em></div>
         <ul class="skill-chips">
           ${cat.tags.map(t => {
             const n = lookupTechCount(counts, t);
             const badge = n >= 2 ? `<span class="skill-count" aria-label="used in ${n} projects">${N(n)}</span>` : '';
-            return `<li>${escapeHtml(t)}${badge}</li>`;
+            return `<li data-tool="${escapeHtml(t)}">${escapeHtml(t)}${badge}</li>`;
           }).join('')}
         </ul>
       </div>
@@ -190,7 +193,7 @@
             class="work-video"
             src="${escapeHtml(firstClip.video)}"
             data-poster="${escapeHtml(firstClip.poster)}"
-            muted playsinline loop preload="none"></video>
+            muted playsinline loop preload="none" aria-hidden="true"></video>
           ${p.gallery.length > 1 ? `<span class="work-counter">${N(1)} / ${N(p.gallery.length)}</span>` : ''}
         </div>
       `;

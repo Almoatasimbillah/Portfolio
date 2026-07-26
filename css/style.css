@@ -2881,7 +2881,17 @@ section[data-num]::after{
 @media print{
   *{background:transparent!important;color:#000!important;box-shadow:none!important}
   .nav, .progress, .chapters, .anatomy-loader, .anatomy-canvas,
-  .anatomy-vignette, .hero-scroll-hint, .toast, .skip-link{display:none!important}
+  .anatomy-vignette, .toast, .skip-link,
+  /* the scroll hint class is .intro-scroll-hint / .avatar-scroll-hint —
+     .hero-scroll-hint was renamed and this rule kept pointing at the old name */
+  .intro-scroll-hint, .avatar-scroll-hint,
+  /* screen-only chrome: none of it belongs on a printed CV */
+  .avatar-section, .marquee, .hotspots, .grain, .page-shell,
+  .cursor-glow, .cursor-dot, .hamburger, .mobile-menu,
+  .terminal, .palette, .modal, .tmodal, .install-banner, .lang-toast,
+  .sphere-wrap, .gh-heatmap, .work-media, .work-filters,
+  .quote-add-row, .footer-hint, .footer-clock,
+  .contact-form, .about-portrait{display:none!important}
   body{background:#fff!important;color:#000!important;font-size:11pt;line-height:1.45}
   .anatomy{height:auto!important;page-break-inside:avoid}
   .anatomy-stage{position:static!important;height:auto!important;display:block!important}

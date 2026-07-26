@@ -61,17 +61,24 @@
   /* ----- collect labels — from skills AND project tech, dedup by slug ----- */
   const seen = new Set();
   const labels = [];
-  function add(text, category) {
+  // catIdx indexes into D.skills; -1 means the logo came from a project's tech
+  // list and has no row of its own. Storing the index instead of the category
+  // title keeps the click target valid in both languages.
+  function add(text, catIdx) {
     const slug = LOGO_MAP[text];
     if (slug && !seen.has(slug)) {
       seen.add(slug);
-      labels.push({ text, category, slug });
+      labels.push({ text, catIdx, slug });
     }
   }
-  D.skills.forEach(cat => cat.tags.forEach(tag => add(tag, cat.title)));
+  D.skills.forEach((cat, ci) => cat.tags.forEach(tag => add(tag, ci)));
   if (D.projects) {
-    D.projects.forEach(p => (p.tech || []).forEach(t => add(t, 'Project tech')));
+    D.projects.forEach(p => (p.tech || []).forEach(t => add(t, -1)));
   }
+
+  const pick = (obj, field) => (window.__pickLang ? window.__pickLang(obj, field) : obj[field]);
+  const catName = (idx) => idx >= 0 ? pick(D.skills[idx], 'title') : T_PROJECT_TECH();
+  const T_PROJECT_TECH = () => (window.t ? window.t('sphere.projecttech', 'Project tech') : 'Project tech');
 
   // Bail out if we somehow have nothing
   if (!labels.length) { host.style.display = 'none'; return; }
@@ -82,7 +89,7 @@
   const els = labels.map((lab, i) => {
     const span = document.createElement('span');
     span.className = 'sphere-label sphere-logo';
-    span.title = `${lab.text} · ${lab.category}`;
+    span.title = `${lab.text} · ${catName(lab.catIdx)}`;
     span.dataset.idx = i;
     span.style.animationDelay = (0.05 + i * 0.035) + 's';
 
@@ -316,32 +323,36 @@
   els.forEach((el, i) => {
     el.addEventListener('click', e => {
       if (Math.hypot(e.clientX - downX, e.clientY - downY) > 5) return;
-      const cat = labels[i].category;
-      const rows = document.querySelectorAll('.skill-row');
-      let targetRow = null;
-      rows.forEach(r => {
-        const t = r.querySelector('.skill-cat')?.textContent.trim();
-        if (t === cat) targetRow = r;
-      });
-      if (!targetRow) return;
+      const { catIdx, text } = labels[i];
 
-      const top = targetRow.getBoundingClientRect().top + window.scrollY - 120;
+      // Chip first: project-tech logos (React, Laravel, …) have no category row
+      // of their own, so they scroll to whichever row happens to list the tool,
+      // and to the capabilities section if none does.
+      const chip = document.querySelector(`.skill-chips li[data-tool="${CSS.escape(text)}"]`);
+      const targetRow = chip
+        ? chip.closest('.skill-row')
+        : document.querySelector(`.skill-row[data-cat-idx="${catIdx}"]`);
+      const target = targetRow || document.getElementById('capabilities');
+      if (!target) return;
+
+      const top = target.getBoundingClientRect().top + window.scrollY - 120;
       window.scrollTo({ top, behavior: 'smooth' });
-      targetRow.classList.remove('is-pinged');
-      void targetRow.offsetWidth;
-      targetRow.classList.add('is-pinged');
 
-      const chips = targetRow.querySelectorAll('.skill-chips li');
-      chips.forEach(li => {
-        if (li.textContent.trim() === labels[i].text) {
-          li.classList.remove('is-pinged');
-          void li.offsetWidth;
-          li.classList.add('is-pinged');
-          setTimeout(() => li.classList.remove('is-pinged'), 1400);
-        }
-      });
-      setTimeout(() => targetRow.classList.remove('is-pinged'), 1500);
+      const ping = (el, ms) => {
+        if (!el) return;
+        el.classList.remove('is-pinged');
+        void el.offsetWidth;
+        el.classList.add('is-pinged');
+        setTimeout(() => el.classList.remove('is-pinged'), ms);
+      };
+      ping(targetRow, 1500);
+      ping(chip, 1400);
     });
+  });
+
+  // Tooltips carry the category name, so refresh them when the language flips
+  document.addEventListener('i18n:changed', () => {
+    els.forEach((el, i) => { el.title = `${labels[i].text} · ${catName(labels[i].catIdx)}`; });
   });
 
   if ('IntersectionObserver' in window) {

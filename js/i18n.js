@@ -64,6 +64,7 @@ window.I18N = {
     'cap.title':       'The kit |I work with.|',
     'cap.body':        "Six categories, thirty-nine tools. The list below is what I reach for in production — not what's on the résumé.",
     'sphere.hint':     'drag to rotate',
+    'sphere.projecttech': 'Project tech',
 
     'exp.kicker':      'experience',
     'exp.title':       'Where I have |been.|',
@@ -256,6 +257,7 @@ window.I18N = {
     'cap.title':       'الأدوات |التي أعمل بها.|',
     'cap.body':        'ست فئات، تسع وثلاثون أداة. القائمة بالأسفل هي ما أستخدمه فعلاً في الإنتاج — لا ما يُكتب في السيرة.',
     'sphere.hint':     'اسحب للتدوير',
+    'sphere.projecttech': 'أدوات المشاريع',
 
     'exp.kicker':      'الخبرة',
     'exp.title':       'المسار |حتى الآن.|',
