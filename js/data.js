@@ -24,9 +24,9 @@ const PORTFOLIO_DATA = {
     },
     {
       icon: "🌐",
-      title: "Networking",
-      title_ar: "الشبكات",
-      tags: ["TCP/IP", "Routers & Switches", "IP Configuration", "Network Troubleshooting", "VPN", "Firewalls", "Wireshark"]
+      title: "Networking & Telecom",
+      title_ar: "الشبكات والاتصالات",
+      tags: ["TCP/IP", "Routers & Switches", "IP Configuration", "Network Troubleshooting", "VPN", "Firewalls", "Wireshark", "BTS Maintenance", "Microwave & Fiber Links", "Site Power Systems"]
     },
     {
       icon: "🖥️",
@@ -64,21 +64,21 @@ const PORTFOLIO_DATA = {
     },
     {
       date: "Jun 2025 – Oct 2025",
-      title: "IT Support Engineer",
-      title_ar: "مهندس دعم فنّي",
+      title: "Telecommunications Engineer",
+      title_ar: "مهندس اتصالات",
       company: "Afro Egypt — Downtown, El Alamein",
       company_ar: "أفرو إيجيبت — الداون تاون، العلمين",
       description: [
-        "Provided technical support by diagnosing and resolving hardware, software, and network issues",
-        "Installed, configured, and maintained computers, printers, and peripheral devices",
-        "Assisted non-technical users, significantly reducing downtime and improving productivity",
-        "Performed routine system checks and updates to ensure stable daily IT operations"
+        "Performed preventive maintenance on BTS stations and antenna systems across assigned tower sites",
+        "Diagnosed and resolved hardware and transmission faults to minimize network downtime",
+        "Maintained site power systems — generators and battery backups — to keep towers running through outages",
+        "Supported microwave and fiber-optic transmission links between tower sites"
       ],
       description_ar: [
-        "قدّمت دعمًا فنيًا بتشخيص وحلّ مشاكل الأجهزة والبرمجيات والشبكات",
-        "ركّبت وأعددت وصنت الحواسيب والطابعات والأجهزة الطرفية",
-        "ساعدت المستخدمين غير التقنيين، ممّا قلّل التعطّل ورفع الإنتاجية بوضوح",
-        "أجريت فحوصات وتحديثات دورية لضمان استقرار التشغيل اليومي"
+        "أجريت صيانة وقائية لمحطات BTS وأنظمة الهوائيات على مواقع الأبراج المكلّف بها",
+        "شخّصت وأصلحت أعطال الأجهزة وخطوط النقل لتقليل انقطاع الشبكة",
+        "صُنت أنظمة الطاقة بالمواقع — المولدات والبطاريات الاحتياطية — لضمان استمرار تشغيل الأبراج أثناء انقطاع الكهرباء",
+        "دعمت روابط النقل بالمايكروويف والألياف البصرية بين مواقع الأبراج"
       ]
     },
     {
