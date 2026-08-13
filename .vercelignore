@@ -1,0 +1,29 @@
+# The Vercel CLI does not read .gitignore, so a local `vercel --prod` would
+# upload every heavy local-only folder here (~130 MB) alongside the site.
+# Deploys from git are unaffected — these paths aren't tracked either way.
+
+# Blender / Mixamo sources
+3D/
+avatar-src/node_modules/
+
+# Earlier drafts kept for reference
+_unused_review/
+videos/_originals_backup/
+
+# Orphan frame sequences from earlier experiments —
+# the live build only uses frames/ + intro_frames/ (+ the _mobile variants)
+frames_v2/
+frames_ssd/
+frames_middle/
+
+# Raw source videos — already extracted to webp frame sequences
+/video.mp4
+/middle.mp4
+/SSd1.mp4
+/Intro.mp4
+/Framia*.mp4
+/framia-pro.mp4
+
+# Tooling that never needs to ship
+tools/
+.claude/

@@ -24,9 +24,9 @@ const PORTFOLIO_DATA = {
     },
     {
       icon: "🌐",
-      title: "Networking",
-      title_ar: "الشبكات",
-      tags: ["TCP/IP", "Routers & Switches", "IP Configuration", "Network Troubleshooting", "VPN", "Firewalls", "Wireshark"]
+      title: "Networking & Telecom",
+      title_ar: "الشبكات والاتصالات",
+      tags: ["TCP/IP", "Routers & Switches", "IP Configuration", "Network Troubleshooting", "VPN", "Firewalls", "Wireshark", "BTS Maintenance", "Microwave & Fiber Links", "Site Power Systems"]
     },
     {
       icon: "🖥️",
@@ -64,21 +64,21 @@ const PORTFOLIO_DATA = {
     },
     {
       date: "Jun 2025 – Oct 2025",
-      title: "PM Engineer",
-      title_ar: "مهندس دعم فنّي",
+      title: "Telecommunications Engineer",
+      title_ar: "مهندس اتصالات",
       company: "Afro Egypt — Downtown, El Alamein",
       company_ar: "أفرو إيجيبت — الداون تاون، العلمين",
       description: [
-        "Provided technical support by diagnosing and resolving hardware, software, and network issues",
-        "Installed, configured, and maintained computers, printers, and peripheral devices",
-        "Assisted non-technical users, significantly reducing downtime and improving productivity",
-        "Performed routine system checks and updates to ensure stable daily IT operations"
+        "Performed preventive maintenance on BTS stations and antenna systems across assigned tower sites",
+        "Diagnosed and resolved hardware and transmission faults to minimize network downtime",
+        "Maintained site power systems — generators and battery backups — to keep towers running through outages",
+        "Supported microwave and fiber-optic transmission links between tower sites"
       ],
       description_ar: [
-        "قدّمت دعمًا فنيًا بتشخيص وحلّ مشاكل الأجهزة والبرمجيات والشبكات",
-        "ركّبت وأعددت وصنت الحواسيب والطابعات والأجهزة الطرفية",
-        "ساعدت المستخدمين غير التقنيين، ممّا قلّل التعطّل ورفع الإنتاجية بوضوح",
-        "أجريت فحوصات وتحديثات دورية لضمان استقرار التشغيل اليومي"
+        "أجريت صيانة وقائية لمحطات BTS وأنظمة الهوائيات على مواقع الأبراج المكلّف بها",
+        "شخّصت وأصلحت أعطال الأجهزة وخطوط النقل لتقليل انقطاع الشبكة",
+        "صُنت أنظمة الطاقة بالمواقع — المولدات والبطاريات الاحتياطية — لضمان استمرار تشغيل الأبراج أثناء انقطاع الكهرباء",
+        "دعمت روابط النقل بالمايكروويف والألياف البصرية بين مواقع الأبراج"
       ]
     },
     {
@@ -120,7 +120,7 @@ const PORTFOLIO_DATA = {
       org_ar: "ISTQB — المجلس الدولي لمؤهلات اختبار البرمجيات",
       year: "May 2026",
       year_ar: "مايو 2026",
-      status: "certified",
+      status: "passed",
       note: "Exam passed · certificate pending",
       note_ar: "اجتزت الامتحان · الشهادة قيد الإصدار"
     },
@@ -173,7 +173,7 @@ const PORTFOLIO_DATA = {
           "year": 2024,
           "category": "web",
           "description": "A full e-commerce platform built for small and mid-size retailers. Order management, product catalog, WhatsApp ordering, and Zid marketplace sync — designed for shop owners who don't want to live in a dashboard.",
-          "description_ar": "منصّة تجارة إلكترونية متكاملة للمحلات الصغيرة والمتوسطة. إدارة الطلبات، وكتالوج المنتجات، والطلب عبر واتساب، ومزامنة مع منصّة زد — مصمّمة لأصحاب المحلات اللي مش عايزين يعيشوا داخل لوحة تحكّم معقّدة.",
+          "description_ar": "منصّة تجارة إلكترونية متكاملة للمحلات الصغيرة والمتوسطة. إدارة الطلبات، وكتالوج المنتجات، والطلب عبر واتساب، ومزامنة مع منصّة زد — مصمّمة لأصحاب المحلات الذين لا يرغبون في قضاء يومهم داخل لوحة تحكّم معقّدة.",
           "tech": [
               "PHP",
               "Laravel",
@@ -201,13 +201,13 @@ const PORTFOLIO_DATA = {
                   "video": "videos/boxstore-3-trial-1.mp4",
                   "poster": "videos/posters/boxstore-3-trial-1-poster.jpg",
                   "caption": "Trial build — iteration 1",
-                  "caption_ar": "نسخة تجريبية — الإصدار 1"
+                  "caption_ar": "نسخة تجريبية — الإصدار ١"
               },
               {
                   "video": "videos/boxstore-4-trial-2.mp4",
                   "poster": "videos/posters/boxstore-4-trial-2-poster.jpg",
                   "caption": "Trial build — iteration 2",
-                  "caption_ar": "نسخة تجريبية — الإصدار 2"
+                  "caption_ar": "نسخة تجريبية — الإصدار ٢"
               },
               {
                   "video": "videos/boxstore-5-whatsapp.mp4",
@@ -224,7 +224,7 @@ const PORTFOLIO_DATA = {
           ],
           "caseStudy": {
               "problem": "Small retailers in the region need an online presence but most platforms are too heavy or too generic. BoxStore had to feel familiar (WhatsApp-first), respect local payment habits, and be cheap to host.",
-              "problem_ar": "محلات التجزئة الصغيرة في المنطقة محتاجة وجود أونلاين، لكن أغلب المنصّات تقيلة أو عامّة أوي. BoxStore كان لازم يكون مألوف (واتساب أولاً)، ويحترم عادات الدفع المحلية، ويكون رخيص في الاستضافة.",
+              "problem_ar": "تحتاج محلات التجزئة الصغيرة في المنطقة إلى وجود على الإنترنت، لكن أغلب المنصّات ثقيلة أو عامّة أكثر من اللازم. كان على BoxStore أن يكون مألوفًا (واتساب أولًا)، وأن يحترم عادات الدفع المحلية، وأن يكون منخفض تكلفة الاستضافة.",
               "approach": [
                   "Built the storefront and admin in Laravel with a clean MVC structure",
                   "Wrote a WhatsApp integration so customers can place orders without an account",
@@ -232,23 +232,24 @@ const PORTFOLIO_DATA = {
                   "Kept the admin UI simple — owners can publish products in under a minute"
               ],
               "approach_ar": [
-                  "بنيت الواجهة ولوحة التحكّم بـ Laravel ببنية MVC نضيفة",
-                  "كتبت تكاملًا مع واتساب عشان العملاء يقدروا يطلبوا من غير حساب",
-                  "زامنت المخزون والطلبات في الاتجاهين مع منصّة زد",
-                  "خلّيت لوحة التحكّم بسيطة — صاحب المحلّ يقدر ينشر منتج في أقل من دقيقة"
+                  "بنيتُ الواجهة ولوحة التحكّم بـ Laravel ببنية MVC نظيفة",
+                  "كتبتُ تكاملًا مع واتساب ليتمكّن العملاء من الطلب دون إنشاء حساب",
+                  "زامنتُ المخزون والطلبات في الاتجاهين مع منصّة زد",
+                  "أبقيتُ لوحة التحكّم بسيطة — يستطيع صاحب المحلّ نشر منتج في أقل من دقيقة"
               ],
               "outcome": "Production storefront running for multiple clients. WhatsApp flow proved out the conversion-first hypothesis.",
-              "outcome_ar": "واجهة متجر شغّالة فعليًا لأكتر من عميل. ومسار واتساب أثبت فرضية «التحويل أولاً»."
+              "outcome_ar": "متجر يعمل في الإنتاج لأكثر من عميل. وأثبت مسار واتساب فرضية «التحويل أولًا»."
           }
       },
       {
           "title": "Salsabeel",
+          "title_ar": "سلسبيل",
           "type": "Restaurant operations system",
           "type_ar": "نظام تشغيل مطاعم",
           "year": 2024,
           "category": "web",
           "description": "Order management, menu data ingestion, and an operations dashboard for a regional restaurant chain. Handles live orders, kitchen routing, and a scraper that keeps the public menu in sync.",
-          "description_ar": "إدارة الطلبات، وسحب بيانات المنيو، ولوحة تشغيل لسلسلة مطاعم إقليمية. بيتعامل مع الطلبات الحيّة، وتوجيه المطبخ، وأداة سحب (scraper) بتحافظ على تحديث المنيو العام.",
+          "description_ar": "إدارة الطلبات، وسحب بيانات قائمة الطعام، ولوحة تشغيل لسلسلة مطاعم إقليمية. يتعامل مع الطلبات اللحظية، وتوجيه المطبخ، وأداة سحب (scraper) تُبقي القائمة العامة محدَّثة.",
           "tech": [
               "React",
               "Node.js",
@@ -270,7 +271,7 @@ const PORTFOLIO_DATA = {
                   "video": "videos/salsabeel-2-scraping.mp4",
                   "poster": "videos/posters/salsabeel-2-scraping-poster.jpg",
                   "caption": "Menu scraper running",
-                  "caption_ar": "أداة سحب المنيو أثناء العمل"
+                  "caption_ar": "أداة سحب قائمة الطعام أثناء العمل"
               },
               {
                   "video": "videos/salsabeel-3.mp4",
@@ -294,12 +295,12 @@ const PORTFOLIO_DATA = {
                   "video": "videos/salsabeel-6.mp4",
                   "poster": "videos/posters/salsabeel-6-poster.jpg",
                   "caption": "Mobile manager flow",
-                  "caption_ar": "واجهة المدير على الموبايل"
+                  "caption_ar": "واجهة المدير على الهاتف"
               }
           ],
           "caseStudy": {
               "problem": "Salsabeel was managing a multi-branch restaurant with phone orders, paper tickets, and a slow public menu. Branches couldn't see live order load and the kitchen had no priority signal.",
-              "problem_ar": "سلسبيل كان بيدير مطعمًا متعدّد الفروع بطلبات تليفونية، وتذاكر ورقية، ومنيو عام بطيء. الفروع ما كانتش بتشوف حِمل الطلبات الحيّ، والمطبخ ماكانش عنده إشارة أولوية.",
+              "problem_ar": "كانت سلسبيل تدير مطعمًا متعدّد الفروع بطلبات هاتفية، وتذاكر ورقية، وقائمة طعام بطيئة على الإنترنت. لم تكن الفروع ترى حِمل الطلبات لحظيًا، ولم تكن لدى المطبخ إشارة أولوية.",
               "approach": [
                   "Built a React dashboard centered on the live order queue and per-branch load",
                   "Wrote a scraper that pulls the public menu into MongoDB on a schedule",
@@ -307,13 +308,13 @@ const PORTFOLIO_DATA = {
                   "Shipped a manager-only mobile flow for end-of-day reports"
               ],
               "approach_ar": [
-                  "بنيت لوحة React محورها طابور الطلبات الحيّ وحِمل كل فرع",
-                  "كتبت أداة سحب بتجيب المنيو العام إلى MongoDB بشكل مجدول",
-                  "أضفت قواعد توجيه للمطبخ وأولوية لكل محطة",
-                  "أطلقت واجهة موبايل للمدير فقط لتقارير نهاية اليوم"
+                  "بنيتُ لوحة React محورها طابور الطلبات اللحظي وحِمل كل فرع",
+                  "كتبتُ أداة سحب تجلب القائمة العامة إلى MongoDB وفق جدول زمني",
+                  "أضفتُ قواعد توجيه للمطبخ وأولوية لكل محطة",
+                  "أطلقتُ واجهة للهاتف مخصّصة للمدير لتقارير نهاية اليوم"
               ],
               "outcome": "Branches stopped using paper. Average ticket time dropped during peak hours. The menu now updates without manual data entry.",
-              "outcome_ar": "الفروع بطّلت ورق. ومتوسّط زمن التذكرة قلّ في ساعات الذروة. والمنيو دلوقتي بيتحدّث من غير إدخال بيانات يدوي."
+              "outcome_ar": "توقّفت الفروع عن استخدام الورق. وانخفض متوسّط زمن التذكرة في ساعات الذروة. وصارت القائمة تُحدَّث دون إدخال بيانات يدوي."
           }
       },
       {
@@ -324,7 +325,7 @@ const PORTFOLIO_DATA = {
           "year": 2024,
           "category": "tool",
           "description": "Multi-terminal POS built for a wholesale and retail operation. Handles cashier flow, returns, layaway, daily Z-report, and printer integration.",
-          "description_ar": "نظام كاشير متعدّد الأجهزة لمنشأة جملة وتجزئة. بيتعامل مع حركة الكاشير، والمرتجعات، والبيع بالتقسيط، وتقرير Z اليومي، وربط الطابعات.",
+          "description_ar": "نظام كاشير متعدّد الأجهزة لمنشأة جملة وتجزئة. يتعامل مع حركة الكاشير، والمرتجعات، والبيع بالتقسيط، وتقرير Z اليومي، وربط الطابعات.",
           "tech": [
               "JavaScript",
               "Node.js",
@@ -368,7 +369,7 @@ const PORTFOLIO_DATA = {
           ],
           "caseStudy": {
               "problem": "The client was running 3 cashier terminals on a shared spreadsheet. Daily reconciliation took hours and no one trusted the numbers.",
-              "problem_ar": "العميل كان بيشغّل 3 أجهزة كاشير على شيت إكسل مشترك. التسوية اليومية كانت بتاخد ساعات ومحدش بيثق في الأرقام.",
+              "problem_ar": "كان العميل يشغّل ثلاثة أجهزة كاشير على ملف إكسل مشترك. وكانت التسوية اليومية تستغرق ساعات، ولا أحد يثق في الأرقام.",
               "approach": [
                   "Built an Electron-based POS so it ships as a single installer for Windows tills",
                   "Used PostgreSQL with a clean transaction model — every sale is one atomic write",
@@ -376,13 +377,13 @@ const PORTFOLIO_DATA = {
                   "Wrote a daily Z-report that exports per-terminal and consolidated"
               ],
               "approach_ar": [
-                  "بنيت نظام كاشير بـ Electron عشان ينزل كـ installer واحد لأجهزة ويندوز",
-                  "استخدمت PostgreSQL بنموذج معاملات نضيف — كل عملية بيع كتابة واحدة ذرّية",
-                  "أضفت تعريفات طابعات لأجهزة إيصالات ESC/POS القياسية",
-                  "كتبت تقرير Z يومي بيصدّر لكل جهاز ومجمّع كمان"
+                  "بنيتُ نظام كاشير بـ Electron ليُثبَّت كملف واحد على أجهزة ويندوز",
+                  "استخدمتُ PostgreSQL بنموذج معاملات نظيف — كل عملية بيع كتابة واحدة ذرّية",
+                  "أضفتُ تعريفات طابعات لأجهزة إيصالات ESC/POS القياسية",
+                  "كتبتُ تقرير Z يوميًا يُصدَّر لكل جهاز ومجمّعًا"
               ],
               "outcome": "Daily close went from ~90 minutes to under 10. No more spreadsheet sync errors.",
-              "outcome_ar": "إقفال اليوم نزل من ~90 دقيقة لأقل من 10. وخلاص مفيش أخطاء مزامنة إكسل."
+              "outcome_ar": "انخفض إقفال اليوم من نحو ٩٠ دقيقة إلى أقل من ١٠. ولم تعد هناك أخطاء مزامنة في إكسل."
           }
       },
       {
@@ -393,7 +394,7 @@ const PORTFOLIO_DATA = {
           "year": 2024,
           "category": "tool",
           "description": "A POS specialized for clothing retailers. Size and color matrix, supplier tracking, and a fast barcode-driven cashier flow tuned for changing-room returns.",
-          "description_ar": "نظام كاشير متخصّص لمحلات الملابس. مصفوفة مقاسات وألوان، وتتبّع للموردين، وحركة كاشير سريعة بالباركود مضبوطة على مرتجعات غرفة القياس.",
+          "description_ar": "نظام كاشير متخصّص لمحلات الملابس. مصفوفة مقاسات وألوان، وتتبّع للموردين، وحركة كاشير سريعة بالباركود مهيّأة لمرتجعات غرفة القياس.",
           "tech": [
               "JavaScript",
               "PHP",
@@ -412,19 +413,19 @@ const PORTFOLIO_DATA = {
           ],
           "caseStudy": {
               "problem": "Generic POS systems don't model the size × color matrix that apparel retailers actually need. The client kept reconciling stock manually.",
-              "problem_ar": "أنظمة الكاشير العامّة مابتمثّلش مصفوفة المقاس × اللون اللي محلات الملابس محتاجاها فعلاً. فالعميل كان بيسوّي المخزون يدويًا على طول.",
+              "problem_ar": "لا تُمثّل أنظمة الكاشير العامّة مصفوفة المقاس × اللون التي تحتاجها محلات الملابس فعلًا. فكان العميل يسوّي المخزون يدويًا باستمرار.",
               "approach": [
                   "Modeled SKUs as a (style × size × color) tuple from day one",
                   "Built a fast scan-driven cashier that handles the common changing-room return",
                   "Added supplier purchase orders and a low-stock alert per variant"
               ],
               "approach_ar": [
-                  "مثّلت أصناف المخزون كـ (موديل × مقاس × لون) من أول يوم",
-                  "بنيت كاشير سريع بالباركود بيتعامل مع مرتجعات غرفة القياس الشائعة",
-                  "أضفت أوامر شراء للموردين وتنبيه نقص مخزون لكل صنف فرعي"
+                  "مثّلتُ أصناف المخزون كـ (موديل × مقاس × لون) منذ اليوم الأول",
+                  "بنيتُ كاشير سريعًا بالباركود يتعامل مع مرتجعات غرفة القياس الشائعة",
+                  "أضفتُ أوامر شراء للموردين وتنبيه نقص مخزون لكل صنف فرعي"
               ],
               "outcome": "Stock reconciliation moved from weekly to live.",
-              "outcome_ar": "تسوية المخزون اتحوّلت من أسبوعية إلى لحظية."
+              "outcome_ar": "تحوّلت تسوية المخزون من أسبوعية إلى لحظية."
           }
       },
       {
@@ -435,7 +436,7 @@ const PORTFOLIO_DATA = {
           "year": 2024,
           "category": "web",
           "description": "Public website for Al-Noor Private School. Admissions intake, news, calendar, and a parent portal — built to be fast on slow mobile connections.",
-          "description_ar": "موقع عام لمدرسة النور الأهلية. تقديم الالتحاق، والأخبار، والتقويم الدراسي، وبوّابة لأولياء الأمور — مبني ليكون سريعًا على شبكات الموبايل البطيئة.",
+          "description_ar": "موقع عام لمدرسة النور الأهلية. تقديم الالتحاق، والأخبار، والتقويم الدراسي، وبوّابة لأولياء الأمور — مبني ليكون سريعًا على شبكات الهاتف المحمول البطيئة.",
           "tech": [
               "HTML/CSS",
               "JavaScript",
@@ -454,19 +455,19 @@ const PORTFOLIO_DATA = {
           ],
           "caseStudy": {
               "problem": "The school's old site was a Word document exported to PDF. Parents called the office for everything because the site told them nothing.",
-              "problem_ar": "موقع المدرسة القديم كان ملف Word متصدّر PDF. أولياء الأمور كانوا بيتّصلوا بالمكتب في كل حاجة لأن الموقع ماكانش بيقول لهم أي حاجة.",
+              "problem_ar": "كان موقع المدرسة القديم ملف Word مُصدَّرًا إلى PDF. وكان أولياء الأمور يتّصلون بالمكتب في كل شيء لأن الموقع لا يقول لهم شيئًا.",
               "approach": [
                   "Rebuilt as a fast, mobile-first site with a clear admissions funnel",
                   "Added a simple parent portal — login, view child's class, see the calendar",
                   "Kept the editorial workflow lightweight so the office can publish news without IT"
               ],
               "approach_ar": [
-                  "أعدت بناءه كموقع سريع يبدأ من الموبايل بمسار التحاق واضح",
-                  "أضفت بوّابة بسيطة لولي الأمر — تسجيل دخول، ومتابعة فصل ابنه، والتقويم",
-                  "خلّيت نشر المحتوى خفيفًا عشان المكتب ينشر الأخبار من غير قسم تقني"
+                  "أعدتُ بناءه موقعًا سريعًا يبدأ من الهاتف بمسار التحاق واضح",
+                  "أضفتُ بوّابة بسيطة لوليّ الأمر — تسجيل دخول، ومتابعة فصل الطالب، والتقويم الدراسي",
+                  "أبقيتُ نشر المحتوى خفيفًا ليتمكّن المكتب من نشر الأخبار دون قسم تقني"
               ],
               "outcome": "Office calls for routine info dropped noticeably. Admissions intake is now online end-to-end.",
-              "outcome_ar": "مكالمات المكتب للاستفسارات الروتينية قلّت بوضوح. والتحاق الطلاب بقى أونلاين من أوّله لآخره."
+              "outcome_ar": "انخفضت مكالمات المكتب للاستفسارات الروتينية بوضوح. وصار التحاق الطلاب يتم عبر الإنترنت من أوله إلى آخره."
           }
       },
       {
@@ -497,7 +498,7 @@ const PORTFOLIO_DATA = {
           ],
           "caseStudy": {
               "problem": "A computer shop was juggling sales on paper receipts and a spreadsheet — no real stock view, no warranty trail, and reconciliation took hours every day.",
-              "problem_ar": "محلّ كمبيوتر كان بيدير المبيعات بإيصالات ورقية وشيت إكسل — من غير رؤية حقيقية للمخزون، ولا سجلّ للضمان، والتسوية كانت بتاخد ساعات كل يوم.",
+              "problem_ar": "كان محلّ كمبيوتر يدير المبيعات بإيصالات ورقية وملف إكسل — دون رؤية حقيقية للمخزون، ولا سجلّ للضمان، وكانت التسوية تستغرق ساعات كل يوم.",
               "approach": [
                   "Built a cashier flow tuned for barcode scanning and quick keyboard entry",
                   "Modeled stock by serial number so warranty + returns are traceable per unit",
@@ -505,13 +506,13 @@ const PORTFOLIO_DATA = {
                   "Generated a daily Z-report exporting per-cashier and consolidated totals"
               ],
               "approach_ar": [
-                  "بنيت حركة كاشير مضبوطة على قراءة الباركود والإدخال السريع بالكيبورد",
-                  "مثّلت المخزون بالرقم التسلسلي عشان الضمان والمرتجعات يتتبّعوا لكل وحدة",
-                  "أضفت شاشة طلبات موردين بمسار بسيط لاستلام البضاعة في المخزون",
-                  "أنتجت تقرير Z يومي بيصدّر إجماليات كل كاشير والإجمالي المجمّع"
+                  "بنيتُ حركة كاشير مهيّأة لقراءة الباركود والإدخال السريع بلوحة المفاتيح",
+                  "مثّلتُ المخزون بالرقم التسلسلي ليصبح الضمان والمرتجعات قابلَين للتتبّع لكل وحدة",
+                  "أضفتُ شاشة طلبات موردين بمسار بسيط لاستلام البضاعة في المخزون",
+                  "أنتجتُ تقرير Z يوميًا يُصدِّر إجماليات كل كاشير والإجمالي المجمّع"
               ],
               "outcome": "Replaced the paper + spreadsheet system entirely. Daily reconciliation went from hours to under 15 minutes. Stock now lives in one place, accurate, with warranty history intact.",
-              "outcome_ar": "استبدل نظام الورق والإكسل بالكامل. والتسوية اليومية نزلت من ساعات لأقل من 15 دقيقة. والمخزون بقى في مكان واحد، دقيق، وبسجلّ ضمان محفوظ."
+              "outcome_ar": "حلّ محلّ نظام الورق والإكسل بالكامل. وانخفضت التسوية اليومية من ساعات إلى أقل من ١٥ دقيقة. وصار المخزون في مكان واحد، دقيقًا، وبسجلّ ضمان محفوظ."
           }
       },
       {
@@ -522,7 +523,7 @@ const PORTFOLIO_DATA = {
           "year": 2024,
           "category": "web",
           "description": "Five iterations of my own portfolio site. Each one explores a different identity — terminal aesthetic, editorial layout, scroll-driven storytelling, and the calmer version you're reading now.",
-          "description_ar": "خمس نسخ من موقع البورتفوليو الخاص بي. كل نسخة بتجرّب هويّة مختلفة — طابع الترمينال، وتخطيط تحريري، وسرد قصصي مدفوع بالتمرير، والنسخة الأهدأ اللي بتقرأها دلوقتي.",
+          "description_ar": "خمس نسخ من موقع البورتفوليو الخاص بي. كل نسخة تجرّب هويّة مختلفة — طابع الترمينال، وتخطيط تحريري، وسرد مدفوع بالتمرير، والنسخة الأهدأ التي تقرأها الآن.",
           "tech": [
               "HTML",
               "CSS",
@@ -537,36 +538,36 @@ const PORTFOLIO_DATA = {
                   "video": "videos/portfolio-iter-1.mp4",
                   "poster": "videos/posters/portfolio-iter-1-poster.jpg",
                   "caption": "Iteration 1 — the long version",
-                  "caption_ar": "الإصدار 1 — النسخة الطويلة"
+                  "caption_ar": "الإصدار ١ — النسخة الطويلة"
               },
               {
                   "video": "videos/portfolio-iter-2.mp4",
                   "poster": "videos/posters/portfolio-iter-2-poster.jpg",
                   "caption": "Iteration 2 — early identity",
-                  "caption_ar": "الإصدار 2 — هويّة مبكّرة"
+                  "caption_ar": "الإصدار ٢ — هويّة مبكّرة"
               },
               {
                   "video": "videos/portfolio-iter-3.mp4",
                   "poster": "videos/posters/portfolio-iter-3-poster.jpg",
                   "caption": "Iteration 3 — refinement",
-                  "caption_ar": "الإصدار 3 — تحسين وصقل"
+                  "caption_ar": "الإصدار ٣ — تحسين وصقل"
               },
               {
                   "video": "videos/portfolio-iter-4.mp4",
                   "poster": "videos/posters/portfolio-iter-4-poster.jpg",
                   "caption": "Iteration 4 — motion experiments",
-                  "caption_ar": "الإصدار 4 — تجارب الحركة"
+                  "caption_ar": "الإصدار ٤ — تجارب الحركة"
               },
               {
                   "video": "videos/portfolio-iter-5.mp4",
                   "poster": "videos/posters/portfolio-iter-5-poster.jpg",
                   "caption": "Iteration 5 — current direction",
-                  "caption_ar": "الإصدار 5 — الاتجاه الحالي"
+                  "caption_ar": "الإصدار ٥ — الاتجاه الحالي"
               }
           ],
           "caseStudy": {
               "problem": "Designing for yourself is the hardest project. Every iteration was an honest attempt to answer 'what do I actually want to say?'",
-              "problem_ar": "التصميم لنفسك أصعب مشروع. كل إصدار كان محاولة صادقة للإجابة على سؤال «أنا عايز أقول إيه فعلاً؟»",
+              "problem_ar": "التصميم لنفسك أصعب مشروع. كان كل إصدار محاولة صادقة للإجابة عن سؤال: «ما الذي أريد قوله فعلًا؟»",
               "approach": [
                   "Started with a heavy cyber/terminal aesthetic — read as 'AI-generated'",
                   "Pulled back, moved to a warm editorial palette and serif typography",
@@ -574,13 +575,13 @@ const PORTFOLIO_DATA = {
                   "Kept the technical signals (terminal, glitch, scroll-scrub) but tuned the volume down"
               ],
               "approach_ar": [
-                  "بدأت بطابع سايبر/ترمينال تقيل — طلع شكله «مولّد بالذكاء الاصطناعي»",
-                  "رجعت خطوة لورا، وتحوّلت لألوان تحريرية دافئة وخطوط serif",
-                  "ثبّتت لون تمييز واحد وبطّلت أحارب النظام",
-                  "احتفظت بالإشارات التقنية (ترمينال، جليتش، تمرير) بس خفّضت صوتها"
+                  "بدأتُ بطابع سايبر/ترمينال ثقيل — فبدا وكأنه «مولّد بالذكاء الاصطناعي»",
+                  "تراجعتُ خطوة، وتحوّلتُ إلى ألوان تحريرية دافئة وخطوط serif",
+                  "ثبّتُّ لون تمييز واحدًا وتوقّفتُ عن مقاومة النظام",
+                  "احتفظتُ بالإشارات التقنية (ترمينال، جليتش، تمرير) لكن خفّضتُ صوتها"
               ],
               "outcome": "What you're looking at now. Calmer, more confident, more me.",
-              "outcome_ar": "اللي بتشوفه دلوقتي. أهدأ، وأكتر ثقة، وأقرب ليّا."
+              "outcome_ar": "ما تراه الآن. أهدأ، وأكثر ثقة، وأقرب إليّ."
           }
       },
       {
@@ -590,7 +591,7 @@ const PORTFOLIO_DATA = {
           "type_ar": "أداة أمنية",
           "year": 2024,
           "description": "A Python-based automated tool that scans web applications for common vulnerabilities including XSS, SQL injection, and open redirects using OWASP methodologies.",
-          "description_ar": "أداة آلية مبنية بلغة Python بتفحص تطبيقات الويب للبحث عن الثغرات الشائعة زي XSS وحقن SQL والتحويل المفتوح، باستخدام منهجيات OWASP.",
+          "description_ar": "أداة آلية مبنية بلغة Python تفحص تطبيقات الويب بحثًا عن الثغرات الشائعة مثل XSS وحقن SQL والتحويل المفتوح، باستخدام منهجيات OWASP.",
           "category": "security",
           "tech": [
               "Python",
@@ -603,7 +604,7 @@ const PORTFOLIO_DATA = {
           "gallery": [],
           "caseStudy": {
               "problem": "Manual web app testing is slow and inconsistent — testers miss the same classes of issues repeatedly. I wanted a tool that ran the OWASP top-10 checklist automatically against any URL.",
-              "problem_ar": "اختبار تطبيقات الويب يدويًا بطيء وغير متّسق — المختبِرين بيفوّتوا نفس أنواع المشاكل مرّة ورا مرّة. كنت عايز أداة تشغّل قائمة OWASP العشرة تلقائيًا على أي رابط.",
+              "problem_ar": "اختبار تطبيقات الويب يدويًا بطيء وغير متّسق — إذ يُفوّت المختبِرون النوع نفسه من المشكلات مرّة بعد مرّة. أردتُ أداة تشغّل قائمة OWASP العشرة تلقائيًا على أي رابط.",
               "approach": [
                   "Built a modular Python scanner with one detector per OWASP category",
                   "Used Requests + BeautifulSoup for crawling and form discovery",
@@ -611,13 +612,13 @@ const PORTFOLIO_DATA = {
                   "Generated a structured report with severity rankings and remediation hints"
               ],
               "approach_ar": [
-                  "بنيت ماسحًا معياريًا بـ Python بكاشف مستقل لكل فئة من OWASP",
-                  "استخدمت Requests + BeautifulSoup للزحف واكتشاف النماذج",
-                  "جرّبت الاستدلالات على تطبيقات ضعيفة عمدًا (DVWA، Juice Shop)",
-                  "أنتجت تقريرًا منظّمًا بترتيب للخطورة وتلميحات للمعالجة"
+                  "بنيتُ ماسحًا معياريًا بـ Python بكاشف مستقل لكل فئة من OWASP",
+                  "استخدمتُ Requests + BeautifulSoup للزحف واكتشاف النماذج",
+                  "جرّبتُ الاستدلالات على تطبيقات ضعيفة عمدًا (DVWA، Juice Shop)",
+                  "أنتجتُ تقريرًا منظّمًا بترتيب للخطورة وتلميحات للمعالجة"
               ],
               "outcome": "Catches XSS, SQLi, and open-redirect issues across a corpus of test apps. Used as a learning lab and a starting point for engagements.",
-              "outcome_ar": "بيمسك ثغرات XSS وحقن SQL والتحويل المفتوح عبر مجموعة تطبيقات اختبار. بستخدمه كمعمل تعلّم ونقطة بداية للمهام."
+              "outcome_ar": "يكتشف ثغرات XSS وحقن SQL والتحويل المفتوح عبر مجموعة من تطبيقات الاختبار. أستخدمه معملَ تعلّم ونقطةَ بداية للمهام."
           }
       },
       {
@@ -627,7 +628,7 @@ const PORTFOLIO_DATA = {
           "type_ar": "تشغيل شبكات",
           "year": 2023,
           "description": "Real-time network monitoring tool that tracks device connectivity, bandwidth usage, and alerts on suspicious traffic patterns across local networks.",
-          "description_ar": "أداة مراقبة شبكة لحظية بتتبّع اتصال الأجهزة، واستهلاك النطاق، وبتنبّه على أنماط المرور المشبوهة عبر الشبكات المحلية.",
+          "description_ar": "أداة مراقبة شبكة لحظية تتتبّع اتصال الأجهزة، واستهلاك النطاق، وتنبّه إلى أنماط المرور المشبوهة عبر الشبكات المحلية.",
           "category": "tool",
           "tech": [
               "Python",
@@ -640,7 +641,7 @@ const PORTFOLIO_DATA = {
           "gallery": [],
           "caseStudy": {
               "problem": "Small-office networks often go down without anyone noticing until users complain. Needed lightweight, real-time visibility without enterprise tooling.",
-              "problem_ar": "شبكات المكاتب الصغيرة كتير بتقع من غير ما حد ياخد باله لحدّ ما المستخدمين يشتكوا. كنت محتاج رؤية لحظية خفيفة من غير أدوات المؤسّسات الضخمة.",
+              "problem_ar": "كثيرًا ما تتعطّل شبكات المكاتب الصغيرة دون أن ينتبه أحد حتى يشتكي المستخدمون. كنتُ أحتاج رؤية لحظية خفيفة دون أدوات المؤسّسات الضخمة.",
               "approach": [
                   "Polled key hosts on the LAN using Nmap host-discovery + ping",
                   "Tracked bandwidth via interface counters on the local gateway",
@@ -648,13 +649,13 @@ const PORTFOLIO_DATA = {
                   "Rendered the data in a simple terminal-style live dashboard"
               ],
               "approach_ar": [
-                  "فحصت الأجهزة المهمّة على الشبكة باستخدام اكتشاف Nmap + ping",
-                  "تتبّعت استهلاك النطاق عبر عدّادات الواجهات على البوّابة المحلية",
-                  "نبّهت على الانقطاعات، وقفزات التأخير، وشذوذ المرور",
-                  "عرضت البيانات في لوحة حيّة بسيطة بطابع الترمينال"
+                  "فحصتُ الأجهزة المهمّة على الشبكة باستخدام اكتشاف Nmap + ping",
+                  "تتبّعتُ استهلاك النطاق عبر عدّادات الواجهات على البوّابة المحلية",
+                  "نبّهتُ إلى الانقطاعات، وقفزات التأخير، وشذوذ المرور",
+                  "عرضتُ البيانات في لوحة حيّة بسيطة بطابع الترمينال"
               ],
               "outcome": "Replaced 'is the internet down?' guessing with a continuously updated map of which hosts are alive and how the link is performing.",
-              "outcome_ar": "استبدلت تخمين «هل النت واقع؟» بخريطة بتتحدّث باستمرار توضّح أي أجهزة شغّالة وحالة الاتصال."
+              "outcome_ar": "بدل تخمين «هل الشبكة متوقّفة؟»، صارت هناك خريطة تتحدّث باستمرار توضّح أي الأجهزة تعمل وحالة الاتصال."
           }
       },
       {
@@ -677,7 +678,7 @@ const PORTFOLIO_DATA = {
           "gallery": [],
           "caseStudy": {
               "problem": "CTF challenges teach a lot, but the learning evaporates without writeups. Wanted a personal knowledge base of exploitation patterns.",
-              "problem_ar": "تحدّيات CTF بتعلّم كتير، بس التعلّم بيتبخّر من غير توثيق. كنت عايز قاعدة معرفة شخصية لأنماط الاستغلال.",
+              "problem_ar": "تحدّيات CTF تُعلّم الكثير، لكن التعلّم يتبخّر دون توثيق. أردتُ قاعدة معرفة شخصية لأنماط الاستغلال.",
               "approach": [
                   "Solved challenges across web, binary, crypto, and forensics categories",
                   "Documented each one with the reconnaissance steps, key insight, and final payload",
@@ -685,13 +686,13 @@ const PORTFOLIO_DATA = {
                   "Organized writeups in a searchable repo"
               ],
               "approach_ar": [
-                  "حلّيت تحدّيات في فئات الويب والثنائيات والتشفير والأدلة الجنائية",
-                  "وثّقت كل واحد بخطوات الاستطلاع، والفكرة المفتاحية، والحمولة النهائية",
-                  "بنيت عُدّة أدوات (إعدادات Burp، مساعدات Python، وصفات GDB) بعيد استخدامها في الحلول",
-                  "نظّمت التوثيقات في مستودع قابل للبحث"
+                  "حللتُ تحدّيات في فئات الويب والثنائيات والتشفير والأدلة الجنائية",
+                  "وثّقتُ كل تحدٍّ بخطوات الاستطلاع، والفكرة المفتاحية، والحمولة النهائية",
+                  "بنيتُ عُدّة أدوات (إعدادات Burp، مساعدات Python، وصفات GDB) أُعيد استخدامها في الحلول",
+                  "نظّمتُ التوثيقات في مستودع قابل للبحث"
               ],
               "outcome": "Sharpened web-app pentesting reflexes and built a reference library used in later engagements.",
-              "outcome_ar": "شحذ ردود فعلي في اختبار اختراق الويب، وبنى مكتبة مرجعية بستخدمها في المهام اللاحقة."
+              "outcome_ar": "شحذ ردود فعلي في اختبار اختراق الويب، وبنى مكتبة مرجعية أستخدمها في المهام اللاحقة."
           }
       },
       {
@@ -714,7 +715,7 @@ const PORTFOLIO_DATA = {
           "gallery": [],
           "caseStudy": {
               "problem": "Practicing offensive techniques on live systems is illegal. Needed a controlled lab where I could break things without consequences.",
-              "problem_ar": "التدرّب على التقنيات الهجومية على أنظمة حيّة غير قانوني. كنت محتاج معملًا مضبوطًا أقدر أكسّر فيه حاجات من غير عواقب.",
+              "problem_ar": "التدرّب على التقنيات الهجومية على أنظمة حيّة غير قانوني. كنتُ أحتاج معملًا مضبوطًا أستطيع أن أكسر فيه الأشياء دون عواقب.",
               "approach": [
                   "Built a multi-VM environment in VMware: Kali + Metasploitable + DVWA",
                   "Configured isolated host-only networking for safe traffic capture",
@@ -722,10 +723,10 @@ const PORTFOLIO_DATA = {
                   "Documented the lab so I can rebuild it on a fresh machine in minutes"
               ],
               "approach_ar": [
-                  "بنيت بيئة أجهزة افتراضية متعدّدة في VMware: Kali + Metasploitable + DVWA",
-                  "أعددت شبكة معزولة (host-only) لالتقاط المرور بأمان",
-                  "جهّزت لقطات (snapshots) عشان أرجّع الحالة بعد الحمولات المدمّرة",
-                  "وثّقت المعمل عشان أقدر أعيد بناءه على جهاز جديد في دقائق"
+                  "بنيتُ بيئة أجهزة افتراضية متعدّدة في VMware: Kali + Metasploitable + DVWA",
+                  "أعددتُ شبكة معزولة (host-only) لالتقاط المرور بأمان",
+                  "جهّزتُ لقطات (snapshots) لأستعيد الحالة بعد الحمولات المدمّرة",
+                  "وثّقتُ المعمل لأتمكّن من إعادة بنائه على جهاز جديد في دقائق"
               ],
               "outcome": "Daily playground for OWASP, Metasploit, and red-team techniques.",
               "outcome_ar": "ملعب يومي لتقنيات OWASP وMetasploit والفريق الأحمر."

@@ -35,10 +35,10 @@ window.I18N = {
     'phase1.body':     "Scroll to take it apart. Every part inside has a counterpart in how I work — the chapters ahead will name them.",
     'phase2.kicker':   'chapter two · the processor',
     'phase2.title':    'The mind, |behind the work.|',
-    'phase2.body':     'Where decisions happen. Five years of choices — IT helpdesk floors to engineering. ISTQB methodologies, OWASP discipline.',
+    'phase2.body':     'Where decisions happen. Years of choices — IT helpdesk floors, telecom tower maintenance, then software engineering. ISTQB methodologies, OWASP discipline.',
     'phase3.kicker':   'chapter three · the memory',
     'phase3.title':    'Active memory, |always on.|',
-    'phase3.body':     'Forty tools across six categories. Java, Python, Burp Suite, Nmap, Metasploit, Wireshark — what gets loaded in when work starts.',
+    'phase3.body':     'Thirty-nine tools across six categories. Java, Python, Burp Suite, Nmap, Metasploit, Wireshark — what gets loaded in when work starts.',
     'phase4.kicker':   'chapter four · the storage',
     'phase4.title':    'Long-term storage, |the receipts.|',
     'phase4.body':     'Eleven projects, written to disk. POS systems, e-commerce platforms, a school site, security tooling.',
@@ -53,7 +53,7 @@ window.I18N = {
     'about.kicker':    'about',
     'about.title':     'A short |answer.|',
     'about.body1':     "I'm AlMoatasimbillah — most people call me |Al-Mu'tasim|. A Computer Engineering graduate working on both sides of software: building it carefully, and stress-testing what already exists.",
-    'about.body2':     'Five years on the job — from IT helpdesk floors to engineering. ISTQB methodologies, OWASP discipline, hands-on lab practice. Completed the DEPI software engineering programme in May 2026, with ISTQB Foundation certification.',
+    'about.body2':     'In the field since 2019 — from IT helpdesk floors, to maintaining telecom towers, to software engineering. ISTQB methodologies, OWASP discipline, hands-on lab practice. Completed the DEPI software engineering programme in May 2026, and passed the ISTQB Foundation exam.',
     'about.now':       '|Now:| refactoring a client POS database and prepping for ISTQB Advanced.',
     'about.now.label': 'Now ·',
     'stat.years':      'years on the job',
@@ -62,8 +62,9 @@ window.I18N = {
 
     'cap.kicker':      'capabilities',
     'cap.title':       'The kit |I work with.|',
-    'cap.body':        "Six categories, forty tools. The list below is what I reach for in production — not what's on the résumé.",
+    'cap.body':        "Six categories, thirty-nine tools. The list below is what I reach for in production — not what's on the résumé.",
     'sphere.hint':     'drag to rotate',
+    'sphere.projecttech': 'Project tech',
 
     'exp.kicker':      'experience',
     'exp.title':       'Where I have |been.|',
@@ -145,8 +146,32 @@ window.I18N = {
     'work.filter.web':      'Web',
     'work.filter.security': 'Security',
     'work.filter.tools':    'Tools',
-    'work.labmeta':    'recording in production',
+    'work.labmeta':    'recording in progress',
     'palette.placeholder': 'Search — type anything...',
+    'palette.kind.section': 'section',
+    'palette.kind.project': 'project',
+    'palette.kind.skill':   'skill',
+    'palette.empty':        'Nothing matched',
+    'palette.empty.hint':   'Try: <kbd>work</kbd> · <kbd>skills</kbd> · <kbd>contact</kbd> · or a project name.',
+
+    // Strings rendered from JS (cards, modal, timeline) — kept here so both
+    // languages stay in one file instead of drifting inside effects/main.js
+    'work.private':    'Delivered to client · source private',
+    'work.source':     'Source',
+    'work.demo':       'Live demo',
+    'modal.read':      'min read',
+    'modal.clip':      'Clip',
+    'exp.now':         'NOW',
+    'cred.status.certified': 'Certified',
+    'cred.status.passed':    'Exam passed',
+    'cred.status.completed': 'Completed',
+    'cred.status.active':    'In progress',
+    'cred.status.upcoming':  'Scheduled',
+
+    // <title> + meta description — swapped per language for SEO
+    'meta.title':       'AlMoatasimbillah Medhat — Software Engineer & Penetration Tester',
+    'meta.description': 'Software engineer who tests what others ship. Penetration tester who looks for what breaks before it does. Working from Sharkia.',
+
     'lang.suggest':    'Looks like your browser prefers Arabic. Want to switch?',
     'lang.suggest.accept': 'Switch to العربية',
     'lang.suggest.deny':   'Keep English',
@@ -165,9 +190,9 @@ window.I18N = {
     'about.deskcap':     'still me — modeled and rendered in Blender',
     'avatar.body':     'Scroll to meet me',
     'avatar.scroll':   'scroll',
-    'avatar.badge1':   '5+ years on the job',
+    'avatar.badge1':   'in the field since 2019',
     'avatar.badge2':   '11 projects shipped',
-    'avatar.badge3':   'ISTQB-certified',
+    'avatar.badge3':   'ISTQB Foundation — passed',
 
     'install.title':   'Install this portfolio',
     'install.sub':     'Add to your home screen — opens like an app.',
@@ -194,7 +219,7 @@ window.I18N = {
 
     'intro1.kicker':   'أهلاً، أنا',
     'intro2.line1':    'المعتصم بالله',
-    'intro2.line2':    'محمد حسنين|.|',
+    'intro2.line2':    'مدحت حسنين|.|',
     'intro3.body':     'مهندس برمجيات يختبر ما يطلقه الآخرون. مختبر اختراق يبحث عمّا قد ينكسر قبل أن ينكسر فعلاً.',
     'intro4.body':     'من الشرقية. |متاح للعمل.|',
 
@@ -203,10 +228,10 @@ window.I18N = {
     'phase1.body':     'انزل لتفكيكها قطعة قطعة. كل جزء بالداخل له ما يقابله في طريقة عملي — والفصول القادمة سَتُسمّيه.',
     'phase2.kicker':   'الفصل الثاني · المعالج',
     'phase2.title':    'العقل، |خلف العمل.|',
-    'phase2.body':     'حيث تُتَّخَذ القرارات. خمس سنوات من الخيارات — من الدعم الفنّي حتى الهندسة. منهجيات ISTQB، انضباط OWASP.',
+    'phase2.body':     'حيث تُتَّخَذ القرارات. سنوات من الخيارات — من الدعم الفنّي، لصيانة أبراج الاتصالات، لهندسة البرمجيات. منهجيات ISTQB، انضباط OWASP.',
     'phase3.kicker':   'الفصل الثالث · الذاكرة',
     'phase3.title':    'ذاكرة نشطة، |دائمًا مستيقظة.|',
-    'phase3.body':     'أربعون أداة في ست فئات. Java، Python، Burp Suite، Nmap، Metasploit، Wireshark — ما يُحَمَّل لحظة بدء العمل.',
+    'phase3.body':     'تسع وثلاثون أداة في ست فئات. Java، Python، Burp Suite، Nmap، Metasploit، Wireshark — ما يُحَمَّل لحظة بدء العمل.',
     'phase4.kicker':   'الفصل الرابع · التخزين',
     'phase4.title':    'تخزينٌ بعيد المدى، |سِجِلُّ الأعمال.|',
     'phase4.body':     'أحد عشر مشروعًا، مكتوبة على القرص. أنظمة نقاط بيع، منصّات تجارة إلكترونية، موقع مدرسة، أدوات أمنية.',
@@ -221,17 +246,18 @@ window.I18N = {
     'about.kicker':    'عنّي',
     'about.title':     'إجابة |مختصرة.|',
     'about.body1':     'أنا المعتصم بالله — يناديني الكثيرون |المعتصم|. خرّيج هندسة حاسبات، أعمل على جانبَي البرمجيات: أبنيها بعناية، وأختبر ما يبنيه الآخرون.',
-    'about.body2':     'خمس سنوات على رأس العمل — من قاعات الدعم الفنّي حتى الهندسة. منهجيات ISTQB، انضباط OWASP، ممارسة عملية. أنهيتُ برنامج DEPI في مايو ٢٠٢٦، وحصلتُ على شهادة ISTQB Foundation.',
+    'about.body2':     'في الميدان منذ ٢٠١٩ — من قاعات الدعم الفنّي، لصيانة أبراج الاتصالات، لهندسة البرمجيات. منهجيات ISTQB، انضباط OWASP، ممارسة عملية. أنهيتُ برنامج DEPI في مايو ٢٠٢٦، واجتزتُ امتحان ISTQB Foundation.',
     'about.now':       '|الآن:| إعادة هيكلة قاعدة بيانات POS لعميل، والتحضير لـ ISTQB Advanced.',
     'about.now.label': 'الآن ·',
     'stat.years':      'سنوات على رأس العمل',
-    'stat.projects':   'مشروعًا شُحن',
+    'stat.projects':   'مشروعًا مُنجزًا',
     'stat.creds':      'شهادات',
 
     'cap.kicker':      'القدرات',
     'cap.title':       'الأدوات |التي أعمل بها.|',
-    'cap.body':        'ست فئات، أربعون أداة. القائمة بالأسفل هي ما أستخدمه فعلاً في الإنتاج — لا ما يُكتب في السيرة.',
+    'cap.body':        'ست فئات، تسع وثلاثون أداة. القائمة بالأسفل هي ما أستخدمه فعلاً في الإنتاج — لا ما يُكتب في السيرة.',
     'sphere.hint':     'اسحب للتدوير',
+    'sphere.projecttech': 'أدوات المشاريع',
 
     'exp.kicker':      'الخبرة',
     'exp.title':       'المسار |حتى الآن.|',
@@ -240,7 +266,7 @@ window.I18N = {
     'cred.title':      'على |الورق.|',
 
     'work.kicker':     'أعمال مختارة',
-    'work.title':      'الأعمال |التي شُحنت.|',
+    'work.title':      'الأعمال |التي وصلت للإنتاج.|',
     'work.body':       'مرّر فوق أي إطار للمعاينة. اضغط لقراءة الحالة.',
 
     'test.kicker':     'كلمات لطيفة',
@@ -315,13 +341,34 @@ window.I18N = {
     'work.filter.tools':    'أدوات',
     'work.labmeta':    'التسجيل قيد التجهيز',
     'palette.placeholder': 'ابحث — اكتب أي شيء...',
+    'palette.kind.section': 'قسم',
+    'palette.kind.project': 'مشروع',
+    'palette.kind.skill':   'مهارة',
+    'palette.empty':        'لا نتائج لـ',
+    'palette.empty.hint':   'جرّب: <kbd>أعمال</kbd> · <kbd>قدرات</kbd> · <kbd>تواصل</kbd> · أو اسم مشروع.',
+
+    'work.private':    'تسليم لدى العميل · المصدر خاص',
+    'work.source':     'الكود',
+    'work.demo':       'عرض حيّ',
+    'modal.read':      'د قراءة',
+    'modal.clip':      'مقطع',
+    'exp.now':         'الآن',
+    'cred.status.certified': 'حاصل عليها',
+    'cred.status.passed':    'اجتزت الامتحان',
+    'cred.status.completed': 'مكتملة',
+    'cred.status.active':    'جارية',
+    'cred.status.upcoming':  'مجدولة',
+
+    'meta.title':       'المعتصم بالله مدحت — مهندس برمجيات ومختبِر اختراق',
+    'meta.description': 'مهندس برمجيات يختبر ما يطلقه الآخرون. ومختبِر اختراق يبحث عمّا قد ينكسر قبل أن ينكسر. أعمل من الشرقية.',
+
     'lang.suggest':    'يبدو أن متصفحك يفضّل الإنجليزية. تحويل؟',
     'lang.suggest.accept': 'Switch to English',
     'lang.suggest.deny':   'ابقَ في العربية',
 
     'avatar.kicker':         'أهلاً',
     'avatar.kicker.morning': 'صباح الخير',
-    'avatar.kicker.midday':  'مساء الخير',
+    'avatar.kicker.midday':  'نهارك سعيد',
     'avatar.kicker.evening': 'مساء الخير',
     'avatar.kicker.night':   'لسه صاحي؟',
     'avatar.title':    'أنت عند الباب. |على راحتك.|',
@@ -333,9 +380,9 @@ window.I18N = {
     'about.deskcap':     'ما زال أنا — مبنيّ ومُصيَّر في بليندر',
     'avatar.body':     'انزل لتعرفني',
     'avatar.scroll':   'انزل',
-    'avatar.badge1':   'أكثر من ٥ سنوات في الميدان',
-    'avatar.badge2':   '١١ مشروعًا شُحن',
-    'avatar.badge3':   'حاصل على ISTQB',
+    'avatar.badge1':   'في الميدان منذ ٢٠١٩',
+    'avatar.badge2':   '١١ مشروعًا مُنجزًا',
+    'avatar.badge3':   'اجتزت امتحان ISTQB Foundation',
 
     'install.title':   'ثبّت هذا البورتفوليو',
     'install.sub':     'أضفه إلى شاشتك — يُفتح كتطبيق.',
@@ -365,6 +412,15 @@ window.I18N = {
     document.documentElement.dataset.lang = lang;
 
     const dict = window.I18N[lang];
+
+    // <title> and the meta description follow the language too — otherwise the
+    // Arabic page is indexed with the English title in search results.
+    const metaTitle = dict['meta.title'] ?? window.I18N.en['meta.title'];
+    if (metaTitle) document.title = metaTitle;
+    const descEl = document.querySelector('meta[name="description"]');
+    const metaDesc = dict['meta.description'] ?? window.I18N.en['meta.description'];
+    if (descEl && metaDesc) descEl.setAttribute('content', metaDesc);
+
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       const txt = dict[key] ?? window.I18N.en[key];
@@ -393,6 +449,23 @@ window.I18N = {
   };
 
   window.getLang = () => document.documentElement.dataset.lang || 'en';
+
+  // Dictionary lookup for strings assembled in JS (cards, modal, palette).
+  // Falls back to English, then to the caller's fallback, then the key itself.
+  window.t = (key, fallback) => {
+    const lang = window.getLang();
+    const dict = window.I18N[lang] || window.I18N.en;
+    return dict[key] ?? window.I18N.en[key] ?? (fallback ?? key);
+  };
+
+  // The Arabic copy uses Arabic-Indic digits throughout, so numbers rendered
+  // from JS have to match — otherwise "١١ مشروعًا" sits next to a Latin "11".
+  const AR_DIGITS = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  window.__num = (value, lang) => {
+    const l = lang || window.getLang();
+    const s = String(value ?? '');
+    return l === 'ar' ? s.replace(/\d/g, d => AR_DIGITS[+d]) : s;
+  };
 
   // initial language pick — the ?lang= URL param wins (the hreflang alternate
   // advertised in <head> is /?lang=ar; without this, visitors landing on it
