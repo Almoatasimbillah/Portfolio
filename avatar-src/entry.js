@@ -159,12 +159,13 @@ function mountLive() {
   scene.environmentIntensity = 0.5;
   pmrem.dispose();
 
-  /* lights — same rig + intensities as the tuned R3F scene, but hued to the
-     site's mint/midnight palette instead of the old purple stage */
-  const amb = new THREE.AmbientLight('#9ec4b8', 0.1);
+  /* lights — same rig + intensities as the tuned R3F scene, hued to the
+     site's Obsidian & Brass palette (warm key + brass rim + obsidian back,
+     no cool/mint hues left in the rig) */
+  const amb = new THREE.AmbientLight('#a89a82', 0.1);
   scene.add(amb);
 
-  const spot = new THREE.SpotLight('#e9f5f0', 72);
+  const spot = new THREE.SpotLight('#f2ece0', 72);
   spot.position.set(0, 5.5, 2.0);
   spot.angle = 0.55;
   spot.penumbra = 0.95;
@@ -180,13 +181,13 @@ function mountLive() {
   const key = new THREE.PointLight('#ffd9b0', 4.2, 7);   // warm face key
   key.position.set(1.0, 0.9, 2.2);
   scene.add(key);
-  const rimL = new THREE.PointLight('#7dd3c0', 2.6, 9);  // mint rim (accent)
+  const rimL = new THREE.PointLight('#c9a227', 2.6, 9);  // brass rim (accent)
   rimL.position.set(-3.5, 1.2, 1);
   scene.add(rimL);
-  const rimR = new THREE.PointLight('#6ea8d8', 1.8, 9);  // cool ice rim
+  const rimR = new THREE.PointLight('#b08d57', 1.8, 9);  // warm bronze rim
   rimR.position.set(3.2, 0.8, 0.5);
   scene.add(rimR);
-  const back = new THREE.PointLight('#2f5a4e', 3, 10);   // deep teal separation
+  const back = new THREE.PointLight('#2a2015', 3, 10);   // obsidian separation
   back.position.set(0, 2.5, -3.5);
   scene.add(back);
 
