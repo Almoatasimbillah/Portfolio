@@ -38,7 +38,7 @@ window.I18N = {
     'phase2.body':     'Where decisions happen. Years of choices — IT helpdesk floors, telecom tower maintenance, then software engineering. ISTQB methodologies, OWASP discipline.',
     'phase3.kicker':   'chapter three · the memory',
     'phase3.title':    'Active memory, |always on.|',
-    'phase3.body':     'Thirty-nine tools across six categories. Java, Python, Burp Suite, Nmap, Metasploit, Wireshark — what gets loaded in when work starts.',
+    'phase3.body':     'Forty-two tools across six categories. Java, Python, Burp Suite, Nmap, Metasploit, Wireshark — what gets loaded in when work starts.',
     'phase4.kicker':   'chapter four · the storage',
     'phase4.title':    'Long-term storage, |the receipts.|',
     'phase4.body':     'Eleven projects, written to disk. POS systems, e-commerce platforms, a school site, security tooling.',
@@ -62,7 +62,7 @@ window.I18N = {
 
     'cap.kicker':      'capabilities',
     'cap.title':       'The kit |I work with.|',
-    'cap.body':        "Six categories, thirty-nine tools. The list below is what I reach for in production — not what's on the résumé.",
+    'cap.body':        "Six categories, forty-two tools. The list below is what I reach for in production — not what's on the résumé.",
     'sphere.hint':     'drag to rotate',
     'sphere.projecttech': 'Project tech',
 
@@ -231,7 +231,7 @@ window.I18N = {
     'phase2.body':     'حيث تُتَّخَذ القرارات. سنوات من الخيارات — من الدعم الفنّي، لصيانة أبراج الاتصالات، لهندسة البرمجيات. منهجيات ISTQB، انضباط OWASP.',
     'phase3.kicker':   'الفصل الثالث · الذاكرة',
     'phase3.title':    'ذاكرة نشطة، |دائمًا مستيقظة.|',
-    'phase3.body':     'تسع وثلاثون أداة في ست فئات. Java، Python، Burp Suite، Nmap، Metasploit، Wireshark — ما يُحَمَّل لحظة بدء العمل.',
+    'phase3.body':     'اثنتان وأربعون أداة في ست فئات. Java، Python، Burp Suite، Nmap، Metasploit، Wireshark — ما يُحَمَّل لحظة بدء العمل.',
     'phase4.kicker':   'الفصل الرابع · التخزين',
     'phase4.title':    'تخزينٌ بعيد المدى، |سِجِلُّ الأعمال.|',
     'phase4.body':     'أحد عشر مشروعًا، مكتوبة على القرص. أنظمة نقاط بيع، منصّات تجارة إلكترونية، موقع مدرسة، أدوات أمنية.',
@@ -255,7 +255,7 @@ window.I18N = {
 
     'cap.kicker':      'القدرات',
     'cap.title':       'الأدوات |التي أعمل بها.|',
-    'cap.body':        'ست فئات، تسع وثلاثون أداة. القائمة بالأسفل هي ما أستخدمه فعلاً في الإنتاج — لا ما يُكتب في السيرة.',
+    'cap.body':        'ست فئات، اثنتان وأربعون أداة. القائمة بالأسفل هي ما أستخدمه فعلاً في الإنتاج — لا ما يُكتب في السيرة.',
     'sphere.hint':     'اسحب للتدوير',
     'sphere.projecttech': 'أدوات المشاريع',
 

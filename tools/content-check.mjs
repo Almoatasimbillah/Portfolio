@@ -81,8 +81,8 @@ const projectCount = DATA.projects.length;
 const credCount    = DATA.certifications.length;
 
 // spelled-out forms the copy is allowed to use, per count
-const EN_WORD = { 6: 'six', 11: 'eleven', 39: 'thirty-nine' };
-const AR_WORD = { 6: 'ست', 11: 'أحد عشر', 39: 'تسع وثلاثون' };
+const EN_WORD = { 6: 'six', 11: 'eleven', 39: 'thirty-nine', 42: 'forty-two' };
+const AR_WORD = { 6: 'ست', 11: 'أحد عشر', 39: 'تسع وثلاثون', 42: 'اثنتان وأربعون' };
 const AR_DIGIT = n => String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[+d]);
 
 const word = (map, n, label) => {
